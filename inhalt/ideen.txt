@@ -1,0 +1,267 @@
+1. Einleitung und Projektüberblick
+1.1 Problemstellung
+Problem, nicht die Lösung.
+Was sind Word Clocks?
+Wofür werden sie genutzt?
+Welche funktionalen Grenzen haben sie?
+Warum entsteht eine Lücke zwischen Word Clock und Smart Display?
+Ziel: Den Leser davon überzeugen, dass das Thema relevant ist.
+
+1.2 Zielsetzung der Arbeit
+Hier formulierst du klar und überprüfbar, was erreicht werden soll:
+Entwicklung einer erweiterten Word Clock
+Welche Funktionen sollen realisiert werden?
+Welche Aspekte werden betrachtet (Technik, Design)?
+Keine Methoden, nur Ziele.
+
+1.3 Projektgegenstand und Abgrenzung
+Was genau ist der Projektgegenstand (ein funktionsfähiger Prototyp)?
+Was ist nicht Teil der Arbeit (z. B. Serienfertigung, Zertifizierung)?
+Das schützt dich später vor Kritik.
+
+1.4 Methodisches Vorgehen und Projektplanung
+Hier kommt Projektmanagement rein:
+Warum ein projektorientiertes Vorgehen sinnvoll ist
+Welches Modell (z. B. V-Modell mit Iterationen)
+Grober Projektablauf
+Meilensteine, Tests, Dokumentation
+Zeigt: systematisch, nicht improvisiert.
+
+1.5 Aufbau der Arbeit
+Kurze Leserführung:
+Was passiert in welchem Kapitel?
+1–2 Sätze pro Kapitel reichen völlig.
+
+
+2. Stand der Technik und Grundlagen
+2.1 Klassische Word Clocks und deren Funktionsprinzi
+Hier beschreibst du:
+Aufbau klassischer Word Clocks
+Funktionsweise der Zeitanzeige
+Typische Einschränkungen
+Sachlich, beschreibend, mit Quellen.
+
+2.2 Zeitdarstellung in natürlicher Sprache
+Hier erklärst du:
+Sprachliche Zeitlogik („fünf vor halb“)
+Besonderheiten im Deutschen
+Einfluss auf Anzeige & Logik
+Wichtig für spätere Software-Logik.
+
+2.3 LED-Technologien und Anzeigeprinzipien
+Hier geht es um:
+LED-Typen (RGB, adressierbar)
+Ansteuerungsprinzipien
+Vor- und Nachteile
+Nur so tief, wie für dein System nötig.
+
+2.4 Smart-Home-Technologien und Steuerungskonzepte
+Hier erläuterst du:
+Was ist ein Smart Home?
+Typische Architekturen
+Steuerung über mobile Endgeräte
+Kein Tutorial, sondern Überblick.
+
+2.5 Wetter- und astronomische Informationssysteme
+Hier beschreibst du:
+Herkunft solcher Daten
+Typische APIs
+Aktualisierungsintervalle
+Herausforderungen (Netzwerk, Verfügbarkeit)
+
+2.6 Zusammenfassung und identifizierte Defizite
+Hier verknüpfst du alles:
+Was können bestehende Systeme?
+Was fehlt?
+Warum rechtfertigt das deine Arbeit?
+Brücke zu Kapitel 3.
+
+3. Anforderungsdefinition
+3.1 Funktionale Anforderungen
+Hier listest du:
+Welche Funktionen das System erfüllen muss
+Möglichst strukturiert (Tabelle)
+„Das System soll …“
+
+3.2 Technische Anforderungen
+Hier geht es um:
+Hardware
+Software
+Schnittstellen
+Performance
+Mess- und überprüfbar formulieren.
+
+3.3 Gestalterische Anforderungen
+Hier beschreibst du:
+Designziele
+Lesbarkeit
+Ästhetik
+Integration in Wohnräume
+Design wissenschaftlich begründen, nicht Geschmack.
+
+3.4 Nicht-funktionale Anforderungen
+Hier kommen:
+Zuverlässigkeit
+Wartbarkeit
+Modularität
+Erweiterbarkeit
+
+3.5 Priorisierung und Abgrenzung
+Hier erklärst du:
+Was zwingend umgesetzt wird
+Was optional ist
+Was bewusst nicht umgesetzt wird
+Schutz bei Zeitmangel.
+
+4. Gesamtkonzept der erweiterten Word Clock
+4.1 Systemübersicht und Funktionsbeschreibung
+Hier erklärst du:
+Wie das System grundsätzlich funktioniert
+Welche Hauptkomponenten es gibt
+Wie sie zusammenspielen
+Oft mit Blockdiagramm.
+
+4.2 Hardwarearchitektur
+Hier beschreibst du:
+Controller
+LEDs
+Stromversorgung
+Aufbau
+Begründete Entscheidungen.
+
+4.3 Softwarearchitektur
+Hier erklärst du:
+Modulaufbau
+Datenflüsse
+Aufgebenverteilung
+Verständlich, nicht code-lastig.
+
+4.4 Anzeige- und Bedienkonzept
+Hier geht es um:
+Welche Informationen wie dargestellt werden
+Interaktion über App
+Farben, Modi
+
+4.5 Mechanik- und Designkonzept
+Hier beschreibst du:
+Schichtaufbau
+Gehäuse
+Materialien
+Fertigung (3D-Druck)
+
+4.6 Schnittstellen und Datenflüsse
+Hier erklärst du:
+Kommunikation zwischen Modulen
+Externe Schnittstellen
+Datenverarbeitung
+
+5. Realisierung des Systems
+5.1 Auswahl und Begründung der Komponenten
+Hier erklärst du:
+Warum genau diese Bauteile
+Alternativen
+Entscheidungskriterien
+
+5.2 Aufbau der elektronischen Hardware
+Hier beschreibst du:
+Verdrahtung
+Stromversorgung
+Aufbauprozess
+
+5.3 Mechanische Konstruktion und Fertigung
+Hier erklärst du:
+CAD
+3D-Druck
+Passungen
+Probleme & Lösungen
+
+5.4 Implementierung der Software
+Hier erklärst du:
+Struktur
+zentrale Algorithmen
+Zeitlogik
+Kein kompletter Code.
+
+5.5 Anbindung externer Datenquellen
+Hier geht es um:
+Wetter-API
+Mondphase
+Fehlerbehandlung
+
+5.6 Integration in Smart-Home-Strukturen
+Hier erklärst du:
+Einbindung
+Kommunikationsweg
+Steuerbefehle
+
+5.7 Mobile Steuerung der Word Clock
+Hier beschreibst du:
+Benutzeroberfläche
+Funktionen
+Bedienlogik
+
+6. Test und Evaluation
+6.1 Testkonzept und Vorgehensweise
+Hier erklärst du:
+Wie getestet wurde
+Warum diese Tests gewählt wurden
+
+6.2 Funktionstests
+Hier prüfst du:
+Einzelne Funktionen
+Soll-/Ist-Vergleich
+
+6.3 Integrationstests
+Hier prüfst du:
+Zusammenspiel der Komponenten
+
+6.4 Systemtests und Dauerbetrieb
+Hier testest du:
+Stabilität
+Ausfallszenarien
+
+6.5 Bewertung der Benutzerfreundlichkeit
+Hier kommt:
+subjektive Bewertung
+evtl. kleine Nutzerbefragung
+
+6.6 Zusammenfassung der Testergebnisse
+Hier fasst du neutral zusammen:
+Was funktioniert gut?
+Wo gibt es Einschränkungen?
+
+
+7. Diskussion der Ergebnisse
+7.1 Erfüllung der Zielsetzung
+Abgleich:
+Ziele aus Kap. 1.2
+Ergebnisse aus Kap. 6
+
+7.2 Technische und gestalterische Bewertung
+Kritische Reflexion:
+Was ist gelungen?
+Wo gab es Kompromisse?
+
+7.3 Grenzen der Umsetzung
+Hier zeigst du Reife:
+Technische Grenzen
+Zeitliche Grenzen
+Methodische Grenzen
+
+7.4 Vergleich mit bestehenden Lösungen
+Hier schließt du den Kreis zu Kap. 2:
+Wo bist du besser?
+Wo nicht?
+
+8. Fazit und Ausblick
+8.1 Zusammenfassung der Arbeit
+Kurze, prägnante Zusammenfassung.
+
+8.2 Kritische Reflexion des Projekts
+Was würdest du beim nächsten Mal anders machen?
+
+8.3 Erweiterungs- und Verbesserungspotenziale
+Hier kannst du:
+weitere Features
+technische Verbesserungen
+Zukunftsperspektiven nennen
