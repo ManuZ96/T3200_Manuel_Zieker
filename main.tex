@@ -1,0 +1,107 @@
+% !TeX root = main.tex
+% Zeile 1 legt fest das immer die main.tex kompiliert wird
+
+% ==== Grundlegende Dokumenteinstellungen ================================================================================
+\documentclass[
+    a4paper,            % DIN A4
+    12pt,               % Schriftgröße 12
+    oneside,            % einseitig
+    ngerman,            % deutsche Dokumentenklasse
+    parskip=full,       % eine Zeile Absatzabstand
+    listof=totoc,		% alle Verzeichnisse ins Inhaltsverzeichnis (ToC) einbinden automatisch
+    bibliography=totoc,
+    toc=listof,
+    toc=chapterentrydotfill % ToC Punkte
+]{scrreprt}             % KOMA Skript Report
+
+% ==== Konfigurationen einbinden =========================================================================================
+\input{konfig/pakete.tex}
+\input{konfig/konfig.tex}
+\input{inhalt/abkürzungsverzeichnis/abkuerzungsverzeichniss.tex} % Falls erste Kompilierung fehler bringt siehe:→ .vscode/kompilierhinweise.tex
+\makeglossaries % Glossar vorbereiten (für \printglossary)
+
+% ==== Dokumentbeginn ====================================================================================================
+\begin{document}
+\selectlanguage{ngerman}       % Deutsch als Sprache für folgendes festlegen
+% ==== Todoliste ====
+% Alle löschen + auskommentieren vor Abgabe
+\listoftodos
+
+% ==== Titelblatt ====
+\pagenumbering{gobble}       % Titelseite ohne Seitenzahl
+\input{inhalt/strukturierung/titelblatt.tex}
+\cleardoublepage
+
+
+% ==== Sperrvermerk ====
+\pagenumbering{Roman}        % römisch für Inhaltsverzeichnis etc.
+% \input{inhalt/strukturierung/sperrvermerk.tex}
+
+
+% % ==== Eigenständigkeitserklärung ====
+\input{inhalt/strukturierung/eigenstaendigkeit.tex}
+ 
+
+% % ==== Anmerkung zum Genus des Substantivs ====
+\input{inhalt/strukturierung/genus.tex}
+
+
+% % ==== Anmerkung zur Nutzung von KI-Tools ====
+% \input{inhalt/strukturierung/KI-Tools.tex}
+
+
+% % ==== Abstract ====
+\input{inhalt/strukturierung/abstract.tex}
+
+
+% ==== Inhaltsverzeichnis ====
+\clearpage
+ \begin{spacing}{1.2}
+        \begingroup
+            \setcounter{tocdepth}{2} % subchapter Anzeigetiefe
+            \tableofcontents
+        \endgroup
+    \end{spacing}
+\clearpage  % Seitenumbruch
+
+
+% ==== Abkürzungsverzeichnis ====
+%\printglossary[type=\acronymtype, title=Abkürzungsverzeichnis]
+\printglossary[type=\acronymtype, style=acronymlongleft, title={Abkürzungsverzeichnis}]
+\clearpage
+%%\acresetall%% wofür?
+
+
+% ==== Abbildungsverzeichnis ====
+\listoffigures
+\clearpage
+
+\listofformel
+
+% ==== Tabellenverzeichnis ====
+\listoftables
+\clearpage 
+\pagenumbering{arabic}       % arabisch ab Einleitung (Seite 1)
+
+
+% ==== Inhalt ====
+\input{inhalt/textkapitel/Volltext.tex}
+
+
+% ==== Literaturverzeichnis ====
+ \printbibliography[title=Literaturverzeichnis]
+\clearpage
+
+
+% ==== Skriptverzeichnis ====
+%\lstlistoflistings
+%\clearpage
+
+
+% ==== Anhang ====
+%\appendix
+%\input{inhalt/strukturierung/anhang.tex}
+
+
+\end{document}
+% ==== Dokumentende ======================================================================================================

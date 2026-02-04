@@ -1,0 +1,234 @@
+% !TeX root = ../main.tex
+% Zeile 1 legt fest das immer die main.tex kompiliert wird
+
+%% Beispiele, können problemlos entfernt werden!
+\chapter{Beispiele und HowTo}
+\todo{Kapitel auskommentieren vor Abgabe}
+
+% ==========================================================================================================
+\section{Verlinkung}
+Strg+linke Maustaste an dieser Stelle im PDF um an die Stelle in tex zu springen.
+
+% ==========================================================================================================
+\section{Literatur}
+Beispiel Text \cite[S. 10]{testBuch}
+Beispiel Homepage \cite{testWebsite}
+
+% ==========================================================================================================
+\section{Bilder}
+% ======================
+\subsection{Einfaches Bild}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.3\linewidth]{inhalt/bilder/logo-dhbw.png}
+	\caption{DHBW Logo}
+	\label{fig:logo-dhbw}
+\end{figure}
+
+% ======================
+\subsection{Doppelbild}
+\begin{figure}[H]%\centering
+	\begin{subfigure}{0.5\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{inhalt/bilder/Platzhalter.jpg}
+		\caption{}\label{fig:Inv_Modul1}
+	\end{subfigure}
+	\hfill
+	%\vspace{1em} % Abstand zwischen den Subfigures
+	\begin{subfigure}{0.5\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{inhalt/bilder/Platzhalter.jpg}
+		\caption{}\label{fig:Inv_Modul2}
+	\end{subfigure}
+	\caption{Caption, wenn untercaptions leer, automatisch durchnummeriert mit a und b}\label{fig:InverterModule}
+\end{figure}
+
+% ======================
+\subsection{Multibild}
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{inhalt/bilder/Platzhalter.jpg}
+        \caption{links oben}
+        \label{fig:sub_a}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{inhalt/bilder/Platzhalter.jpg}
+        \caption{rechts oben}
+        \label{fig:sub_b}
+    \end{subfigure}
+    \vspace{0.8em}
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{inhalt/bilder/Platzhalter.jpg}
+        \caption{links unten}
+        \label{fig:sub_c}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{inhalt/bilder/Platzhalter.jpg}
+        \caption{rechts unten}
+        \label{fig:sub_d}
+    \end{subfigure}
+    \caption{Gesamte Bild Caption}
+    \label{fig:GesBildCaption}
+\end{figure}
+
+% ======================
+\subsection{Bildverweis}
+Das Logo der DHBW (vgl. Abb.~\ref{fig:logo-dhbw})
+
+% ==========================================================================================================
+\section{Fußnote und Abkürzungen}
+Fußnote\footnote{Fußnotenbeispiel}\\ Ersters mal \gls{DHBW} und zweites mal \gls{DHBW}
+
+% ==========================================================================================================
+\section{Tabellen}
+
+% ======================
+\subsection{einzeltabelle}
+\begin{table}[H]
+	\centering
+	\caption{Tabellenbeispiel}
+	\label{tab:example}
+	\begin{tabular}{|l|c|r|}
+		\hline
+		Spalte 1 & Spalte 2 & Spalte 3 \\
+		\hline
+		Zeile  &  &  \\
+		\hline
+		& Zeile &  \\
+		\hline
+		&  & Zeile \\
+		\hline
+		\multicolumn{2}{|r|}{Verbunden}	& nicht Verbunden \\
+		\hline
+	\end{tabular}
+\end{table}
+
+% ======================
+\subsection{doppeltabelle}
+\begin{table}[H]
+\centering
+\begin{minipage}[t]{0.48\textwidth}
+\centering
+\caption{Vergleich der Kamerapositionen}
+\label{tab:compare_per_camera}
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+Pos. & Test 1 & Test 2 & Test 3 & Test 4 \\
+\hline
+A & 100.00 & 81.48 & 100.00 & 100.00 \\
+B & 55.56 & 59.26 & 100.00 & 100.00 \\
+C & 100.00 & 87.04 & 100.00 & 96.30 \\
+D & 100.00 & 100.00 & 100.00 & 100.00 \\
+\hline
+\end{tabular}
+\end{minipage}\hspace{1em}
+\begin{minipage}[t]{0.48\textwidth}
+\centering
+\caption{Vergleich der Klassen}
+\label{tab:compare_per_class}
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+Klasse & Test 1 & Test 2 & Test 3 & Test 4 \\
+\hline
+gut & 25.00 & 25.00 & 41.67 & 25.00 \\
+def. & 75.00 & 75.00 & 45.83 & 25.00 \\
+falsch & 55.00 & 57.50 & 100.00 & 94.17 \\
+offen & 70.83 & 50.00 & 87.50 & 87.50 \\
+besch. & 0.00 & 20.83 & 75.00 & 95.83 \\
+\hline
+\end{tabular}
+\end{minipage}
+\end{table}
+
+% ======================
+\subsection{Quertabelle}
+\begin{landscape}
+    Text über Tabelle \ref{tab:breitetabelle}.
+	\begin{table}[H]
+		\caption{Breites Tabellenbeispiel}
+		\label{tab:breitetabelle}
+		\centering
+		\resizebox{\columnwidth}{!}{%
+			\begin{tabular}{|p{10cm}|p{10cm}|p{10cm}|}
+				\hline
+				Sehr & breite & Tabelle \\
+				\hline
+				\multicolumn{3}{|c|}{Tabelle wurde in der Größe verkleinert} \\
+				\hline
+			\end{tabular}
+		}
+	\end{table}
+	Text unter Tabelle \ref{tab:breitetabelle}.
+\end{landscape}
+
+% ==========================================================================================================
+\section{Skript}
+
+% ======================
+\lstinline[language=c]|printf("Inline Code");|
+
+% ======================
+\lstinputlisting[language=python,caption={Beispiel python Skript},captionpos=t,label=scr:example]{beispiele und befehle/example-script.py}
+
+% ======================
+\lstinputlisting[
+	language=python,
+	caption={Beispiel python Skript teilweise},
+	captionpos=t,
+	label=scr:example2,
+	firstline=2,
+	lastline=3
+]{beispiele und befehle/example-script.py}
+
+% ==========================================================================================================
+\section{Skriptverweis}
+Das Hallo Welt Skript (vgl. Skript~\ref{scr:example})
+
+% ==========================================================================================================
+\section{TODOs}
+Text \todo{Dieser Text ist Randnotiz}
+
+% ==========================================================================================================
+\section{Auflistungen}
+\begin{enumerate}
+	\item Aufzählung nummeriert
+\end{enumerate}
+
+\begin{itemize}
+	\item Aufzählung Stichpunkte
+\end{itemize}
+
+\begin{description}[style=nextline]
+	\item[Label] Aufzählung als Beschreibung
+\end{description}
+
+Vorteile sind:
+\begin{itemize}[noitemsep, topsep=0pt, partopsep=0pt, parsep=0pt]
+  \item Anders
+\end{itemize}
+
+Nachteile sind:
+\begin{itemize}[noitemsep, topsep=0pt, partopsep=0pt, parsep=0pt]
+  \item Anders
+\end{itemize}
+
+\noindent
+\begin{minipage}[t]{0.48\textwidth}
+  \textbf{Vorteile}
+  \begin{itemize}[nosep]
+    \item Anders
+  \end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.48\textwidth}
+  \textbf{Nachteile}
+  \begin{itemize}[nosep]
+    \item Anders
+  \end{itemize}
+\end{minipage}

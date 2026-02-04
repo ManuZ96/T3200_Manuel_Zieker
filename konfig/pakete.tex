@@ -1,0 +1,239 @@
+% !TeX root = ../main.tex
+% Zeile 1 legt fest das immer die main.tex kompiliert wird
+
+% ========================
+% Verwendete Schriftart
+% ========================
+\usepackage{newtxtext,newtxmath}
+
+% ========================
+% ZEICHENCODIERUNG & SPRACHE
+% ========================
+%\usepackage{xstring}		         % für Stringvergleich % Frage für mich selbst, wann benötigt?
+\usepackage[utf8]{inputenc}      % Umlaute korrekt eingeben (bei PDFLaTeX)
+\usepackage[T1]{fontenc}         % Korrekte Trennung/Umlaute im PDF
+\usepackage[ngerman,english]{babel}      % Deutsche Sprache, Silbentrennung, Begriffe (Inhalt, Abbildung, ...), warnung no datatool support for dialect sind egal
+
+% ========================
+% MATHE & EINHEITEN
+% ========================
+\usepackage{amsmath}             % Erweiterte Mathematikumgebungen (align, multline, ...)
+%\usepackage{amssymb}             % Zusätzliche mathematische Symbole (ℝ, ℕ, ∇, ...)%Auskommentiert weil in newtexmath enthalten
+\usepackage{siunitx}             % Korrekte Darstellung von SI-Einheiten (z. B. \SI{3.5}{\kilo\gram})
+
+% ========================
+% BILDER & GRAFIKEN
+% ========================
+\usepackage{graphicx}            % Zum Einbinden von Bildern (mit \includegraphics)
+\usepackage{import}              % Zum Einbinden von Bildern aus Unterordnern
+\usepackage{float}               % Erzwingt Bildplatzierung (z. B. [H])
+\usepackage{caption}             % Verbesserte Bild-/Tabellenbeschriftungen
+\usepackage{subcaption}          % Mehrere Bilder unter einer Hauptabbildung
+\usepackage{tikz}                % für komplexe Bilderstellung, hier für Titelblatt
+%\usepackage[font=footnotesize]{caption}   % Kleine Bildunterschriften
+
+
+% ========================
+% TABELLEN
+% ========================
+\usepackage{booktabs}            % Schöne horizontale Linien in Tabellen (\toprule, \midrule, \bottomrule)
+\usepackage{array}               % Erweiterte Tabellenspalten (z. B. m{}, b{}, p{} mit vertikaler Ausrichtung)
+
+% ========================
+% LINKS
+% ========================
+\usepackage{varioref}
+\usepackage[hidelinks]{hyperref} % Macht Links klickbar, aber ohne bunte Rahmen (hidelinks = dezenter)
+\usepackage{cleveref}
+\crefname{figure}{Abbildung}{Abbildungen}
+% ========================
+% BIBLIOGRAPHIE
+% ========================
+\usepackage[
+	backend=biber,			% Recommended. Alternative: biblatex
+	bibwarn=true,
+	bibencoding=utf8,		% Wenn die .bib-Datei mit utf8 kodiert ist, sonst ascii
+	sortlocale=de_DE,
+	style=numeric,   % style=numeric --> Numerisch sortiert , style=alphabetic --> Alphabetisch sortiert
+]{biblatex}
+\addbibresource{inhalt/quellen/quellen.bib}	% Lädt die Resourcen aus den quellen
+\usepackage{csquotes}               % Zitierung mit Sprache verknüpfen
+
+% ========================
+% LAYOUT & SEITENRÄNDER
+% ========================
+% Für Querformat Seiten
+\usepackage{pdflscape} 
+
+% Seitenränder und Papierformat
+\usepackage[
+    left=2.5cm,
+    right=2.5cm,
+    bottom=3cm,
+    top=2.5cm,
+    head=51pt,
+    headsep=10pt
+]{geometry}
+\usepackage[onehalfspacing]{setspace}   % Zeilenabstand
+
+%Dieser auskomm. Block wird nicht mehr verwendet, kann ggf. gelöscht werden
+%\usepackage[automark]{scrlayer-scrpage}  % Ermöglicht eigene Kopf- und Fußzeilen
+%\clearpairofpagestyles
+%\ihead{\leftmark}     % Kapitelüberschrift links oben
+%\ofoot{\pagemark}     % Seitenzahl außen unten
+
+% Kopf- und Fußzeile
+\usepackage[headsepline=1pt, footsepline=1pt]{scrlayer-scrpage}
+\renewcommand*\chapterpagestyle{scrheadings}
+\pagestyle{scrheadings}
+\chead{}
+\rohead{\includegraphics[height=1.6cm]{inhalt/bilder/logo-dhbw.png}}
+\cfoot{\documentTypePhrase} %i links c mitte o rechts
+\ofoot{Seite | \thepage}
+\setlength{\marginparwidth}{2cm}
+
+%% Cover Einstellungen
+\title{\documentTitle}
+\author{\documentAuthor}
+\date{\releaseDate}
+
+% Abstand bei Überschriften
+\RedeclareSectionCommand[
+  beforeskip=0pt,   % Abstand vor \chapter
+  afterskip=5pt    % Abstand nach \chapter
+  ]{chapter}
+
+% Abstand bei \section
+\RedeclareSectionCommand[
+  beforeskip=0pt,   % Abstand vor \section
+  afterskip=1pt    % Abstand nach \section
+]{section}
+
+% Abstand bei \subsection
+\RedeclareSectionCommand[
+  beforeskip=0pt,   % Abstand vor \subsection
+  afterskip=1pt   % Abstand nach \subsection
+]{subsection}
+
+% ========================
+% Aufzählungen
+% ========================
+  \usepackage{enumitem}
+  \usepackage{multicol}
+  \usepackage{tabularx}
+
+% ========================
+% PDF-DATEIEN EINFÜGEN
+% ========================
+\usepackage{pdfpages}            % Ganze PDF-Seiten einfügen (z. B. unterschriebene Erklärungen oder externe Titelblätter)
+
+% ========================
+% ABBKÜRZUNGSVERZEICHNIS / GLOSSAR
+% ========================
+\usepackage[
+    nonumberlist,        % Kein Seitenzahlenverweis im Verzeichnis
+    toc,                 % Eintrag im Inhaltsverzeichnis
+    acronym,             % Unterstützung für Abkürzungsverzeichnis
+    nopostdot            % Kein Punkt am ende
+]{glossaries}
+% Für Tabellen-/Spaltenformatierung
+\usepackage{longtable}
+\usepackage{array}
+\makeglossaries
+% Abkürzungen (Name-Spalte) fett setzen
+\renewcommand*{\glsnamefont}[1]{\textbf{#1}}
+% Eigener Stil: linksbündige Abkürzungsspalte + saubere Ausrichtung der Beschreibungen
+\newglossarystyle{acronymlongleft}{%
+  \setglossarystyle{long}% Basis: longtable-Stil
+  % Breite der ersten Spalte (Abkürzung) einstellen:
+  % -> ggf. anpassen, bis es bei dir perfekt aussieht
+  \renewenvironment{theglossary}%
+    {\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.18\linewidth}p{0.78\linewidth}@{}}}%
+    {\end{longtable}}%
+}
+% Optional: Breite der Beschreibungsspalte (wirkt sich bei manchen Stilen aus)
+\setlength{\glsdescwidth}{0.78\linewidth}
+
+% ========================
+% FORMELVERZEICHNIS
+%  ========================
+
+%\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{tocloft}
+\usepackage{multirow}%
+\usepackage{nicefrac}
+\usepackage[section]{placeins}
+\usepackage{bm}
+
+\newcommand{\listequationsname}{Formelverzeichnis}
+\newlistof{formel}{equ}{\listequationsname}
+\newcommand{\formel}[1]{%
+	\addcontentsline{equ}{formel}{\protect\numberline{\theequation}#1}\par}
+\setlength{\cftformelnumwidth}{2.5em}% Width of equation number in List of Equations
+\setlength{\cftformelindent}{1.5em}
+
+% ========================
+% CODE-LISTINGS
+% ========================
+\usepackage{listings}            % Für Quellcode-Einbindungen
+\usepackage{xcolor}              % Farben für Syntax-Highlighting
+\renewcommand{\lstlistlistingname}{Skriptverzeichnis}     %Titel vergeben selbst
+
+% Eigene Einstellungen für Code-Darstellung
+\definecolor{comment}{HTML}{0A943F}
+\definecolor{keyword}{HTML}{184FDB}
+\definecolor{background}{HTML}{F2F2F2}
+\definecolor{string}{HTML}{DB9418}
+\lstset{%
+    backgroundcolor=\color{background},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breakautoindent=true,
+    breaklines=true,
+    captionpos=b,
+    commentstyle=\color{comment},
+    keepspaces=true,
+    keywordstyle=\color{keyword},
+    morekeywords={var}
+    numbers=left,
+    numbersep=1em,
+    numberstyle=\tiny,
+    postbreak=\space,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    stepnumber=1,
+    stringstyle=\color{string},
+    tabsize=2,
+}
+\lstloadlanguages{PHP,python,java,C,C++,bash}
+\renewcommand\lstlistingname{Skript}                  % für Beschriftung unter Listings
+\renewcommand\lstlistlistingname{Skriptverzeichnis}   % für Verzeichnistitel
+\def\lstlistingautorefname{Skript}                    % für \autoref
+
+% ========================
+% GENERELLE PAKETE 
+% ========================
+\usepackage{todonotes}              % Todos in GROßBUCHSTABEN
+
+% ========================
+% KOMMENTIERBARE BLÖCKE
+% ========================
+\usepackage{comment} % Erlaubt das Auskommentieren ganzer Textblöcke mit \begin{comment}...\end{comment}
+% Anwendungshinweis:
+% Mit diesem Paket kannst du größere Teile von Text oder Code bequem deaktivieren:
+%
+% Beispiel:
+% \begin{comment}
+% \chapter{Test}
+% Dieser ganze Block wird von LaTeX ignoriert.
+% Auch Tabellen, Bilder, Gleichungen usw. sind hier erlaubt.
+% \end{comment}
+%
+% ▶ Einzelne Zeilen oder Blöcke per Shortcut auskommentieren:
+%
+%   ➤ Kommentieren (fügt % vor jeder markierten Zeile ein):
+%       Strg + K, dann Strg + C
+%
+%   ➤ Entkommentieren (entfernt % aus jeder Zeile):
+%       Strg + K, dann Strg + U

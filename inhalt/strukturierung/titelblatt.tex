@@ -1,0 +1,40 @@
+% !TeX root = ../main.tex
+% Zeile 1 legt fest das immer die main.tex kompiliert wird
+
+\begin{titlepage}
+%% DHBW Logo (immer)
+\begin{tikzpicture}[remember picture, overlay]
+	\node[anchor=north east,inner xsep=50pt, inner ysep=25pt] at (current page.north east)
+	{\includegraphics[height=2cm]{inhalt/bilder/logo-dhbw.png}};
+\end{tikzpicture}
+
+\enlargethispage{20mm}
+\begin{center}
+	\vspace*{0mm}	{\LARGE\textbf{\documentTitle}}\\
+	\vspace*{12mm}
+	\vspace*{12mm}	{\large\textbf{\documentTypePhrase}}\\
+
+	\vspace*{12mm}	{für die Prüfung zum}\\
+	\vspace*{3mm}	{\degree}\\
+
+	\vspace*{12mm}  {des Studienganges \department}\\
+	\vspace*{3mm}  {an der Dualen Hochschule Baden-Württemberg \locationUniversity}\\
+	\vspace*{12mm}  {von}\\
+	\vspace*{3mm}  {\textbf{\documentAuthor}}\\
+	\vspace*{12mm}  {\releaseDate}\\
+\end{center}
+
+%\vfill
+\vspace*{35mm}
+
+\begin{spacing}{1.2}
+	\begin{tabular}{@{}ll}
+		\textbf{Bearbeitungszeitraum} & \documentPeriod \\
+		\textbf{Matrikelnummer, Kurs} & \matriculationNumber, \course \\
+		\textbf{Betreuer der DHBW~\locationUniversity{}} & \evaluator \\
+%		\textbf{Dualer Partner} & \companyName{}, \companyLocation{} \\
+%		\textbf{Betreuer des Dualen Partners} & \tutor{} \\
+%		\textbf{Gutachter der DHBW~\locationUniversity{}} & \evaluator \\
+	\end{tabular}
+\end{spacing}
+\end{titlepage}

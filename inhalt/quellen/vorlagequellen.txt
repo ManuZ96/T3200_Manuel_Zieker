@@ -1,0 +1,40 @@
+
+@online{,
+	title = {},
+	url = {},
+	urldate = {},
+}
+
+@book{,
+  author    = {},
+  title     = {},
+  year      = {},
+  edition   = {},
+  publisher = {},
+  location  = {}
+}
+
+@thesis{,
+author      = {},
+title       = {},
+type        = {},
+year        = {},
+month       = {},
+url = {}
+}
+
+@manual{,
+	title        = {},
+	author       = {},
+	organization = {},
+	year         = {},
+	version      = {},
+	note         = {}
+}
+
+@report{,
+  author      = {},
+  title       = {},
+  year        = {},
+  note        = {}
+}

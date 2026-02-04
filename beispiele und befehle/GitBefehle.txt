@@ -1,0 +1,90 @@
+Basic Push
+    # 0) Auf dem richtigen Branch bleiben
+    git branch -vv
+
+    # 1) hinzufügen
+    git add . (alles)
+    git add <einzelne Datei>
+
+    # 2) Prüfen, was wirklich zum gestaged ist
+    git status
+
+    # 3) Commit erstellen 
+    git commit -m "<Message>"
+
+    # 4) Kontrollieren: ist der Commit da?
+    git log -1 --stat
+
+    # 5) Hochladen
+    git push -u origin Manu
+
+    # 6) Prüfen, ob der Remote den neuen Stand hat
+    git show origin/Manu
+    --> verlassen mit q (quit)
+
+Alle Branches anzeigen (aktueller mit*)
+    git branch
+
+Branches erstellen
+    git checkout -b <neuerBranch Name> (erstellt und wechselt in neuen Branch)
+    git push -u origin <neuerBranch Name> (pusht neuen Branch auf den server, über -u wird lokal mit server verknüpft --> dadurch reicht es git push einzugeben)
+
+Branches wechseln
+    git checkout <branchname> (wechselt in lokalen branch)
+
+Unterschiede prüfen
+    git diff --name-status main..<nameBranch> (wenn identisch kein Unterschied)
+    git log --oneline main..<nameBranch> (wenn es commits gibt wird angezeigt was es nur in <nameBranch> gibt)
+
+    Eläuterung an beispiel git diff --name-status Manu..Micha
+    | Kürzel | Bedeutung | Erklärung                                                                        |
+    | **A**  | Added     | Existiert in Micha nicht in Manu                                                 |
+    | **D**  | Deleted   | Existiert nicht in Micha aber in Manu                                            |
+    | **M**  | Modified  | Datei wurde in beiden Branches vorhanden, aber unterschiedlich geändert          |
+    | **R**  | Renamed   | Datei wurde umbenannt (Git erkennt das bei ähnlichem Inhalt)                     |
+
+Branches mergen auf main
+    # 0) Wenn Branch gepusht ist wechseln auf main
+    git checkout main
+
+    # 1) Merge starten mit anzeige der Änderungen
+    git merge --no-commit --no-ff <nameBranchDerAufMainSoll>
+    Was man hier sieht sind dann die Konflikte
+        <<<<<<< HEAD (grün) --> Das ist der Inhalt deines aktuellen Branches
+        =======             --> Trennt die beiden Versionen im Bereich der Änderungen
+        >>>>>>> Manu (blau  --> Das ist der Inhalt aus dem Branch den man reinmergen will
+        Hier kann entschieden werden was man behalten möchte.
+    Wenn man den merge vorgang abbrechen möchte:
+        git merge --abort
+    Anonsten weiter mit #2)
+    
+    # 2) Speichern wenn alle Mergeoptionen angeschaut und ausgewählt wurden!!!
+
+    # 3) Committen 
+    git add . (alles)       oder git add "<datei>"
+    git commit -m "<Commit Nachricht>"
+
+    # 4) Hochladen
+    git push origin main
+
+Branch push
+    git push -u origin <nameBranch> (damit der branch gleich verknüpft ist)
+
+Branches löschen
+    git branch -d <Name des Lokalen Branch> (löscht lokalen Branch, mit -D statt -d zum erzwingen)
+    git push origin --delete <Name des Remote Branch> (löscht einen remote branch)
+
+    Manchmal ist das Cache nicht gelöscht--> zeigt branches die garnicht existieren dann:
+    git fetch -p (löscht origin branch aus dem cache)
+    git branch -D <nameBranch> (erzwingt löschen von lokalen Branches)
+
+Git sagen wer man ist
+    git config --global user.email "zieker.manuel@gmx.de"    
+    git config --global user.name "Manuel Zieker"
+
+Ich will den aktuellsten Stand von main, scheiß egal was grade lokal bei mir ist
+    git fetch origin                zieht neusten stand
+    git reset --hard origin/main    setzt branch genau auf den serverstand
+    git clean -fd                   löscht alle ungetrackten daten die nicht auf git liegen
+    git status                      prüfen --> nothing to commit worktree clean oder show
+    git log --oneline -3            oberste commits müssen identisc mit github sein

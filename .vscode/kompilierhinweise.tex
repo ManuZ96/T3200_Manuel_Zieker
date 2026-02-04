@@ -1,0 +1,53 @@
+% !TeX root = ../main.tex
+% Zeile 1 legt fest das immer die main.tex kompiliert wird
+
+% ===============================================================
+% KOMPLIERHINWEISE FÜR GLOSSAR UND ABBKÜRZUNGSVERZEICHNIS (VS CODE)
+% ===============================================================
+
+% Damit das Abkürzungsverzeichnis mit dem Paket glossaries korrekt erzeugt wird,
+% reicht ein normaler pdflatex-Durchlauf NICHT aus. Du musst makeglossaries mit ausführen.
+
+% Schritt-für-Schritt – Projektbezogene Lösung (empfohlen):
+
+% 1. Erstelle im Projektverzeichnis einen Ordner ".vscode"
+% 2. Lege darin eine Datei "settings.json" an
+% 3. Füge dort diesen Inhalt ein:
+
+% {
+%   "latex-workshop.latex.recipes": [
+%     {
+%       "name": "pdflatex -> makeglossaries -> pdflatex*2",
+%       "tools": [
+%         "pdflatex",
+%         "makeglossaries",
+%         "pdflatex",
+%         "pdflatex"
+%       ]
+%     }
+%   ],
+%   "latex-workshop.latex.tools": [
+%     {
+%       "name": "pdflatex",
+%       "command": "pdflatex",
+%       "args": [
+%         "-interaction=nonstopmode",
+%         "-file-line-error",
+%         "%DOC%"
+%       ]
+%     },
+%     {
+%       "name": "makeglossaries",
+%       "command": "makeglossaries",
+%       "args": ["%DOCFILE%"]
+%     }
+%   ]
+% }
+
+% 4. Speichere die Datei und starte VS Code neu
+% 5. Drücke Strg + Shift + P → "LaTeX Workshop: Build with recipe"
+% 6. Wähle das Rezept: "pdflatex -> makeglossaries -> pdflatex*2"
+
+% Ergebnis:
+% - Das Abkürzungsverzeichnis wird korrekt erstellt
+% - \printglossary zeigt die Einträge aus abkuerzungen.tex an
