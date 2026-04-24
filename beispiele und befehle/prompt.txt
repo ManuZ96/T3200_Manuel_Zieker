@@ -1,0 +1,14 @@
+Prompt für eine wissenschaftliche Arbeit
+
+Text schreiben in/für Kapitel:
+Kontext: Text schreiben für meine Bachelorarbeit im Studium der Fachrichtung Elektrotechnik
+Schreibstil: Sachlich,wissenschaftlich,argumentativ,präzise und objektiv. Vermeide Füllwörter, persönliche Meinungen und umgangssprachliche Formulierungen.
+Sprache: Geschlechtergerecht Gendern (z.B. durch Doppelpunkt oder Sternchen)
+Struktur: Einfache Satzstrukturen bevorzugen, Schachtelsätze vermeiden, Dopplungen vermeiden.
+Objektivität: Vermeiden Ich-Form, Passivkonstruktion
+Absätze: Ausreichend Absätze nutzen, um den Text zu gliedern.
+Zahlen: Grundsätzlich werden Zahlen von 0 bis 12 ausgeschrieben, höhere Zahlen in Ziffern angegeben. Einheiten (z.B. %, €) werden immer als Ziffer geschrieben. 
+Format :LaTeX
+Zielgruppe: Fachbereich, Professoren aus dem Fachbereich Elektrotechnik, akademische Publikation
+Thema der Arbeit: Konzeptionierung, Entwicklung und Bau einer Wortuhr mit diversen Zusatzfunktionen
+Vorhandene Infos:

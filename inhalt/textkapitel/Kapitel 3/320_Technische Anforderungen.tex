@@ -1,5 +1,34 @@
 \section{Technische Anforderungen} \todo{text}
-Hardware
-Software
-Schnittstellen
-Performance
+% Hardware
+% Software
+% Schnittstellen
+% Performance
+Die technischen Anforderungen legen Randbedingungen für die Umsetzung auf Hardware- und Softwareebene fest.
+
+\subsection*{Hardware}
+
+Die Hardware soll eine homogene und ausreichend helle Ausleuchtung der Wortmatrix ermöglichen. Die eingesetzten LEDs sollen einzeln oder gruppenweise ansteuerbar sein. Die maximale Leistungsaufnahme soll 30~W nicht überschreiten.
+
+Ein Mikrocontroller mit ausreichender Rechenleistung und integrierter Netzwerkschnittstelle soll die zentrale Steuerung übernehmen. Der verfügbare Flash- und RAM-Speicher soll die Implementierung der Anzeige- und Kommunikationsfunktionen ermöglichen.
+
+Ein Echtzeituhr-Modul oder eine netzwerkbasierte Zeitsynchronisation soll eine dauerhafte Zeitgenauigkeit sicherstellen. Ein Helligkeitssensor soll die Umgebungsbeleuchtung erfassen.
+
+\subsection*{Software}
+
+Die Softwarearchitektur soll modular aufgebaut sein. Die Module für Zeitberechnung, Anzeige, Kommunikation und Sensorik sollen logisch getrennt implementiert werden.
+
+Die Firmware soll eine stabile WLAN-Verbindung unterstützen. Die Zeitsynchronisation soll über ein standardisiertes Protokoll erfolgen. Die Berechnung der Mondphase soll auf einem geeigneten astronomischen Modell basieren.
+
+Die Software soll Updatefähigkeit vorsehen. Eine Konfigurationsoberfläche soll die Anpassung zentraler Parameter ermöglichen.
+
+\subsection*{Schnittstellen}
+
+Das System soll mindestens eine drahtlose Netzwerkschnittstelle nach IEEE 802.11 bereitstellen. Zusätzlich soll eine serielle Schnittstelle für Entwicklungs- und Diagnosezwecke vorgesehen werden.
+
+Sensoren und Anzeigeelemente sollen über standardisierte digitale Schnittstellen angebunden werden. Die Versorgung soll über ein externes Netzteil mit geeigneter Spannungsstabilisierung erfolgen.
+
+\subsection*{Performance}
+
+Die Aktualisierung der Anzeige soll innerhalb von 500~ms erfolgen. Die Reaktionszeit auf Benutzereingaben soll unter 1~s liegen.
+
+Die Systemstabilität soll einen Dauerbetrieb von mindestens 24~h ohne Neustart ermöglichen. Die mittlere Leistungsaufnahme im Normalbetrieb soll 15~W nicht überschreiten.
