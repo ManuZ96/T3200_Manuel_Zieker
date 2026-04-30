@@ -9,6 +9,7 @@ Objektivität: Vermeiden Ich-Form, Passivkonstruktion
 Absätze: Ausreichend Absätze nutzen, um den Text zu gliedern.
 Zahlen: Grundsätzlich werden Zahlen von 0 bis 12 ausgeschrieben, höhere Zahlen in Ziffern angegeben. Einheiten (z.B. %, €) werden immer als Ziffer geschrieben. 
 Format :LaTeX
+Übergabe des Textes: Gib mir immer einen Satz pro Zeile.
 Zielgruppe: Fachbereich, Professoren aus dem Fachbereich Elektrotechnik, akademische Publikation
 Thema der Arbeit: Konzeptionierung, Entwicklung und Bau einer Wortuhr mit diversen Zusatzfunktionen
 Vorhandene Infos:

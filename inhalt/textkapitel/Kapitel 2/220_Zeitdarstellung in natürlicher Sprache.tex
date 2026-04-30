@@ -1,16 +1,35 @@
-\section{Zeitdarstellung in natürlicher Sprache} \todo{text}
-Sprachliche Zeitlogik
+\section{Zeitdarstellung in natürlicher Sprache} \todo{Jessi gegenlesen ob sinnig}
+Die Darstellung von Zeit erfolgt in technischen Systemen üblicherweise in numerischer Form, beispielsweise im Format \textit{HH:MM}.
+Diese Form basiert auf einer direkten Abbildung von Stunden- und Minutenwerten.
+Demgegenüber steht die sprachliche Zeitdarstellung, bei der Zeitangaben durch natürliche Sprache ausgedrückt werden.
+Diese Form orientiert sich an linguistischen Strukturen und alltagssprachlichen Konventionen~\cite[S.~14--35]{klein1994time}.
 
-Besonderheiten im Deutschen
+Die sprachliche Darstellung der Uhrzeit im Deutschen folgt keiner strikt linearen Struktur.
+Zeitangaben werden häufig relativ zu einem Referenzpunkt formuliert.
+Insbesondere erfolgt eine Orientierung an der nächsten vollen Stunde.
+Ein typisches Beispiel ist die Angabe „halb drei“, die einer Zeit von 2:30 entspricht und somit auf die folgende Stunde referenziert.
+Diese Form der Darstellung unterscheidet sich grundlegend von der numerischen Repräsentation, bei der die aktuelle Stunde als Bezugsgröße dient~\cite[S.~36]{klein1994time}~\cite[S.~xv]{lakoff1987women}.
 
-Einfluss auf Anzeige und Logik
+Ein weiteres Merkmal ist die Verwendung diskreter Zeitintervalle.
+Die sprachliche Zeitdarstellung erfolgt typischerweise in Schritten von fünf Minuten, beispielsweise „fünf nach“, „viertel vor“ oder „zwanzig nach“.
+Zur genaueren Beschreibung können zusätzliche Feinauflösungen genutzt werden, etwa durch Formulierungen wie „kurz nach“ oder „fast“.
+Diese Struktur stellt eine abstrahierte und zugleich alltagstaugliche Repräsentation von Zeit dar~\cite[S.~208\,ff.]{langacker1987foundations}.
 
-Wichtig für spätere Software-Logik
+Darüber hinaus existieren regionale Unterschiede in der sprachlichen Zeitdarstellung.
+Im deutschsprachigen Raum variieren insbesondere die Ausdrücke für Viertelstunden.
+Während in einigen Regionen die Formulierung „Viertel nach zwei“ verwendet wird, ist in anderen Regionen „Viertel drei“ gebräuchlich, um denselben Zeitpunkt zu beschreiben.
+Solche Unterschiede erfordern bei der technischen Umsetzung eine eindeutige Festlegung der zugrunde liegenden Sprachlogik~\cite[S.~212]{kucharczyk2012sprachliche}.
 
-Wortmapping
-
-Logische Zeitintervalle
-
-Abhängigkeit Minuten / Stunden
-
-Sonderfälle (z. B. 12 / 0 Uhr)
+Aus kognitionswissenschaftlicher Perspektive bietet die sprachliche Zeitdarstellung Vorteile hinsichtlich Verständlichkeit und intuitiver Verarbeitung.
+Alltagssprachliche Strukturen entsprechen erlernten kognitiven Mustern und ermöglichen eine schnelle Interpretation ohne explizite Umrechnung numerischer Werte.
+Sprachbasierte Repräsentationen sind eng mit menschlichen Denkprozessen verknüpft und unterstützen eine effiziente Informationsverarbeitung~\cite[S.~15--18]{pinker1994language}~\cite[S.~xv]{lakoff1987women}.
+% Wortmapping
+% Unterschied: digitale (HH:MM) vs. sprachliche Zeitdarstellung
+% Linguistische Struktur der Uhrzeit im Deutschen
+% regionale Unterschiede (z. B. „Viertel drei“ vs. „Viertel nach zwei“)
+% Logik: Bezug auf nächste Stunde („halb drei“)
+% diskrete Zeitintervalle (5-Minuten-Schritte + Feinauflösung)
+% kognitive Vorteile (intuitiver, alltagssprachlich)
+% Mapping Zeit → Wörter → LEDs
+% Sonderfälle: „ein Uhr“ vs. „eins“
+% Sonderfälle (z. B. 12 / 0 Uhr)

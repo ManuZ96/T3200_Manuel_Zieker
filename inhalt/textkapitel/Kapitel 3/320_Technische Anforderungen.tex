@@ -1,34 +1,121 @@
 \section{Technische Anforderungen} \todo{text}
-% Hardware
-% Software
-% Schnittstellen
-% Performance
-Die technischen Anforderungen legen Randbedingungen für die Umsetzung auf Hardware- und Softwareebene fest.
+Die technischen Anforderungen beschreiben die notwendigen Eigenschaften und Randbedingungen für die Umsetzung des Systems.
+Sie werden in die Bereiche Hardware, Software, Schnittstellen und Performance unterteilt.
 
-\subsection*{Hardware}
+\subsection{Hardware}
+\begin{table}[H]
+\centering
+\begin{tabular}{p{3cm} p{9cm}}
+\textbf{ID} & \textbf{Beschreibung} \\
+\hline
+H1 & Verwendung eines Mikrocontrollers mit WLAN-Funktionalität \\
+H2 & Ansteuerung von einzeln adressierbaren LEDs \\
+H3 & 3 Kaskdierte LED Strukturen mit je einem Datenpin am Mikrocontroller \\
+H4 & Einbindung eines Temperatur- und Feuchtigkeitssensors \\
+H5 & Sicherstellung einer stabilen Spannungsversorgung für alle Komponenten \\
+\end{tabular}
+\caption{Technische Anforderungen – Hardware}
+\end{table}
 
-Die Hardware soll eine homogene und ausreichend helle Ausleuchtung der Wortmatrix ermöglichen. Die eingesetzten LEDs sollen einzeln oder gruppenweise ansteuerbar sein. Die maximale Leistungsaufnahme soll 30~W nicht überschreiten.
+Die Hardwarearchitektur basiert auf einem Mikrocontroller mit integrierter WLAN-Schnittstelle.
+Dieser übernimmt sowohl die Datenverarbeitung als auch die Kommunikation mit externen Diensten.
 
-Ein Mikrocontroller mit ausreichender Rechenleistung und integrierter Netzwerkschnittstelle soll die zentrale Steuerung übernehmen. Der verfügbare Flash- und RAM-Speicher soll die Implementierung der Anzeige- und Kommunikationsfunktionen ermöglichen.
+Die Anzeige erfolgt über mehrere LED-Streifen mit WS2812B RGB-Leuchtdiode.
+Eine LED-Streifen wird für die Hauptanzeige verwenet. Das ist die Uhrzeit in Stunden und Minuten, die Außentemperautur und das Wetter.
+Der zweite LED-Streifen wird für die Sekundenanzeige verwendet.
+Der dritte LED-Streifen für die Anzeige der Zusatzfunktionen Tageszeit, Raumfeuchtigkeit, Mondphase und Innenraumtemperatur verwendet.
 
-Ein Echtzeituhr-Modul oder eine netzwerkbasierte Zeitsynchronisation soll eine dauerhafte Zeitgenauigkeit sicherstellen. Ein Helligkeitssensor soll die Umgebungsbeleuchtung erfassen.
+\subsection{Software}
+\begin{table}[H]
+\centering
+\begin{tabular}{p{3cm} p{9cm}}
+\textbf{ID} & \textbf{Beschreibung} \\
+\hline
+S1 & Implementierung einer Zeitverwaltung mit NTP-Synchronisation \\
+S2 & Regelbasierte Umwandlung numerischer Zeitwerte in Wortdarstellung \\
+S3 & Verarbeitung und Klassifikation von Wetterdaten \\
+S4 & Implementierung einer Sensorabfrage für Innenraumwerte \\
+S5 & Steuerung der LED-Anzeige in Echtzeit \\
+S6 & Bereitstellung eines HTTP-Servers zur Benutzerinteraktion \\
+S7 & Fehlerbehandlung bei Kommunikations- und Sensorfehlern \\
+\end{tabular}
+\caption{Technische Anforderungen – Software}
+\end{table}
 
-\subsection*{Software}
+Die Softwarearchitektur ist modular aufgebaut.
+Zentrale Komponenten sind die Zeitverarbeitung, die LED-Ansteuerung sowie die Kommunikation mit externen Diensten.
+Die Verarbeitung erfolgt regelbasiert und ermöglicht eine flexible Erweiterung.
 
-Die Softwarearchitektur soll modular aufgebaut sein. Die Module für Zeitberechnung, Anzeige, Kommunikation und Sensorik sollen logisch getrennt implementiert werden.
+\subsection{Schnittstellen}
+\begin{table}[H]
+\centering
+\begin{tabular}{p{3cm} p{9cm}}
+\textbf{ID} & \textbf{Beschreibung} \\
+\hline
+I1 & WLAN-Schnittstelle zur Internetanbindung \\
+I2 & HTTP-Schnittstelle zur Benutzerinteraktion \\
+I3 & API-Anbindung zur Abfrage von Wetterdaten \\
+I4 & Sensorschnittstelle zur Erfassung von Temperatur und Luftfeuchtigkeit \\
+\end{tabular}
+\caption{Technische Anforderungen – Schnittstellen}
+\end{table}
 
-Die Firmware soll eine stabile WLAN-Verbindung unterstützen. Die Zeitsynchronisation soll über ein standardisiertes Protokoll erfolgen. Die Berechnung der Mondphase soll auf einem geeigneten astronomischen Modell basieren.
+Die Schnittstellen ermöglichen die Integration externer Datenquellen sowie die Interaktion mit dem System.
+Die Kommunikation erfolgt überwiegend über standardisierte Protokolle.
 
-Die Software soll Updatefähigkeit vorsehen. Eine Konfigurationsoberfläche soll die Anpassung zentraler Parameter ermöglichen.
+\subsection{Performance}
+\begin{table}[H]
+\centering
+\begin{tabular}{p{3cm} p{9cm}}
+\textbf{ID} & \textbf{Beschreibung} \\
+\hline
+P1 & Aktualisierung der Anzeige in Intervallen kleiner gleich 1 s \\
+P2 & Wetterdatenaktualisierung mindestens alle 15 min \\
+P3 & Sensoraktualisierung im Bereich weniger Sekunden \\
+P4 & Minimierung von Verzögerungen bei der Benutzerinteraktion \\
+\end{tabular}
+\caption{Technische Anforderungen – Performance}
+\end{table}
 
-\subsection*{Schnittstellen}
+Die Performanceanforderungen stellen sicher, dass das System eine flüssige und aktuelle Anzeige gewährleistet.
+Gleichzeitig werden externe Daten in definierten Intervallen aktualisiert, um eine ausreichende Aktualität zu erreichen.
 
-Das System soll mindestens eine drahtlose Netzwerkschnittstelle nach IEEE 802.11 bereitstellen. Zusätzlich soll eine serielle Schnittstelle für Entwicklungs- und Diagnosezwecke vorgesehen werden.
+% %%%%%%%%%%%Old Version
+% Die technischen Anforderungen legen Randbedingungen für die Umsetzung auf Hardware- und Softwareebene fest.
 
-Sensoren und Anzeigeelemente sollen über standardisierte digitale Schnittstellen angebunden werden. Die Versorgung soll über ein externes Netzteil mit geeigneter Spannungsstabilisierung erfolgen.
+% \subsection*{Hardware}
 
-\subsection*{Performance}
+% Die Hardware soll eine homogene und ausreichend helle Ausleuchtung der Wortmatrix ermöglichen. Die eingesetzten LEDs sollen einzeln oder gruppenweise ansteuerbar sein. Die maximale Leistungsaufnahme soll 30~W nicht überschreiten.
 
-Die Aktualisierung der Anzeige soll innerhalb von 500~ms erfolgen. Die Reaktionszeit auf Benutzereingaben soll unter 1~s liegen.
+% Ein Mikrocontroller mit ausreichender Rechenleistung und integrierter Netzwerkschnittstelle soll die zentrale Steuerung übernehmen. Der verfügbare Flash- und RAM-Speicher soll die Implementierung der Anzeige- und Kommunikationsfunktionen ermöglichen.
 
-Die Systemstabilität soll einen Dauerbetrieb von mindestens 24~h ohne Neustart ermöglichen. Die mittlere Leistungsaufnahme im Normalbetrieb soll 15~W nicht überschreiten.
+% Ein Echtzeituhr-Modul oder eine netzwerkbasierte Zeitsynchronisation soll eine dauerhafte Zeitgenauigkeit sicherstellen. Ein Helligkeitssensor soll die Umgebungsbeleuchtung erfassen.
+
+% \subsection*{Software}
+
+% Die Softwarearchitektur soll modular aufgebaut sein. Die Module für Zeitberechnung, Anzeige, Kommunikation und Sensorik sollen logisch getrennt implementiert werden.
+
+% Die Firmware soll eine stabile WLAN-Verbindung unterstützen. Die Zeitsynchronisation soll über ein standardisiertes Protokoll erfolgen. Die Berechnung der Mondphase soll auf einem geeigneten astronomischen Modell basieren.
+
+% Die Software soll Updatefähigkeit vorsehen. Eine Konfigurationsoberfläche soll die Anpassung zentraler Parameter ermöglichen.
+
+% \subsection*{Schnittstellen}
+
+% Das System soll mindestens eine drahtlose Netzwerkschnittstelle nach IEEE 802.11 bereitstellen. Zusätzlich soll eine serielle Schnittstelle für Entwicklungs- und Diagnosezwecke vorgesehen werden.
+
+% Sensoren und Anzeigeelemente sollen über standardisierte digitale Schnittstellen angebunden werden. Die Versorgung soll über ein externes Netzteil mit geeigneter Spannungsstabilisierung erfolgen.
+
+% \subsection*{Performance}
+
+% Die Aktualisierung der Anzeige soll innerhalb von 500~ms erfolgen. Die Reaktionszeit auf Benutzereingaben soll unter 1~s liegen.
+
+% Die Systemstabilität soll einen Dauerbetrieb von mindestens 24~h ohne Neustart ermöglichen. Die mittlere Leistungsaufnahme im Normalbetrieb soll 15~W nicht überschreiten.
+
+% \subsection{Optische Anforderungen} \todo{text}
+% Die optischen Anforderungen definieren die gestalterischen Ziele der Wortuhr.
+
+% Das Design soll eine klare und reduzierte Formensprache aufweisen. Die Wortmatrix soll gleichmäßig ausgeleuchtet sein. Einzelne Lichtpunkte außerhalb aktiver Wörter sollen nicht sichtbar sein.
+
+% Die Schriftart soll gut lesbar sein. Der Kontrast zwischen Hintergrund und aktiven Wörtern soll ausreichend hoch sein. Die Anzeige soll aus einem Betrachtungsabstand von 3~m eindeutig erkennbar sein.
+
+% Das Gehäuse soll sich in typische Wohnräume integrieren lassen. Die sichtbaren Materialien sollen hochwertig und langlebig wirken. Kabel und Befestigungselemente sollen von außen nicht sichtbar sein.
