@@ -1,0 +1,29 @@
+\section{Hardwarearchitektur}
+Die Hardwarearchitektur der Wortuhr ist modular aufgebaut.
+Zentrale Komponente ist ein \gls{esp32c6}-Mikrocontroller, der die Ansteuerung der \gls{led}-Streifen, die Verarbeitung der Sensordaten sowie die drahtlose Kommunikation übernimmt.
+Die Energieversorgung erfolgt über ein 5-V-Netzteil mit einer maximalen Ausgangsstromstärke von 10 A.
+Über diese gemeinsame Versorgung werden sowohl der Mikrocontroller als auch die drei \gls{ws2812b}-\gls{led}-Streifen betrieben.
+
+Die Anzeige besteht aus drei funktional getrennten \gls{led}-Bereichen.
+Die Hauptanzeige wird durch eine 16~x~16-\gls{led}-Matrix mit insgesamt 256 \gls{led}s gebildet.
+Sie dient zur Darstellung der Uhrzeit sowie zusätzlicher Wetter- und Temperaturbegriffe.
+Ein separater \gls{led}-Streifen mit 60 \gls{led}s wird für die Sekundenanzeige verwendet.
+Ein weiterer \gls{led}-Streifen mit 31 \gls{led}s bildet Zusatzinformationen wie Innenraumtemperatur, Luftfeuchtigkeit, Tageszeit und Mondphase ab.
+
+Als Sensor wird ein \gls{dht22} eingesetzt.
+Dieser erfasst die Innenraumtemperatur und die relative Luftfeuchtigkeit.
+Die Messwerte werden vom \gls{esp32c6} eingelesen und anschließend auf dem Zusatz-\gls{led}-Streifen dargestellt.
+
+Der mechanische Aufbau basiert auf einer Holzgrundplatte, auf der die \gls{led}-Streifen montiert sind.
+Die Front besteht aus 16 miteinander verschraubten 3D-gedruckten Modulen.
+Jedes Modul enthält geschlossene Lichtkammern für die einzelnen \gls{led}s.
+Dadurch wird eine optische Trennung der Buchstaben erreicht.
+Zusätzlich wird pro \gls{led}-Kammer ein weißes, 3D-gedrucktes Diffusorplättchen eingesetzt, um die Lichtverteilung zu homogenisieren.
+Das Blockschaltbild der Hardwarearchitektur ist in Abbildung~\ref{fig:hardwarearchitektur} abgebildet und stellt die Zusammenhänge der Hardwarekomponenten dar.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{inhalt/bilder/Platzhalter.jpg}
+    \caption{Blockschaltbild der Hardwarearchitektur}
+    \label{fig:hardwarearchitektur}
+\end{figure}

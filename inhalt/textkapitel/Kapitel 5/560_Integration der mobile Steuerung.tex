@@ -1,0 +1,22 @@
+\section{Integration der mobile Steuerung}
+Zur Steuerung des Systems wird ein integrierter Webserver implementiert welcher direkt auf dem Mikrocontroller läuft.  
+Die Kommunikation erfolgt über HTTP und der Zugriff ist über einen Webbrowser möglich.  
+Dabei übernimmt eine zentrale Funktion die Generierung der Webseite HTML-Benutzeroberfläche:  
+\begin{verbatim}
+String buildHtmlPage()
+<HIER KOMMT NOCH EIN CODEAUSSCHNITT HIN>
+\end{verbatim}
+Die Benutzeroberfläche ermöglicht die Steuerung zentraler Parameter.  
+Dazu zählen Ein- und Ausschalten, Helligkeit sowie Farbwerte.  
+
+Die Verarbeitung der Nutzereingaben erfolgt über URL-Parameter.  
+Diese werden durch eine entsprechende Handler-Funktion ausgewertet.  
+Zusätzlich wird eine JSON-Schnittstelle bereitgestellt.  
+Diese erlaubt den Zugriff auf Statusinformationen für externe Anwendungen.
+Die Benutzeroberfläche ist in Abbildung~\ref{fig:Benutzeroberfläche} dargestellt.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.3\linewidth]{inhalt/bilder/Platzhalter.jpg}
+	\caption{Die HTML-Benutzeroberfläche, mit der die Wortuhr Ein- und Ausgeschaltete, die Helligkeit und die Farbe der LEDs verändert werden kann. Weiterhin können die aktuellen Parameter der Wortuhr überwacht werden werde.}
+	\label{fig:Benutzeroberfläche}
+\end{figure} 

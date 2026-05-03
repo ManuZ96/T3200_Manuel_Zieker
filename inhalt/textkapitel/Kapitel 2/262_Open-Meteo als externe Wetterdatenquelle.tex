@@ -1,0 +1,21 @@
+\subsection{Open-Meteo als externe Wetterdatenquelle}
+Eine häufig genutzte Quelle für Wetterdaten ist die Open-Meteo-API, welche als frei zugängliche und quelloffene Web-\gls{api} zur Bereitstellung meteorologischer Informationen dient. 
+Sie ermöglicht den Zugriff auf Wetterdaten ohne Authentifizierung und eignet sich insbesondere für nicht-kommerzielle Anwendungen~\cite{openmeteo}.
+
+Die \gls{api} basiert auf dem \gls{http}-Protokoll und liefert die angeforderten Daten in einem strukturierten \gls{json}-Format. 
+Dadurch wird eine einfache Integration in eingebettete Systeme sowie in verschiedene Programmiersprachen ermöglicht. 
+Die Anfrage erfolgt über eine \gls{url} mit spezifischen Parametern, beispielsweise zur Angabe von geografischer Breite und Länge. 
+Die bereitgestellten Daten umfassen unter anderem Temperatur, Windgeschwindigkeit und Luftfeuchtigkeit, welche sowohl für aktuelle Zustände als auch in Form zeitlich aufgelöster Verlaufsdaten verfügbar sind~\cite{openmeteo}.
+
+Die zugrunde liegenden Wetterinformationen basieren auf einer Kombination verschiedener Datenquellen, darunter Messungen von Satelliten, Radarsystemen sowie weiteren Sensornetzwerken~\cite{openmeteo}. 
+Zur Gewährleistung einer hohen Aktualität werden die verwendeten Wettermodelle in kurzen Zeitintervallen aktualisiert.
+Durch die standardisierte Bereitstellung über \gls{http} und \gls{json} sowie die kontinuierliche Aktualisierung der Daten stellt die Open-Meteo-\gls{api} eine geeignete Grundlage für die Integration externer Wetterinformationen für den vorliegenden Anwendungsfall dar~\cite{openmeteo}.
+
+Die Kommunikation mit der API erfolgt über \gls{https}-basierte \gls{rest}-Schnittstellen. 
+\gls{https} stellt die abgesicherte Variante des HTTP-Protokolls dar und basiert auf der Übertragung von HTTP über \gls{ssl} bzw. \gls{tls}. 
+Dabei werden die Kommunikationspartner authentifiziert und die anschließende Datenübertragung vertraulich umgesetzt. 
+Dies erhöht die Sicherheit der Kommunikation, kann jedoch zusätzliche Aufwände durch Handshake, Zertifikatsprüfung und kryptografische Operationen verursachen~\cite{naylor2014https}.
+
+Eine \gls{rest}-Schnittstelle ist eine spezialisierte Form einer Programmierschnittstelle, die auf dem Architekturprinzip \gls{rest} basiert.
+Sie ermöglicht die Kommunikation zwischen Client und Server über standardisierte HTTP-Methoden sowie eindeutig adressierbare Ressourcen.
+Dabei erfolgt der Datenaustausch typischerweise zustandslos und unter Nutzung einheitlicher Schnittstellen, häufig im JSON-Format~\cite{RESTAPI}.

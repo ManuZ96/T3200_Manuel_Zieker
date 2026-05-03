@@ -1,5 +1,8 @@
-\section{Nicht-funktionale Anforderungen} \todo{text}
+\section{Nichtfunktionale Anforderungen}
 Neben den funktionalen und technischen Anforderungen spielen nichtfunktionale Eigenschaften eine wesentliche Rolle für die Qualität des Systems.
+Die Zuverlässigkeit des Systems ist insbesondere im Dauerbetrieb von zentraler Bedeutung.
+Gleichzeitig wird eine modulare Software Architektur angestrebt, um den Code wiederverwendbar und strukturiert aufzubauen, was die Wartbarkeit sicherstellen soll.
+Alle nichtfunktionale Anforderungen sind in Tabelle~\ref{tab:Nichtfunktionale Anforderung} aufgelistet.
 
 \begin{table}[H]
 \centering
@@ -8,19 +11,39 @@ Neben den funktionalen und technischen Anforderungen spielen nichtfunktionale Ei
 \hline
 N1 & Hohe Zuverlässigkeit im Dauerbetrieb \\
 N2 & Energieeffizienter Betrieb trotz hoher LED-Anzahl \\
-N3 & Erweiterbarkeit der Softwarearchitektur \\
-N4 & Wartbarkeit und klare Struktur des Codes \\
-N5 & Ansprechendes und integrierbares Design \\
-N6 & Benutzerfreundliche Bedienbarkeit \\
+N3 & Wartbarkeit und klare Struktur des Codes \\
+N4 & Ansprechendes und integrierbares Design \\
+N5 & Benutzerfreundliche Bedienbarkeit \\
 \end{tabular}
 \caption{Nichtfunktionale Anforderungen}
+\label{tab:Nichtfunktionale Anforderung}
 \end{table}
 
-Die Zuverlässigkeit des Systems ist insbesondere im Dauerbetrieb von zentraler Bedeutung.
-Gleichzeitig wird eine modulare Architektur angestrebt, um zukünftige Erweiterungen zu ermöglichen.
 
-\subsection{Optische Anforderungen}\todo{text}
+
+\subsection{Optische Anforderungen}
 Gestalterische Aspekte spielen ebenfalls eine Rolle, da die Wortuhr sowohl als technisches System als auch als Gestaltungselement eingesetzt wird.
+Der wichtigste Aspekt ist die Lesbarkeit und gleichmäßige Ausleuchtung der Anzeige. 
+Die Worte müssen aus typischen Betrachtungsabständen klar erkennbar und ausreichend stark beleuchtet sein, dass ein Kontrast zwischen aktiven und inaktiven Buchstaben entsteht.
+Weiterhin ist eine homogene Lichtverteilung sicherzustellen, um Hotspots oder blenden beim betrachten zu vermeiden.
+Die Hauptanzeige soll in einem Raster mit gleicher Seitenlänge angeordnet sein.
+Alle optischen Anforderungen sind in Tabelle~\ref{tab:Optische Anforderung} aufgelistet.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{p{3cm} p{9cm}}
+\textbf{ID} & \textbf{Beschreibung} \\
+\hline
+O1 & Gewährleistung einer guten Lesbarkeit der Anzeige bei typischen Betrachtungsabständen \\
+O2 & Ausreichende Helligkeit der aktiven Buchstaben zur Erzeugung eines klaren Kontrasts zu inaktiven Elementen \\
+O3 & Gleichmäßige Ausleuchtung der gesamten Anzeige ohne lokale Überhellungen \\
+O4 & Vermeidung von Hotspots und Blendwirkungen bei der Betrachtung \\
+O5 & Homogene Lichtverteilung über alle dargestellten Wörter \\
+O6 & Anordnung der Hauptanzeige in einem gleichmäßigen Raster mit identischer Seitenlänge \\
+\end{tabular}
+\caption{Funktionale Anforderungen der Wortuhr}
+\label{tab:Optische Anforderung}
+\end{table}
 
 % %%%%%%%%%%%Old Version
 % Die nicht-funktionalen Anforderungen beschreiben qualitative Eigenschaften des Systems.

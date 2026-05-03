@@ -1,0 +1,40 @@
+\section{Installation der elektrischen Komponenten}
+Die elektrische Installation basiert auf der Versorgungsspannung von 5 V.  
+Alle LED-Streifen sowie der Mikrocontroller werden damit versorgt und haben einen gemeinsamen Ground.  
+
+Es werden drei LED-Streifen eingesetzt. 
+Der erste hat 256 \gls{ws2812b}-\gls{led}s und wird für die Anzeige von Stunden und Minuten, der Außentempreatur und dem Wetter verwendet.  
+Der zweite hat 60 \gls{ws2812b}-\gls{led}s und wird für die Sekundenanzeige genutzt.
+Der dritte hat 37 \gls{ws2812b}-\gls{led}s und wird für die Anzeige der Zusatzfunktionen genutzt.
+Die Datenleitungen der LED-Streifen werden jeweils auf separate GPIO-Pins des Mikrocontrollers geführt.  
+
+Die Dimensionierung des Netzteils erfolgt auf Basis der maximal möglichen Leistungsaufnahme.  
+Die Gesamtleistung ergibt sich aus der maximalen Anzahl an LEDs die gleichzeitig aktiv sein können und deren spezifischer Leistungsaufnahme.  
+Für die Berechnung kann folgende Beziehung verwendet werden:  
+\[
+P_{\text{gesamt}} = N_{\text{LED}} \cdot P_{\text{LED}}
+Unvollständig
+\]
+Die Leistungsaufnahme pro LED kann über die Streckenleistung bestimmt werden welche im Datenblatt der verwendeten \gls{led}-Streifen angegeben ist:  
+\[
+P_{\text{LED}} = \frac{P_{\text{pro Meter}}}{N_{\text{LED pro Meter}}}
+Unvollständig
+\]
+Die Stromaufnahme berechnet sich mit:  
+\[
+I_{\text{gesamt}} = N_{\text{LED}} \cdot I_{\text{LED}}
+Unvollständig
+\]
+Die mindestens erforderliche Netzteilleistung ergibt sich anschließend zu:  
+\[
+P_{\text{Netzteil}} = U \cdot I_{\text{gesamt}}
+Unvollständig
+\]
+Die tatsächliche Auslegung erfolgt unter Berücksichtigung eines Sicherheitsfaktors.  
+Abbildung~\ref{fig:Schaltplan} zeigt den Schaltplan der Wortuhr.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.3\linewidth]{inhalt/bilder/Platzhalter.jpg}
+	\caption{Dargestelt ist der Schaltplan der Wortuhr mit allen angeschlossenen Komponenten und Pinbelegung des ESP32-C6.}
+	\label{fig:Schaltplan}
+\end{figure}

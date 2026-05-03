@@ -1,4 +1,23 @@
-\section{Implementierung der Software} \todo{text}
-Struktur
-zentrale Algorithmen
-Zeitlogik
+\section{Implementierung der Software}
+Die Softwareentwicklung erfolgt schrittweise und modular.  
+Zunächst werden grundlegende Funktionen implementiert.  
+Dazu zählen die Initialisierung der Hardware sowie die Ansteuerung der LED-Streifen.  
+Die Ansteuerung der LEDs erfolgt über dedizierte Funktionen.  
+Eine zentrale Funktion stellt die gezielte Aktivierung einzelner LEDs dar:  
+\begin{verbatim}
+void setLed(int ledNumber, uint8_t r, uint8_t g, uint8_t b)
+<HIER KOMMT NOCH EIN CODEAUSSCHNITT HIN>
+\end{verbatim}
+Für die gleichzeitige Ansteuerung mehrerer LEDs werden Arrays verwendet.  
+Diese enthalten die Indizes der LEDs, die ein bestimmtes Wort darstellen.  
+Für Zeitanzeige, Temperaturinfos, Wetterinfis und Zusatzinformationen werden separate LED-Arrays definiert.  
+Die Verarbeitung der Zeit erfolgt durch zyklisches Auslesen der Systemzeit.  
+Die Anzeige wird in regelmäßigen Intervallen aktualisiert.  
+Die Funktion zur Darstellung der Uhrzeit ist wie folgt aufgebaut:  
+\begin{verbatim}
+void showHourWord(int hour24)
+<HIER KOMMT NOCH EIN CODEAUSSCHNITT HIN>
+\end{verbatim}
+Die Software wird iterativ aufgespielt und erweitert.  
+Nach jeder Erweiterung erfolgt eine Funktionsprüfung.  
+Dieses Vorgehen ermöglicht eine schrittweise Integration aller Systemfunktionen und verreinfacht die Fehlersuche bei Problemen.

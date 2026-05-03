@@ -1,4 +1,20 @@
-\section{Anbindung externer Datenquellen} \todo{text}
-Wetter-API
-Mondphase
-Fehlerbehandlung
+\section{Anbindung externer Datenquellen}
+Zur Erweiterung der Funktionalität werden externe Datenquellen eingebunden.  
+Die Kommunikation erfolgt über eine \gls{wlan}-Verbindung.  
+Der Verbindungsaufbau wird durch eine eigene Funktion realisiert:  
+\begin{verbatim}
+void connectToWiFi()
+<HIER KOMMT NOCH EIN CODEAUSSCHNITT HIN>
+\end{verbatim}
+Die Zeit wird über \gls{ntp} synchronisiert und die Wetterdaten von der Web-\gls{api} von Open-Meteo.
+Die Synchronisation erfolgt initial beim Systemstart sowie zyklisch im Betrieb.   
+Die Daten werden über \gls{https} abgerufen und im \gls{json}-Format verarbeitet.  
+Die zentrale Funktion zur Aktualisierung der Wetterdaten lautet:  
+\begin{verbatim}
+bool updateWeatherFromServer()
+<HIER KOMMT NOCH EIN CODEAUSSCHNITT HIN>
+\end{verbatim}
+Die empfangenen Daten werden anschließend klassifiziert.  
+Hierzu werden die Temperaturwerte über eine Case-Anweisung ausgewählt und der Wettercode in eine definierte Wettergruppe überführt.
+Mit dieser wird dann ebenfalls über eine Case-Anweisung die aktuelle Wetteranzeige ausgewählt.
+Die Anzeige erfolgt dann durch Zuordnung zu entsprechenden Wörtern welche als Globale Variablen deklariert sind.
