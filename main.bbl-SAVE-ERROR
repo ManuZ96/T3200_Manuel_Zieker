@@ -1,0 +1,911 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global/global}
+    \entry{alibaba_wordclock}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=d751a0d952dff3dd1dae5f7acf32f775}{%
+           family={{Alibaba Group}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{d751a0d952dff3dd1dae5f7acf32f775}
+      \strng{fullhash}{d751a0d952dff3dd1dae5f7acf32f775}
+      \strng{fullhashraw}{d751a0d952dff3dd1dae5f7acf32f775}
+      \strng{bibnamehash}{d751a0d952dff3dd1dae5f7acf32f775}
+      \strng{authorbibnamehash}{d751a0d952dff3dd1dae5f7acf32f775}
+      \strng{authornamehash}{d751a0d952dff3dd1dae5f7acf32f775}
+      \strng{authorfullhash}{d751a0d952dff3dd1dae5f7acf32f775}
+      \strng{authorfullhashraw}{d751a0d952dff3dd1dae5f7acf32f775}
+      \field{extraname}{1}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{German WordClock Produktübersicht(Alibaba)}
+      \field{urlday}{17}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://german.alibaba.com/g/german-word-clock.html
+      \endverb
+      \verb{url}
+      \verb https://german.alibaba.com/g/german-word-clock.html
+      \endverb
+    \endentry
+    \entry{alibaba_wordclock_bild}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=d751a0d952dff3dd1dae5f7acf32f775}{%
+           family={{Alibaba Group}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{d751a0d952dff3dd1dae5f7acf32f775}
+      \strng{fullhash}{d751a0d952dff3dd1dae5f7acf32f775}
+      \strng{fullhashraw}{d751a0d952dff3dd1dae5f7acf32f775}
+      \strng{bibnamehash}{d751a0d952dff3dd1dae5f7acf32f775}
+      \strng{authorbibnamehash}{d751a0d952dff3dd1dae5f7acf32f775}
+      \strng{authornamehash}{d751a0d952dff3dd1dae5f7acf32f775}
+      \strng{authorfullhash}{d751a0d952dff3dd1dae5f7acf32f775}
+      \strng{authorfullhashraw}{d751a0d952dff3dd1dae5f7acf32f775}
+      \field{extraname}{2}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Vintage Einzigartiges Design Anpassbare Sprach-Wanduhr}
+      \field{urlday}{17}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://german.alibaba.com/product-detail/Vintage-Unique-Design-Customized-Language-Wall-1600695945862.html?spm=a2700.7724857.0.0.4ef786f2F3UEmZ
+      \endverb
+      \verb{url}
+      \verb https://german.alibaba.com/product-detail/Vintage-Unique-Design-Customized-Language-Wall-1600695945862.html?spm=a2700.7724857.0.0.4ef786f2F3UEmZ
+      \endverb
+    \endentry
+    \entry{baillieul2007networked}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=9fb601f1368740bc3c2b6bb6d955ce9d}{%
+           family={Baillieul},
+           familyi={B\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+        {{hash=3144fe06a7a2b376e7b84438fe3bd222}{%
+           family={Antsaklis},
+           familyi={A\bibinitperiod},
+           given={Panos\bibnamedelima J.},
+           giveni={P\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \strng{namehash}{a69f895549235f2bfe137fc6320fe939}
+      \strng{fullhash}{a69f895549235f2bfe137fc6320fe939}
+      \strng{fullhashraw}{a69f895549235f2bfe137fc6320fe939}
+      \strng{bibnamehash}{a69f895549235f2bfe137fc6320fe939}
+      \strng{authorbibnamehash}{a69f895549235f2bfe137fc6320fe939}
+      \strng{authornamehash}{a69f895549235f2bfe137fc6320fe939}
+      \strng{authorfullhash}{a69f895549235f2bfe137fc6320fe939}
+      \strng{authorfullhashraw}{a69f895549235f2bfe137fc6320fe939}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the IEEE}
+      \field{number}{1}
+      \field{title}{Control and Communication Challenges in Networked Real-Time Systems}
+      \field{volume}{95}
+      \field{year}{2007}
+      \field{pages}{9\bibrangedash 28}
+      \range{pages}{20}
+      \verb{doi}
+      \verb 10.1109/JPROC.2006.887290
+      \endverb
+      \keyw{Communication system control;Control systems;Real time systems;Networked control systems;Robust stability;Process control;Signal processing;Robust control;Time-varying channels;Channel capacity;Communication networks;consensus;control of networks;control systems;cooperative control;distributed control systems;estimation;networked control systems;networked embedded systems;networks;real-time systems;sensor and actuator networks;sensor networks}
+    \endentry
+    \entry{QlockTwoDesertBild}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=c533137c420c92387709ef8d5a948b6d}{%
+           family={{Biegert \&amp; Funk}},
+           familyi={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{c533137c420c92387709ef8d5a948b6d}
+      \strng{fullhash}{c533137c420c92387709ef8d5a948b6d}
+      \strng{fullhashraw}{c533137c420c92387709ef8d5a948b6d}
+      \strng{bibnamehash}{c533137c420c92387709ef8d5a948b6d}
+      \strng{authorbibnamehash}{c533137c420c92387709ef8d5a948b6d}
+      \strng{authornamehash}{c533137c420c92387709ef8d5a948b6d}
+      \strng{authorfullhash}{c533137c420c92387709ef8d5a948b6d}
+      \strng{authorfullhashraw}{c533137c420c92387709ef8d5a948b6d}
+      \field{extraname}{1}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Qlock Two Earth45 Desert}
+      \field{urlday}{19}
+      \field{urlmonth}{2}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.qlocktwo.com/en-de/earth/45/desert
+      \endverb
+      \verb{url}
+      \verb https://www.qlocktwo.com/en-de/earth/45/desert
+      \endverb
+    \endentry
+    \entry{qlocktwo_earth45}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=c533137c420c92387709ef8d5a948b6d}{%
+           family={{Biegert \&amp; Funk}},
+           familyi={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{c533137c420c92387709ef8d5a948b6d}
+      \strng{fullhash}{c533137c420c92387709ef8d5a948b6d}
+      \strng{fullhashraw}{c533137c420c92387709ef8d5a948b6d}
+      \strng{bibnamehash}{c533137c420c92387709ef8d5a948b6d}
+      \strng{authorbibnamehash}{c533137c420c92387709ef8d5a948b6d}
+      \strng{authornamehash}{c533137c420c92387709ef8d5a948b6d}
+      \strng{authorfullhash}{c533137c420c92387709ef8d5a948b6d}
+      \strng{authorfullhashraw}{c533137c420c92387709ef8d5a948b6d}
+      \field{extraname}{2}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{QLOCKTWOEARTH 45 Offizielle Produktseite}
+      \field{urlday}{19}
+      \field{urlmonth}{2}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.qlocktwo.com/en-de/earth/45
+      \endverb
+      \verb{url}
+      \verb https://www.qlocktwo.com/en-de/earth/45
+      \endverb
+    \endentry
+    \entry{wordclock_jupiter_stahl}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=f6e7afa81dc32a2d8b56a6fe90a41dbb}{%
+           family={{Build Yours}},
+           familyi={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{f6e7afa81dc32a2d8b56a6fe90a41dbb}
+      \strng{fullhash}{f6e7afa81dc32a2d8b56a6fe90a41dbb}
+      \strng{fullhashraw}{f6e7afa81dc32a2d8b56a6fe90a41dbb}
+      \strng{bibnamehash}{f6e7afa81dc32a2d8b56a6fe90a41dbb}
+      \strng{authorbibnamehash}{f6e7afa81dc32a2d8b56a6fe90a41dbb}
+      \strng{authornamehash}{f6e7afa81dc32a2d8b56a6fe90a41dbb}
+      \strng{authorfullhash}{f6e7afa81dc32a2d8b56a6fe90a41dbb}
+      \strng{authorfullhashraw}{f6e7afa81dc32a2d8b56a6fe90a41dbb}
+      \field{extraname}{1}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Wortuhr Jupiter Edelstahl gelasert}
+      \field{urlday}{17}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://build-yours.de/wortuhr-jupiter-gelasertes-stahl-vorbestellen/
+      \endverb
+      \verb{url}
+      \verb https://build-yours.de/wortuhr-jupiter-gelasertes-stahl-vorbestellen/
+      \endverb
+    \endentry
+    \entry{wordclock_jupiter}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=f6e7afa81dc32a2d8b56a6fe90a41dbb}{%
+           family={{Build Yours}},
+           familyi={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{f6e7afa81dc32a2d8b56a6fe90a41dbb}
+      \strng{fullhash}{f6e7afa81dc32a2d8b56a6fe90a41dbb}
+      \strng{fullhashraw}{f6e7afa81dc32a2d8b56a6fe90a41dbb}
+      \strng{bibnamehash}{f6e7afa81dc32a2d8b56a6fe90a41dbb}
+      \strng{authorbibnamehash}{f6e7afa81dc32a2d8b56a6fe90a41dbb}
+      \strng{authornamehash}{f6e7afa81dc32a2d8b56a6fe90a41dbb}
+      \strng{authorfullhash}{f6e7afa81dc32a2d8b56a6fe90a41dbb}
+      \strng{authorfullhashraw}{f6e7afa81dc32a2d8b56a6fe90a41dbb}
+      \field{extraname}{2}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Wortuhr Jupiter Produktseite(Build Yours)}
+      \field{urlday}{17}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://build-yours.de/wortuhr-jupiter--bausatz/
+      \endverb
+      \verb{url}
+      \verb https://build-yours.de/wortuhr-jupiter--bausatz/
+      \endverb
+    \endentry
+    \entry{7123563}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=8868a3dff96deabbbb427b120f6f2281}{%
+           family={Al-Fuqaha},
+           familyi={A\bibinithyphendelim F\bibinitperiod},
+           given={Ala},
+           giveni={A\bibinitperiod}}}%
+        {{hash=05189762dbb0ad87814451304904fe83}{%
+           family={Guizani},
+           familyi={G\bibinitperiod},
+           given={Mohsen},
+           giveni={M\bibinitperiod}}}%
+        {{hash=e9633357f28c5a519b419b285ed60085}{%
+           family={Mohammadi},
+           familyi={M\bibinitperiod},
+           given={Mehdi},
+           giveni={M\bibinitperiod}}}%
+        {{hash=78f10d0d58461308e357653e5408e067}{%
+           family={Aledhari},
+           familyi={A\bibinitperiod},
+           given={Mohammed},
+           giveni={M\bibinitperiod}}}%
+        {{hash=50592cee80fe18e8e597d8115457af3a}{%
+           family={Ayyash},
+           familyi={A\bibinitperiod},
+           given={Moussa},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{5a6233599e8a5aa0330c923abaa12bc8}
+      \strng{fullhash}{8ad1c27d8da8a64306a95163916d383f}
+      \strng{fullhashraw}{8ad1c27d8da8a64306a95163916d383f}
+      \strng{bibnamehash}{5a6233599e8a5aa0330c923abaa12bc8}
+      \strng{authorbibnamehash}{5a6233599e8a5aa0330c923abaa12bc8}
+      \strng{authornamehash}{5a6233599e8a5aa0330c923abaa12bc8}
+      \strng{authorfullhash}{8ad1c27d8da8a64306a95163916d383f}
+      \strng{authorfullhashraw}{8ad1c27d8da8a64306a95163916d383f}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Communications Surveys \& Tutorials}
+      \field{number}{4}
+      \field{title}{Internet of Things: A Survey on Enabling Technologies, Protocols, and Applications}
+      \field{volume}{17}
+      \field{year}{2015}
+      \field{pages}{2347\bibrangedash 2376}
+      \range{pages}{30}
+      \verb{doi}
+      \verb 10.1109/COMST.2015.2444095
+      \endverb
+      \keyw{Internet of things;Computer architecture;Radiofrequency identification;Intelligent sensors;Mobile communication;Internet of things;IoT;CoAP;MQTT;AMQP;XMPP;DDS;mDNS;IoT Gateway;Internet of Things (IoT);CoAP;MQTT;AMQP;XMPP;DDS;mDNS;IoT gateway}
+    \endentry
+    \entry{RESTAPI}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=d7e03c1338e9bc842f97252ae7259ac5}{%
+           family={GmbH},
+           familyi={G\bibinitperiod},
+           given={AllBytes},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{d7e03c1338e9bc842f97252ae7259ac5}
+      \strng{fullhash}{d7e03c1338e9bc842f97252ae7259ac5}
+      \strng{fullhashraw}{d7e03c1338e9bc842f97252ae7259ac5}
+      \strng{bibnamehash}{d7e03c1338e9bc842f97252ae7259ac5}
+      \strng{authorbibnamehash}{d7e03c1338e9bc842f97252ae7259ac5}
+      \strng{authornamehash}{d7e03c1338e9bc842f97252ae7259ac5}
+      \strng{authorfullhash}{d7e03c1338e9bc842f97252ae7259ac5}
+      \strng{authorfullhashraw}{d7e03c1338e9bc842f97252ae7259ac5}
+      \field{extraname}{1}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{REST API Schnittstellen}
+      \field{urlday}{3}
+      \field{urlmonth}{5}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.allbytes.de/blog/rest-api-schnittstellen/
+      \endverb
+      \verb{url}
+      \verb https://www.allbytes.de/blog/rest-api-schnittstellen/
+      \endverb
+    \endentry
+    \entry{QlockTwoClassicSekundenanzeige}{manual}{}{}
+      \name{author}{1}{}{%
+        {{hash=07fa522ddafa398466d6ae7065adc7ce}{%
+           family={GmbH},
+           familyi={G\bibinitperiod},
+           given={QLOCKTWO\bibnamedelima Manufacture},
+           giveni={Q\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {QLOCKTWO Manufacture GmbH}%
+      }
+      \strng{namehash}{07fa522ddafa398466d6ae7065adc7ce}
+      \strng{fullhash}{07fa522ddafa398466d6ae7065adc7ce}
+      \strng{fullhashraw}{07fa522ddafa398466d6ae7065adc7ce}
+      \strng{bibnamehash}{07fa522ddafa398466d6ae7065adc7ce}
+      \strng{authorbibnamehash}{07fa522ddafa398466d6ae7065adc7ce}
+      \strng{authornamehash}{07fa522ddafa398466d6ae7065adc7ce}
+      \strng{authorfullhash}{07fa522ddafa398466d6ae7065adc7ce}
+      \strng{authorfullhashraw}{07fa522ddafa398466d6ae7065adc7ce}
+      \field{extraname}{2}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{QLOCKTWO CLASSIC Genießen Sie die Zeit}
+      \field{urlday}{17}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.wohn-design.com/amfile/file/download/file/75/product/151/#:~:text=Sekundenanzeige%20ein%2D/ausschalten:%20Sekunden%20erscheinen%20auf%20dem%20Frontcover,%3E%20Sekundenanzeige%20einschalten:%20Taste%20%5B%20%5D%20ca.
+      \endverb
+      \verb{url}
+      \verb https://www.wohn-design.com/amfile/file/download/file/75/product/151/#:~:text=Sekundenanzeige%20ein%2D/ausschalten:%20Sekunden%20erscheinen%20auf%20dem%20Frontcover,%3E%20Sekundenanzeige%20einschalten:%20Taste%20%5B%20%5D%20ca.
+      \endverb
+    \endentry
+    \entry{hernandez2022wifi}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=9cc77b2d7d017010e3c8c1a4d8559da6}{%
+           family={Hernandez},
+           familyi={H\bibinitperiod},
+           given={Steven\bibnamedelima M.},
+           giveni={S\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=b7da533b804bffe892f903652dfe14eb}{%
+           family={Bulut},
+           familyi={B\bibinitperiod},
+           given={Eyuphan},
+           giveni={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{95f7b392070e334ee39d3dcbb4ea70a4}
+      \strng{fullhash}{95f7b392070e334ee39d3dcbb4ea70a4}
+      \strng{fullhashraw}{95f7b392070e334ee39d3dcbb4ea70a4}
+      \strng{bibnamehash}{95f7b392070e334ee39d3dcbb4ea70a4}
+      \strng{authorbibnamehash}{95f7b392070e334ee39d3dcbb4ea70a4}
+      \strng{authornamehash}{95f7b392070e334ee39d3dcbb4ea70a4}
+      \strng{authorfullhash}{95f7b392070e334ee39d3dcbb4ea70a4}
+      \strng{authorfullhashraw}{95f7b392070e334ee39d3dcbb4ea70a4}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Communications Surveys and Tutorials}
+      \field{number}{1}
+      \field{title}{WiFi Sensing on the Edge: Signal Processing Techniques and Challenges for Real-World Systems}
+      \field{volume}{25}
+      \field{year}{2023}
+      \field{pages}{46\bibrangedash 76}
+      \range{pages}{31}
+      \verb{doi}
+      \verb 10.1109/COMST.2022.3209144
+      \endverb
+      \keyw{Sensors;Wireless fidelity;OFDM;Signal processing;Tutorials;Task analysis;Time-frequency analysis;WiFi sensing;device-free sensing;channel state information;edge inference;signal processing;TinyML}
+    \endentry
+    \entry{hou2016iotcloud}{article}{}{}
+      \name{author}{7}{}{%
+        {{hash=3f700197bc611d3a99c7172d9fff2767}{%
+           family={Hou},
+           familyi={H\bibinitperiod},
+           given={Lu},
+           giveni={L\bibinitperiod}}}%
+        {{hash=869255fb60bfbc65cf63d7376e30301e}{%
+           family={Zhao},
+           familyi={Z\bibinitperiod},
+           given={Shaohang},
+           giveni={S\bibinitperiod}}}%
+        {{hash=e51c5d677cf9110e4a09988171cd7685}{%
+           family={Xiong},
+           familyi={X\bibinitperiod},
+           given={Xiong},
+           giveni={X\bibinitperiod}}}%
+        {{hash=4ac471b84e6b8c3d15eb682cc39ccdd0}{%
+           family={Zheng},
+           familyi={Z\bibinitperiod},
+           given={Kan},
+           giveni={K\bibinitperiod}}}%
+        {{hash=2c152bee77fb90bc813e27fd6ba3ea4d}{%
+           family={Chatzimisios},
+           familyi={C\bibinitperiod},
+           given={Periklis},
+           giveni={P\bibinitperiod}}}%
+        {{hash=f6b0b51648c9acf4b73db38f5961ee3e}{%
+           family={Hossain},
+           familyi={H\bibinitperiod},
+           given={M.\bibnamedelimi Shamim},
+           giveni={M\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=3844102187eee3c3c63e59356b0117b7}{%
+           family={Xiang},
+           familyi={X\bibinitperiod},
+           given={Wei},
+           giveni={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{dd9b4f1e987b7b8d3462ff18bf66958a}
+      \strng{fullhash}{b3358af1b1113ece5629308c648532a7}
+      \strng{fullhashraw}{b3358af1b1113ece5629308c648532a7}
+      \strng{bibnamehash}{dd9b4f1e987b7b8d3462ff18bf66958a}
+      \strng{authorbibnamehash}{dd9b4f1e987b7b8d3462ff18bf66958a}
+      \strng{authornamehash}{dd9b4f1e987b7b8d3462ff18bf66958a}
+      \strng{authorfullhash}{b3358af1b1113ece5629308c648532a7}
+      \strng{authorfullhashraw}{b3358af1b1113ece5629308c648532a7}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Communications Magazine}
+      \field{number}{12}
+      \field{title}{Internet of Things Cloud: Architecture and Implementation}
+      \field{volume}{54}
+      \field{year}{2016}
+      \field{pages}{32\bibrangedash 39}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1109/MCOM.2016.1600398CM
+      \endverb
+      \keyw{Internet of Things;Cloud computing;Network architecture;Service-oriented systems engineering;Queueing analysis;Message systems}
+    \endentry
+    \entry{klein1994time}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=bfd395a1ac0d704b775c607b8b18c7d5}{%
+           family={Klein},
+           familyi={K\bibinitperiod},
+           given={Wolfgang},
+           giveni={W\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {London/New York}%
+      }
+      \list{publisher}{1}{%
+        {Routledge}%
+      }
+      \strng{namehash}{bfd395a1ac0d704b775c607b8b18c7d5}
+      \strng{fullhash}{bfd395a1ac0d704b775c607b8b18c7d5}
+      \strng{fullhashraw}{bfd395a1ac0d704b775c607b8b18c7d5}
+      \strng{bibnamehash}{bfd395a1ac0d704b775c607b8b18c7d5}
+      \strng{authorbibnamehash}{bfd395a1ac0d704b775c607b8b18c7d5}
+      \strng{authornamehash}{bfd395a1ac0d704b775c607b8b18c7d5}
+      \strng{authorfullhash}{bfd395a1ac0d704b775c607b8b18c7d5}
+      \strng{authorfullhashraw}{bfd395a1ac0d704b775c607b8b18c7d5}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Time in Language}
+      \field{year}{1994}
+    \endentry
+    \entry{kucharczyk2012sprachliche}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=e0d2282684e1da29e0edc84f2f7cb109}{%
+           family={Kucharczyk},
+           familyi={K\bibinitperiod},
+           given={Magdalena},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{e0d2282684e1da29e0edc84f2f7cb109}
+      \strng{fullhash}{e0d2282684e1da29e0edc84f2f7cb109}
+      \strng{fullhashraw}{e0d2282684e1da29e0edc84f2f7cb109}
+      \strng{bibnamehash}{e0d2282684e1da29e0edc84f2f7cb109}
+      \strng{authorbibnamehash}{e0d2282684e1da29e0edc84f2f7cb109}
+      \strng{authornamehash}{e0d2282684e1da29e0edc84f2f7cb109}
+      \strng{authorfullhash}{e0d2282684e1da29e0edc84f2f7cb109}
+      \strng{authorfullhashraw}{e0d2282684e1da29e0edc84f2f7cb109}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Linguistische Treffen in Wroc{ł}aw}
+      \field{title}{Zur sprachlichen Situation in Oberschlesien}
+      \field{volume}{8}
+      \field{year}{2012}
+      \field{pages}{207\bibrangedash 218}
+      \range{pages}{12}
+    \endentry
+    \entry{lakoff1987women}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=2deed924611887bd7d95ba87f5720dda}{%
+           family={Lakoff},
+           familyi={L\bibinitperiod},
+           given={George},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Chicago}%
+      }
+      \list{publisher}{1}{%
+        {University of Chicago Press}%
+      }
+      \strng{namehash}{2deed924611887bd7d95ba87f5720dda}
+      \strng{fullhash}{2deed924611887bd7d95ba87f5720dda}
+      \strng{fullhashraw}{2deed924611887bd7d95ba87f5720dda}
+      \strng{bibnamehash}{2deed924611887bd7d95ba87f5720dda}
+      \strng{authorbibnamehash}{2deed924611887bd7d95ba87f5720dda}
+      \strng{authornamehash}{2deed924611887bd7d95ba87f5720dda}
+      \strng{authorfullhash}{2deed924611887bd7d95ba87f5720dda}
+      \strng{authorfullhashraw}{2deed924611887bd7d95ba87f5720dda}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Women, Fire, and Dangerous Things: What Categories Reveal About the Mind}
+      \field{year}{1987}
+    \endentry
+    \entry{langacker1987foundations}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=fbba8360ae71cc3ecd26d1ff8ab85f08}{%
+           family={Langacker},
+           familyi={L\bibinitperiod},
+           given={Ronald\bibnamedelima W.},
+           giveni={R\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Stanford}%
+      }
+      \list{publisher}{1}{%
+        {Stanford University Press}%
+      }
+      \strng{namehash}{fbba8360ae71cc3ecd26d1ff8ab85f08}
+      \strng{fullhash}{fbba8360ae71cc3ecd26d1ff8ab85f08}
+      \strng{fullhashraw}{fbba8360ae71cc3ecd26d1ff8ab85f08}
+      \strng{bibnamehash}{fbba8360ae71cc3ecd26d1ff8ab85f08}
+      \strng{authorbibnamehash}{fbba8360ae71cc3ecd26d1ff8ab85f08}
+      \strng{authornamehash}{fbba8360ae71cc3ecd26d1ff8ab85f08}
+      \strng{authorfullhash}{fbba8360ae71cc3ecd26d1ff8ab85f08}
+      \strng{authorfullhashraw}{fbba8360ae71cc3ecd26d1ff8ab85f08}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Foundations of Cognitive Grammar. Vol. 1: Theoretical Prerequisites}
+      \field{year}{1987}
+    \endentry
+    \entry{mills1991ntp}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=4b1396e667623e51997742792acf06da}{%
+           family={Mills},
+           familyi={M\bibinitperiod},
+           given={D.L.},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{4b1396e667623e51997742792acf06da}
+      \strng{fullhash}{4b1396e667623e51997742792acf06da}
+      \strng{fullhashraw}{4b1396e667623e51997742792acf06da}
+      \strng{bibnamehash}{4b1396e667623e51997742792acf06da}
+      \strng{authorbibnamehash}{4b1396e667623e51997742792acf06da}
+      \strng{authornamehash}{4b1396e667623e51997742792acf06da}
+      \strng{authorfullhash}{4b1396e667623e51997742792acf06da}
+      \strng{authorfullhashraw}{4b1396e667623e51997742792acf06da}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Communications}
+      \field{number}{10}
+      \field{title}{Internet time synchronization: the network time protocol}
+      \field{volume}{39}
+      \field{year}{1991}
+      \field{pages}{1482\bibrangedash 1493}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1109/26.103043
+      \endverb
+      \keyw{IP networks;Protocols;Clocks;Synchronization;Internet;Web server;Network servers;Milling machines;Maintenance;Wire}
+    \endentry
+    \entry{naylor2014https}{inproceedings}{}{}
+      \name{author}{8}{}{%
+        {{hash=013dbad7a9eb63b14e1a037d18b33f7f}{%
+           family={Naylor},
+           familyi={N\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=05ffbfe81216070bb3cf75995e64d7df}{%
+           family={Finamore},
+           familyi={F\bibinitperiod},
+           given={Alessandro},
+           giveni={A\bibinitperiod}}}%
+        {{hash=b8cd35e34bfc5c9a7b270d6e7971d881}{%
+           family={Leontiadis},
+           familyi={L\bibinitperiod},
+           given={Ilias},
+           giveni={I\bibinitperiod}}}%
+        {{hash=c04b92e407ff554057081fdd9827e35f}{%
+           family={Grunenberger},
+           familyi={G\bibinitperiod},
+           given={Yan},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=eb9a294b3de43f233bed8a0892fcf225}{%
+           family={Mellia},
+           familyi={M\bibinitperiod},
+           given={Marco},
+           giveni={M\bibinitperiod}}}%
+        {{hash=35df41fb6545c51446c0f88dd0a5a725}{%
+           family={Munafò},
+           familyi={M\bibinitperiod},
+           given={Maurizio},
+           giveni={M\bibinitperiod}}}%
+        {{hash=d548f2f9d3c14800f049e0c9f0847568}{%
+           family={Papagiannaki},
+           familyi={P\bibinitperiod},
+           given={Konstantina},
+           giveni={K\bibinitperiod}}}%
+        {{hash=bbdb5af156c61cdb2f5ce57cd9833841}{%
+           family={Steenkiste},
+           familyi={S\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York, NY, USA}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computing Machinery}%
+      }
+      \strng{namehash}{c6f4bcb0b9976cbb9d495f64f89a45d7}
+      \strng{fullhash}{614aa3bad7afc0dbbcf77c9eede5f1f0}
+      \strng{fullhashraw}{614aa3bad7afc0dbbcf77c9eede5f1f0}
+      \strng{bibnamehash}{c6f4bcb0b9976cbb9d495f64f89a45d7}
+      \strng{authorbibnamehash}{c6f4bcb0b9976cbb9d495f64f89a45d7}
+      \strng{authornamehash}{c6f4bcb0b9976cbb9d495f64f89a45d7}
+      \strng{authorfullhash}{614aa3bad7afc0dbbcf77c9eede5f1f0}
+      \strng{authorfullhashraw}{614aa3bad7afc0dbbcf77c9eede5f1f0}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 10th ACM International on Conference on Emerging Networking Experiments and Technologies}
+      \field{isbn}{9781450332798}
+      \field{title}{The Cost of the "S" in HTTPS}
+      \field{year}{2014}
+      \field{pages}{133\bibrangedash 140}
+      \range{pages}{8}
+      \verb{urlraw}
+      \verb https://doi.org/10.1145/2674005.2674991
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1145/2674005.2674991
+      \endverb
+    \endentry
+    \entry{openmeteo}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=6416a59f90819c052d0abaec137aca32}{%
+           family={Open-Meteo},
+           familyi={O\bibinithyphendelim M\bibinitperiod}}}%
+      }
+      \strng{namehash}{6416a59f90819c052d0abaec137aca32}
+      \strng{fullhash}{6416a59f90819c052d0abaec137aca32}
+      \strng{fullhashraw}{6416a59f90819c052d0abaec137aca32}
+      \strng{bibnamehash}{6416a59f90819c052d0abaec137aca32}
+      \strng{authorbibnamehash}{6416a59f90819c052d0abaec137aca32}
+      \strng{authornamehash}{6416a59f90819c052d0abaec137aca32}
+      \strng{authorfullhash}{6416a59f90819c052d0abaec137aca32}
+      \strng{authorfullhashraw}{6416a59f90819c052d0abaec137aca32}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Free Weather API}
+      \field{urlday}{30}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://open-meteo.com/
+      \endverb
+      \verb{url}
+      \verb https://open-meteo.com/
+      \endverb
+    \endentry
+    \entry{pinker1994language}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=026a9bbaeb03e57886733eb6c1f1be1c}{%
+           family={Pinker},
+           familyi={P\bibinitperiod},
+           given={Steven},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{2}{%
+        {William Morrow}%
+        {Company}%
+      }
+      \strng{namehash}{026a9bbaeb03e57886733eb6c1f1be1c}
+      \strng{fullhash}{026a9bbaeb03e57886733eb6c1f1be1c}
+      \strng{fullhashraw}{026a9bbaeb03e57886733eb6c1f1be1c}
+      \strng{bibnamehash}{026a9bbaeb03e57886733eb6c1f1be1c}
+      \strng{authorbibnamehash}{026a9bbaeb03e57886733eb6c1f1be1c}
+      \strng{authornamehash}{026a9bbaeb03e57886733eb6c1f1be1c}
+      \strng{authorfullhash}{026a9bbaeb03e57886733eb6c1f1be1c}
+      \strng{authorfullhashraw}{026a9bbaeb03e57886733eb6c1f1be1c}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The Language Instinct: How the Mind Creates Language}
+      \field{year}{1994}
+    \endentry
+    \entry{dhcp2023}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=808b576b4e0cf620bda299ebec940297}{%
+           family={Redaktion},
+           familyi={R\bibinitperiod},
+           given={United\bibnamedelima Domains},
+           giveni={U\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \strng{namehash}{808b576b4e0cf620bda299ebec940297}
+      \strng{fullhash}{808b576b4e0cf620bda299ebec940297}
+      \strng{fullhashraw}{808b576b4e0cf620bda299ebec940297}
+      \strng{bibnamehash}{808b576b4e0cf620bda299ebec940297}
+      \strng{authorbibnamehash}{808b576b4e0cf620bda299ebec940297}
+      \strng{authornamehash}{808b576b4e0cf620bda299ebec940297}
+      \strng{authorfullhash}{808b576b4e0cf620bda299ebec940297}
+      \strng{authorfullhashraw}{808b576b4e0cf620bda299ebec940297}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{DHCP – Das Protokoll für die Netzwerkverständigung}
+      \field{urlday}{1}
+      \field{urlmonth}{5}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.united-domains.de/blog/dhcp-das-protokoll-fuer-die-netzwerkverstaendigung/
+      \endverb
+      \verb{url}
+      \verb https://www.united-domains.de/blog/dhcp-das-protokoll-fuer-die-netzwerkverstaendigung/
+      \endverb
+    \endentry
+    \entry{W3Shttp}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=bd21525362368ddbd79358cdcf66005d}{%
+           family={W3Schools},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{bd21525362368ddbd79358cdcf66005d}
+      \strng{fullhash}{bd21525362368ddbd79358cdcf66005d}
+      \strng{fullhashraw}{bd21525362368ddbd79358cdcf66005d}
+      \strng{bibnamehash}{bd21525362368ddbd79358cdcf66005d}
+      \strng{authorbibnamehash}{bd21525362368ddbd79358cdcf66005d}
+      \strng{authornamehash}{bd21525362368ddbd79358cdcf66005d}
+      \strng{authorfullhash}{bd21525362368ddbd79358cdcf66005d}
+      \strng{authorfullhashraw}{bd21525362368ddbd79358cdcf66005d}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{HTTP Request Methods}
+      \field{urlday}{3}
+      \field{urlmonth}{5}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.w3schools.com/Tags/ref_httpmethods.asp
+      \endverb
+      \verb{url}
+      \verb https://www.w3schools.com/Tags/ref_httpmethods.asp
+      \endverb
+    \endentry
+    \entry{WaveshareESP32C6}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=b7e398bfd94bab7e7a98e2bd288cb5aa}{%
+           family={Waveshare},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{b7e398bfd94bab7e7a98e2bd288cb5aa}
+      \strng{fullhash}{b7e398bfd94bab7e7a98e2bd288cb5aa}
+      \strng{fullhashraw}{b7e398bfd94bab7e7a98e2bd288cb5aa}
+      \strng{bibnamehash}{b7e398bfd94bab7e7a98e2bd288cb5aa}
+      \strng{authorbibnamehash}{b7e398bfd94bab7e7a98e2bd288cb5aa}
+      \strng{authornamehash}{b7e398bfd94bab7e7a98e2bd288cb5aa}
+      \strng{authorfullhash}{b7e398bfd94bab7e7a98e2bd288cb5aa}
+      \strng{authorfullhashraw}{b7e398bfd94bab7e7a98e2bd288cb5aa}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{ESP32-C6-DEV-KIT-N8}
+      \field{urlday}{25}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.waveshare.com/wiki/ESP32-C6-DEV-KIT-N8
+      \endverb
+      \verb{url}
+      \verb https://www.waveshare.com/wiki/ESP32-C6-DEV-KIT-N8
+      \endverb
+    \endentry
+    \entry{wehner_json_iot}{inproceedings}{}{}
+      \name{author}{3}{}{%
+        {{hash=a99ccc2fa3be14f2b33571a9d46f1601}{%
+           family={Wehner},
+           familyi={W\bibinitperiod},
+           given={Philipp},
+           giveni={P\bibinitperiod}}}%
+        {{hash=0ed4eaf6260e63d388d431ddac67ef61}{%
+           family={Piberger},
+           familyi={P\bibinitperiod},
+           given={Christina},
+           giveni={C\bibinitperiod}}}%
+        {{hash=a197a14c579b789542f9dae05fb71e14}{%
+           family={Göhringer},
+           familyi={G\bibinitperiod},
+           given={Diana},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{da2fcad3b6026880475e10d4c3b9f769}
+      \strng{fullhash}{da2fcad3b6026880475e10d4c3b9f769}
+      \strng{fullhashraw}{da2fcad3b6026880475e10d4c3b9f769}
+      \strng{bibnamehash}{da2fcad3b6026880475e10d4c3b9f769}
+      \strng{authorbibnamehash}{da2fcad3b6026880475e10d4c3b9f769}
+      \strng{authornamehash}{da2fcad3b6026880475e10d4c3b9f769}
+      \strng{authorfullhash}{da2fcad3b6026880475e10d4c3b9f769}
+      \strng{authorfullhashraw}{da2fcad3b6026880475e10d4c3b9f769}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2014 9th International Symposium on Reconfigurable and Communication-Centric Systems-on-Chip (ReCoSoC)}
+      \field{title}{Using JSON to manage communication between services in the Internet of Things}
+      \field{year}{2014}
+      \field{pages}{1\bibrangedash 4}
+      \range{pages}{4}
+      \verb{doi}
+      \verb 10.1109/ReCoSoC.2014.6861361
+      \endverb
+      \keyw{Field programmable gate arrays;Cameras;Internet of Things;Hardware;Protocols;XML;Acceleration;Internet of Things;FPGA;Reconfigurable Computing;JSON;Distributed Computing;Robotics;Image processing;OpenCV}
+    \endentry
+    \entry{Worldsemi2013}{manual}{}{}
+      \name{author}{1}{}{%
+        {{hash=28eb9342d4de72ed56788634eb9bef8e}{%
+           family={Worldsemi},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{28eb9342d4de72ed56788634eb9bef8e}
+      \strng{fullhash}{28eb9342d4de72ed56788634eb9bef8e}
+      \strng{fullhashraw}{28eb9342d4de72ed56788634eb9bef8e}
+      \strng{bibnamehash}{28eb9342d4de72ed56788634eb9bef8e}
+      \strng{authorbibnamehash}{28eb9342d4de72ed56788634eb9bef8e}
+      \strng{authornamehash}{28eb9342d4de72ed56788634eb9bef8e}
+      \strng{authorfullhash}{28eb9342d4de72ed56788634eb9bef8e}
+      \strng{authorfullhashraw}{28eb9342d4de72ed56788634eb9bef8e}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Datasheet}
+      \field{title}{WS2812B: Intelligent control LED integrated light source}
+      \field{urlday}{15}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf
+      \endverb
+      \verb{url}
+      \verb https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

@@ -1,2 +1,19 @@
 \section{Integrationstests} \todo{7.3 + Abkürzungscheck}
-Zusammenspiel der Komponenten prüfen
+Nach Abschluss der Modultests erfolgt die Zusammenführung der einzelnen Komponenten zum Gesamtsystem.  
+Dabei wird insbesondere das Zusammenspiel zwischen Hardware, Sensorik, Netzwerkkommunikation und LED-Ansteuerung überprüft.  
+Die Integration erfolgt die Prüfung der Zeitanzeige durch Vergleich mit der Referenzzeit auf einem Smartphone.  
+Dabei wird insbesondere beobachtet, ob Sekunden- und Minutenwechsel korrekt dargestellt werden.  
+
+Zur Überprüfung aller Minutenanzeigen wird die Wortuhr über einen Zeitraum von einer Stunde beobachtet.  
+Dadurch kann jede mögliche Minutenanzeige mindestens einmal geprüft werden.  
+Während dieser Tests wird ein Fehler bei der sprachlichen Zuordnung der Uhrzeit festgestellt.  
+Ab dem Bereich „zwanzig nach“ stimmt der Bezug zur folgenden Stunde zunächst nicht korrekt.  
+Die Logik zur Berechnung der anzuzeigenden Stunde wird daraufhin angepasst.  
+
+Zusätzlich erfolgt die Überprüfung der Temperatur- und Wetterdarstellung.  
+Die angezeigten Wetterzustände werden mit aktuellen Wetterdaten eines Wetterdienstes verglichen.  
+Darüber hinaus erfolgt eine subjektive Bewertung der Temperatur- und Wetterklassifikation durch befragen von mehrere Personen.  
+Dabei wird überprüft, ob die gewählten Temperaturbereiche und Wetterbezeichnungen plausibel sind und durch dritte ebenfalls so wahrgenommen werden ohne dass den befragten Personen die aktuelle Anzeige bekannt ist.
+Es geht dabei vorallem um die Schwellenwerte in der Temperaturanzeige, wie ab wann man von sommerlichen Temperaturen spricht.  
+
+Die Integrationstests zeigen, dass das Zusammenspiel der einzelnen Komponenten nach der Fehlerkorrektur zuverlässig funktioniert und die Schwellenwerte für Temperatur- und Wetteranzeige gut gewählt sind.

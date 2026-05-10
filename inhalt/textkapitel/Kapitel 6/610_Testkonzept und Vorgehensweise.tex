@@ -1,3 +1,22 @@
 \section{Testkonzept und Vorgehensweise} \todo{7.1 + Abkürzungscheck}
-Wie getestet wurde
-Warum diese Tests gewählt wurden
+Die Verifikation und Validierung der Wortuhr erfolgt schrittweise entsprechend der Vorgehensweise des V-Modells.  
+Dabei werden einzelne Funktionen zunächst unabhängig getestet und anschließend schrittweise zu einem Gesamtsystem integriert.  
+
+Zu Beginn der Entwicklung erfolgt die Inbetriebnahme der Hardware auf einem Breadboard.  
+Dadurch kann eine flexible Anpassung der Verdrahtung vorgenommen werden.  
+Diese Vorgehensweise erleichtert insbesondere die Auswahl geeigneter GPIO-Pins des ESP32.  
+Während der Inbetriebnahme zeigt sich, dass einzelne GPIO-Pins zusätzliche Hardwarefunktionen besitzen.  
+Hierzu zählt beispielsweise die integrierte RGB-LED des Mikrocontrollers.  
+Dadurch treten unerwartete optische Effekte auf, welche bei der finalen Pinbelegung berücksichtigt werden müssen.  
+
+Die Tests erfolgen zunächst getrennt für die einzelnen LED-Streifen.  
+Dabei wird zuerst der Hauptstreifen für die Wortanzeige getestet.  
+Anschließend erfolgt die Prüfung der Sekundenanzeige sowie der Zusatzfunktionen des dritten LED-Streifens.  
+Nach erfolgreicher Prüfung der Einzelkomponenten erfolgt die schrittweise Zusammenführung der Hardware- und Softwaremodule.  
+Dadurch können Fehler frühzeitig erkannt und eindeutig einzelnen Funktionsgruppen zugeordnet werden.  
+
+Für die Spannungsversorgung wird zunächst ein Netzteil mit einer maximalen Stromstärke von 1~A verwendet.  
+Während der Inbetriebnahme zeigt sich jedoch, dass die Versorgungsspannung insbesondere während des Boot-Modus einbricht.  
+Dadurch startet das System teilweise nicht zuverlässig.  
+Der Boot-Modus wird daher als Referenz für die maximale Leistungsaufnahme verwendet.  
+Auf Basis dieser Beobachtungen erfolgt die Auswahl eines leistungsfähigeren Netzteils mit ausreichender Leistungsreserve. 

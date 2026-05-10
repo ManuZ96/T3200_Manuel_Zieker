@@ -179,6 +179,42 @@
 \usepackage{xcolor}              % Farben für Syntax-Highlighting
 \renewcommand{\lstlistlistingname}{Skriptverzeichnis}     %Titel vergeben selbst
 
+\lstdefinestyle{cppstyle}{
+    language=C++,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    commentstyle=\color{green!50!black},
+    stringstyle=\color{red!70!black},
+    numbers=left,
+    numberstyle=\tiny,
+    stepnumber=1,
+    numbersep=8pt,
+    breaklines=true,
+    breakatwhitespace=true,
+    showstringspaces=false,
+    frame=single,
+    columns=fullflexible,
+    keepspaces=true
+}
+
+\lstdefinestyle{arduino}{
+    language=C++,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    commentstyle=\color{green!50!black},
+    stringstyle=\color{red!70!black},
+    numbers=left,
+    numberstyle=\tiny,
+    stepnumber=1,
+    numbersep=8pt,
+    breaklines=true,
+    breakatwhitespace=true,
+    showstringspaces=false,
+    frame=single,
+    columns=fullflexible,
+    keepspaces=true
+}
+
 % Eigene Einstellungen für Code-Darstellung
 \definecolor{comment}{HTML}{0A943F}
 \definecolor{keyword}{HTML}{184FDB}

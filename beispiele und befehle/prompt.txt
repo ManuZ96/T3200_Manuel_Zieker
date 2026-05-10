@@ -1,6 +1,6 @@
 Prompt für eine wissenschaftliche Arbeit
 
-Text schreiben in/für Kapitel: \chapter{Realisierung des Systems}
+Text schreiben in/für Kapitel: 
 Kontext: Text schreiben für meine Bachelorarbeit im Studium der Fachrichtung Elektrotechnik
 Schreibstil: Sachlich,wissenschaftlich,argumentativ,präzise und objektiv. Vermeide Füllwörter, persönliche Meinungen und umgangssprachliche Formulierungen.
 Sprache: Geschlechtergerecht Gendern (z.B. durch Doppelpunkt oder Sternchen)
@@ -12,43 +12,4 @@ Format :LaTeX
 Übergabe des Textes: Gib mir immer einen Satz pro Zeile.
 Zielgruppe: Fachbereich, Professoren aus dem Fachbereich Elektrotechnik, akademische Publikation
 Thema der Arbeit: Konzeptionierung, Entwicklung und Bau einer Wortuhr mit diversen Zusatzfunktionen
-Vorhandene Infos: Kapitelstruktur mit Stichpunkten und dann einer kurzen Beschreibung was jeweils gemacht wurde und was rein soll. Ich habe hier nur wild aufgeschrieben was ich alles gemacht habe, das solltest du dann natürlich chronologisch und in einer reihenfolge mit rotem faden sortieren und entsprechend nach dem oben benannten styl und kriterien schreiben.
-
-\section{Mechanische Konstruktion und Fertigung}
-Als Grundplatte eine Multiplexplatte mit den maßen HXBXT auf der die Abdeckungen verschraubt werden, auf der die LED bänder montiert werden und an dem der mikrocontroller auf der rückseite befestigt wird.
-Selbst konstruierte Bauteile für die Frontplatte bzw LED einhausung mit der bUchstaben matrix.
-Hier soll später von mir 3 Bilder rein, die die 3 varianten an bauteilen zeigen die ich drucke
-Es gibt mittelstücke, eckstücke und Seitenstücke die vom grundprinzip gleich sind aber je nach position andere Buchstaben in haben oder andere symbole wenn es um die Zusatzfunktion zur darstellung von feuchtigkeit im raum, innenraumtemperatur, aktuelle mondphase und tageszeit geht.
-Für die 4 Zusatzfunktionen möchte ich ein 4er bild in 2x2 darstellung das jeweils eine der Zusatzfunktionen zeigt wie sie designt wurden.
-Alle 16 Teile die konstruiert wurden werden miteinander verschraubt so dass sich eine Große abdeckung mit den Maßen HxBxT ergibt.
-An den Eckstücken sind die befestigungspunkte zur holzplatte mit M4x20 schrauben. In die Eckstücke werden Heatinserts, das sind einpressgewinde für 3D Druck die mit einem lötkolben eingeschmolzen werden können, eingesetzt um das ganze zu verschrauben.
-Zur verschraubung von den 16 einzelteilen sind nur durchgangslöcher vorgesehen wo dann mit m3x12 schraube und m3 mutter und unterlegscheibe verschraubt wird.
-Jeder Buchstabe und Jedes Fenster bzw Symbol hat ein Diffusorplättchen das eingesetzt wird gegen hotspots der leds. Diese sind auch 3D gedruckt mit einer Layerzahl von 2 wobei die dicke 0.4mm beträgt. Die notwendige dicke damit die diffuse wirkung nicht zu sehr aber auch nicht zu gering ist wurde empirisch ermittelt.
-Zusätzlich werden kabelführungen gedruckt und eine montageplatte auf der der mikrocontroll dann auf der rückseit so montiert wird, dass man an die usb-C schnittstelle von diese an der seite der uhr rankommt, auch wenn die montiert ist falls es mal nötig ist.
-
-
-\section{Installation der elektrischen Komponenten}
-Verdrahtung --> Schaltplan bild soll hier an passender stelle mit rein, nur vorbereiten von dir.
-Es werden 3 led streifen verwendet die alle an der selben spannungsquelle angeschlossen sind aber separate Signalpins verwenden. Auch der Microcontroller Esp322-C6 hängt an der selben versorugn und ground mit +5V
-Stromversorgung und kurze Berechnung des benötigten Netzteils anhand der maximal aktiven led anzahl mit den kennwerten der LED ( gib mir hier freiraum wo ich das spöter exakt einfügen kann bereite mir nur die formlen vor anhand versorgungsspannung W/länge der led streifen anzahl der LEDs/m und Anzahl der verwendeten leds an einem Spannungsstrang)
--> Bild schaltplan
-<Bild der Grundplatte mit montierten LEDS an sinnvoller stelle vorsehen>
-
-
-\section{Aufbau der Wortuhr}
-Nachdem alle Bänder verlötet und eine durchführung für die leitungen auf die rückseite der Multiplexplatte gebohrt wurde, wird die Frontbaugruppe aus den 16 einzelteilen aufgestz und verschraubt.
-<Bild dafür vorsehen>
-Dann wird der microcontroller für Testzwecke mit einem Breadboard und entsprechenden Jumperkabeln verdrahtet und angeschlossen. Später wenn die ganzen tests abgeschlossen sind das alle pins funktionieren etc. wurden dann die leitungen richtig verlötet.
-
-\section{Implementierung der Software}
-Hier wird die grundlegende softwar programmiert und aufgespielt. DAs ganze schrittweise um einzelne funktionen zu testen und dann nach und nach neue funktionen zu erweitern und wieder zu testen bis alle grundlegenden anzeigefunktionen funktionieren. Ich gebe dir am ende nochmal meinen gesamten code, nimm dann die hierfür relevanten code stellen (natürlich nur die wichtigsten es soll kein overload werden) und binde die hier evt mit ein. 
-
-\section{Anbindung externer Datenquellen}
-Das selbe wie im kapitel dafür mit den hier relevanten funktionen.
-
-\section{Integration der mobile Steuerung}
-Das selbe wie im kapitel dafür mit den hier relevanten funktionen.
-Zusätzlich bilder vorsehen wie die seite auf dem handy aussieht und eine kurze beschreibung was sich einstellen lässt und wie.
-
-
-Und hier jetzt wie oben angekündigt der komplette code. Den darfst du logischerweise nicht ändern sondern nur benutzen der funktioniert genau so wie er ist.
+Vorhandene Infos:
