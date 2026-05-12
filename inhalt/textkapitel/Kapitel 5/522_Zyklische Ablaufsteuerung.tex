@@ -1,0 +1,60 @@
+\subsection{Zyklische Ablaufsteuerung}
+Nach der Initialisierung wird das System in einer Endlosschleife betrieben. 
+Innerhalb dieser Schleife werden zyklisch Webanfragen verarbeitet, Zeitinformationen aktualisiert sowie Anzeige- und Sensorfunktionen ausgeführt. 
+Die zeitliche Steuerung erfolgt über feste Intervalle, wodurch eine gleichmäßige und deterministische Aktualisierung gewährleistet wird. 
+Der vollständige Ablauf ist in Abbildung~\ref{fig:hauptprogramm} dargestellt.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    node distance=0.45cm,
+    startstop/.style={rectangle, rounded corners, minimum width=4cm, minimum height=0.8cm, text centered, draw=black},
+    process/.style={rectangle, minimum width=4.6cm, minimum height=0.8cm, text centered, draw=black},
+    decision/.style={diamond, aspect=2.4, minimum width=4cm, minimum height=1cm, text centered, draw=black},
+    io/.style={trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=4.6cm, minimum height=0.8cm, text centered, draw=black},
+    arrow/.style={thick, ->, >=stealth}
+]
+
+\node (start) [startstop] {Start};
+\node (setup) [process, below=of start] {setup ausführen};
+\node (loop) [process, below=of setup] {loop dauerhaft wiederholen};
+\node (web) [process, below=of loop] {Webserver-Anfragen bearbeiten};
+\node (check500) [decision, below=of web] {500 ms vergangen?};
+\node (time) [process, below=of check500] {Zeit abfragen};
+\node (valid) [decision, below=of time] {Zeit gültig?};
+\node (daily) [process, below=of valid] {Zeit aktualisieren};
+\node (weather) [process, below=of daily] {Wetteraktualisierung abrufen};
+\node (sensor) [process, below=of weather] {Innenraumsensordaten abrufen};
+\node (wordclock) [io, below=of sensor] {Hauptanzeige anzeigen};
+\node (second) [io, below=of wordclock] {Sekunden anzeigen};
+\node (third) [io, below=of second] {Zusatzfunktionen anzeigen};
+
+\draw [arrow] (start) -- (setup);
+\draw [arrow] (setup) -- (loop);
+\draw [arrow] (loop) -- (web);
+\draw [arrow] (web) -- (check500);
+
+\draw [arrow] (check500) -- node[right] {Ja} (time);
+\draw [arrow] (time) -- (valid);
+\draw [arrow] (valid) -- node[right] {Ja} (daily);
+\draw [arrow] (daily) -- (weather);
+\draw [arrow] (weather) -- (sensor);
+\draw [arrow] (sensor) -- (wordclock);
+\draw [arrow] (wordclock) -- (second);
+\draw [arrow] (second) -- (third);
+
+\draw [arrow] (check500.east) -- ++(1.8,0)
+    node[midway, above] {Nein}
+    |- (loop.east);
+
+\draw [arrow] (valid.east) -- ++(3.0,0)
+    node[midway, above] {Nein}
+    |- (loop.east);
+
+\draw [arrow] (third.east) -- ++(3.0,0)
+    |- (loop.east);
+
+\end{tikzpicture}
+\caption{Schematischer Programmablaufplan des sich zyklisch wiederholenden Hauptprogramm der WordClock.}
+\label{fig:hauptprogramm}
+\end{figure}

@@ -1,0 +1,32 @@
+\subsection{Erweiterung durch Zusatzfunktionen}
+Neben der reinen Zeitanzeige wird das System um zusätzliche informative Funktionen erweitert. 
+Hierzu zählen die Anzeige von Wetter- und Temperaturdaten, die Tageszeit, die aktuelle Mondphase sowie die Integration eines Innenraumsensors zur Erfassung von Temperatur und Luftfeuchtigkeit. 
+Die Daten werden in definierten Zeitintervallen aktualisiert und anschließend in abstrahierter Form dargestellt. 
+Der Ablauf ist in Abbildung~\ref{fig:erweiterung} dargestellt.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    node distance=1.0cm,
+    startstop/.style={rectangle, rounded corners, minimum width=4cm, draw=black},
+    process/.style={rectangle, minimum width=4.8cm, draw=black},
+    decision/.style={diamond, aspect=2.3, draw=black},
+    io/.style={trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=4.6cm, minimum height=0.8cm, text centered, draw=black},
+    arrow/.style={->, thick}
+]
+
+\node (start) [startstop] {Zusatzfunktionen};
+\node (weather) [process, below=of start] {Open-Meteo-API Daten abfragen};
+\node (sensor) [process, below=of weather] {Sensorwerte abfragen};
+\node (display) [io, below=of sensor] {Zusatzfunktionen anzeigen};
+\node (end) [startstop, below=of display] {Ende};
+
+\draw [arrow] (start) -- (weather);
+\draw [arrow] (weather) -- (sensor);
+\draw [arrow] (sensor) -- (display);
+\draw [arrow] (display) -- (end);
+
+\end{tikzpicture}
+\caption{Schematischer Programmablaufplan zur Erzeugung der Anzeige für die WordClock, welche die informativen Zusatzfunktionen darstellt.}
+\label{fig:erweiterung}
+\end{figure}

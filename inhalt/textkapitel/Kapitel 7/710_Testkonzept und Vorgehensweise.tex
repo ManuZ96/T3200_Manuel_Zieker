@@ -1,0 +1,19 @@
+\section{Testkonzept und Vorgehensweise}
+Die Verifikation und Validierung der WordClock erfolgt schrittweise entsprechend der Vorgehensweise des V-Modells.  
+Einzelne Funktionen werden zunächst unabhängig getestet und anschließend schrittweise zu einem Gesamtsystem integriert.  
+
+Zu Beginn erfolgt die Inbetriebnahme der Hardware auf einem Breadboard.  
+Dadurch können Anpassungen der Verdrahtung flexibel umgesetzt werden.  
+Diese Vorgehensweise erleichtert insbesondere die Auswahl geeigneter \gls{gpio}-Pins des ESP32.  
+Während der Inbetriebnahme zeigt sich, dass einzelne \gls{gpio}-Pins zusätzliche Hardwarefunktionen besitzen.  
+Hierzu zählt beispielsweise die integrierte \gls{rgb}-\gls{led} des Mikrocontrollers.  
+Dadurch treten unerwartete optische Effekte auf.  
+Diese Effekte müssen bei der finalen Pinbelegung berücksichtigt werden.  
+
+Die Tests erfolgen zunächst getrennt für die einzelnen \gls{led}-Stränge.  
+Zuerst wird der Strang der Hauptanzeige der WordClock geprüft.  
+Hierbei werden einzelne \gls{led}s sowie die verschiedenen definierten Wörter einzeln angesteuert, um die korrekte Zuordnung und Funktionalität zu überprüfen.  
+Anschließend erfolgt die Prüfung des Strangs für die Sekundenanzeige sowie des Strangs für die Zusatzfunktionen nach demselben Prinzip.  
+Dadurch können Fehler frühzeitig erkannt und eindeutig einzelnen Funktionsgruppen zugeordnet werden.  
+Nach erfolgreicher Prüfung der einzelnen Stränge erfolgt die Zusammenführung im Integrationstest.  
+Nach erfolgreichem Abschluss der Integrationstests folgen die Tests im Dauerbetrieb sowie abschließend die Abnahme des Gesamtsystems.

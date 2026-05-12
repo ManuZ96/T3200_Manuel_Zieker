@@ -1,0 +1,161 @@
+\section{Implementierung der Software}
+Zunächst werden grundlegende Funktionen zur Initialisierung der Hardware sowie zur Ansteuerung der LED-Streifen implementiert.  
+Für die Ansteuerung der LEDs wird die Bibliothek \texttt{Adafruit\_NeoPixel} verwendet.  
+Dabei werden für die Hauptanzeige, die Sekundenanzeige und die Anzeige der Zusatzfunktionen separate Objekte angelegt (vgl. Skript~\ref{lst:ledInit}).
+
+\begin{lstlisting}[style=arduino,caption={Initialisierung der LED-Stränge.},label={lst:ledInit}]
+#define LED_PIN            1
+#define LED_COUNT          256
+
+#define LED_PIN_SEC        7
+#define LED_COUNT_SEC      60
+
+#define LED_PIN_THIRD      10
+#define LED_COUNT_THIRD    38
+
+Adafruit_NeoPixel strip(LED_COUNT, LED_PIN, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel secondStrip(LED_COUNT_SEC, LED_PIN_SEC, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel thirdStrip(LED_COUNT_THIRD, LED_PIN_THIRD, NEO_GRB + NEO_KHZ800);
+\end{lstlisting}
+
+Eine Hilfsfunktion sorgt für die Aktivierung einzelner LEDs.  
+Vor dem Setzen eines Farbwertes wird geprüft, ob sich der LED-Index innerhalb des gültigen Bereichs befindet (vgl. Skript~\ref{lst:IndexCheck}).
+
+\begin{lstlisting}[style=arduino,caption={Setzen einer einzelnen LED.},label={lst:IndexCheck}]
+void setLed(int ledNumber, uint8_t r, uint8_t g, uint8_t b) {
+  if (ledNumber >= 0 && ledNumber < LED_COUNT) {
+    strip.setPixelColor(ledNumber, strip.Color(r, g, b));
+  }
+}
+\end{lstlisting}
+
+Die Indexnummern der einzelnen \gls{led}s werden zur einfacheren Verwendung im Code globalen Variablen zugeordnet, welche die damit anzuzeigenden Wörter repräsentieren. 
+Als Beispiel für die Uhrzeitanzeige dient die Variable „\texttt{HOUR\_2}“, welche das Wort „ZWEI“ auf der WordClock aktiviert und durch die \gls{led}s 71 bis 74 dargestellt wird (vgl. Skript~\ref{lst:WortSetzen}).
+Die Verarbeitung der Zeit erfolgt durch zyklisches Auslesen der lokalen Systemzeit.  
+Die zentrale Anzeigefunktion löscht zunächst den Hauptstreifen und aktiviert anschließend die benötigten Wörter für Stunden-, Minuten- und Zusatzinformationen (vgl. Skript~\ref{lst:WortSetzen}).
+
+\begin{lstlisting}[style=arduino,caption={Hauptanzeigefunktion der WordClock.},label={lst:WortSetzen}]
+int HOUR_2[]  = {71, 72, 73, 74};
+
+void showHourWord(int hour24) {
+  strip.clear();
+
+  if (!lampPower) {
+    strip.show();
+    return;
+  }
+
+  showAlwaysOnLeds();
+
+  int hourToShow = getDisplayHour(hour24, currentMinute);
+
+  showMinuteWords(currentMinute);
+  showHourNumber(hourToShow, currentMinute);
+  showWeatherStatusLeds();
+
+  strip.show();
+}
+\end{lstlisting}  
+
+Zur Bedienung und Überwachung des Systems wird ein HTTP-Server auf dem ESP32 gestartet.
+Die Weboberfläche zeigt aktuelle Statuswerte an und erlaubt die Einstellung von Ein-/Aus-Zustand, Helligkeit und Farbe (vgl. Skript~\ref{lst:HTTP}).
+Die Helligkeitssteuerung erfolgt über eine Skalierung der \gls{rgb}-Werte mit der Funktion \texttt{applyBrightness} (vgl. Anhang~\ref{apx:1}).
+
+\begin{lstlisting}[style=arduino,caption={Registrierung der Webserver-Routen.},label={lst:HTTP}]
+void setupHttpServer() {
+  server.on("/", handleRoot);
+  server.on("/api/status", handleApiStatus);
+  server.on("/set", handleSet);
+  server.on("/weather", handleWeatherNow);
+  server.onNotFound(handleNotFound);
+
+  server.begin();
+
+  Serial.println("HTTP-Server gestartet.");
+  Serial.print("Im Browser oeffnen: http://");
+  Serial.println(WiFi.localIP());
+}
+\end{lstlisting}
+
+Die Hauptfunktionen sind \texttt{setup()} und \texttt{loop()}.
+In \texttt{setup()} werden Hardware, Sensorik, WLAN, Zeitsynchronisation, Wetterdaten und Webserver initialisiert (vgl. Skript~\ref{lst:Setup}).
+
+\begin{lstlisting}[style=arduino,caption={Initialisierung der Programmlogik.},label={lst:Setup}]
+void setup() {
+  Serial.begin(115200);
+
+  onboardLed.begin();
+  onboardLed.setPixelColor(0, 0, 0, 0);
+  onboardLed.show();
+
+  strip.begin();
+  strip.setBrightness(STRIP_BRIGHTNESS);
+  strip.clear();
+  strip.show();
+
+  secondStrip.begin();
+  secondStrip.setBrightness(STRIP_BRIGHTNESS);
+  secondStrip.clear();
+  secondStrip.show();
+
+  thirdStrip.begin();
+  thirdStrip.setBrightness(STRIP_BRIGHTNESS);
+  thirdStrip.clear();
+  thirdStrip.show();
+  dht.begin();
+
+  connectToWiFi();
+  configTzTime(TZ_INFO, NTP_SERVER1, NTP_SERVER2);
+  syncTimeUntilSuccessAtStartup();
+  updateWeatherFromServer();
+  updateIndoorSensor();
+
+  bootModeOff();
+
+  if (updateTimeVariables()) {
+    showHourWord(currentHour);
+  }
+
+  setupHttpServer();
+  Serial.println("System gestartet.");
+}
+\end{lstlisting}
+
+In \texttt{Loop()} Webserver-Anfragen verarbeitet. Die Funktion wird zyklisch wiederholt um alle Anzeigen zu aktualisieren wenn es eine Veränderung der Werte gibt (vgl. Skript~\ref{lst:Loop} und ~\ref{lst:Setup}).
+
+\begin{lstlisting}[style=arduino,caption={Zyklischer Programmablauf.},label={lst:Loop}]
+void loop() {
+  server.handleClient();
+
+  static unsigned long lastClockUpdate = 0;
+  static unsigned long lastTimePrint = 0;
+
+  unsigned long nowMs = millis();
+
+  if (nowMs - lastClockUpdate >= 500) {
+    lastClockUpdate = nowMs;
+
+    if (updateTimeVariables()) {
+      checkDailyResync();
+      checkPeriodicWeatherUpdate();
+      checkPeriodicIndoorSensorUpdate();
+
+      showHourWord(currentHour);
+      showSecondLed(currentSecond);
+      showThirdStripStatus();
+    }
+  }
+
+  if (nowMs - lastTimePrint >= 2000) {
+    lastTimePrint = nowMs;
+
+    Serial.printf("Aktuelle Zeit: %02d:%02d:%02d | RGB=(%d,%d,%d) | On=%d | Brightness=%d | Temp=%.1f | Code=%d | WetterValid=%d\n",
+                  currentHour, currentMinute, currentSecond,
+                  ledR, ledG, ledB, lampPower, webBrightness,
+                  outsideTemperature, weatherCode, weatherValid);
+  }
+}
+\end{lstlisting}
+Die Software wird schrittweise erweitert, aufgespielt und getestet.  
+Dieses Vorgehen ermöglicht eine schrittweise Integration aller Systemfunktionen und vereinfacht die Fehlersuche.
+Der vollständige Programmcode befindet sich in Anhang~\ref{apx:1}.

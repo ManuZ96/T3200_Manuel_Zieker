@@ -1,0 +1,88 @@
+\section{Technische Anforderungen}
+Die technischen Anforderungen beschreiben die notwendigen Eigenschaften und Randbedingungen für die Umsetzung des Systems.
+Sie werden in die Bereiche Hardware, Software, Schnittstellen und Performance unterteilt.
+
+\subsection{Hardware}
+Die Hardwarearchitektur basiert auf einem Mikrocontroller mit integrierter \gls{wlan}-Schnittstelle.
+Dieser übernimmt sowohl die Datenverarbeitung als auch die Kommunikation mit externen Diensten.
+Die Anzeige erfolgt über mehrere \gls{led}-Streifen mit \gls{ws2812b} \gls{rgb}-Leuchtdiode.
+Eine \gls{led}-Streifen wird für die Hauptanzeige verwenet. Das ist die Uhrzeit in Stunden und Minuten, die Außentemperautur und das Wetter.
+Der zweite \gls{led}-Streifen wird für die Sekundenanzeige verwendet.
+Der dritte \gls{led}-Streifen für die Anzeige der Tageszeit, der Raumfeuchtigkeit, der Mondphase und der Innenraumtemperatur.
+Alle Hardware-Anforderungen sind in Tabelle~\ref{tab:Hardware Anforderung} aufgelistet.
+
+\begin{table}[H]
+\caption{Technische Anforderungen – Hardware}
+\centering
+\begin{tabular}{p{0.5cm} p{12.5cm}}
+\textbf{ID} & \textbf{Beschreibung} \\
+\hline
+H1 & Verwendung eines Mikrocontrollers mit WLAN-Funktionalität \\
+H2 & Ansteuerung von einzeln adressierbaren LEDs \\
+H3 & 3 Kaskdierte LED Strukturen mit je einem Datenpin am Mikrocontroller \\
+H4 & Einbindung eines Temperatur- und Feuchtigkeitssensors \\
+H5 & Sicherstellung einer stabilen Spannungsversorgung für alle Komponenten \\
+\end{tabular}
+\label{tab:Hardware Anforderung}
+\end{table}
+
+\subsection{Software}
+Die Softwarearchitektur ist modular aufgebaut.
+Zentrale Komponenten sind die Zeitverarbeitung, die \gls{led}-Ansteuerung sowie die Kommunikation mit externen Diensten.
+Die Verarbeitung erfolgt regelbasiert und ermöglicht eine flexible Erweiterung.
+Alle Software-Anforderungen sind in Tabelle~\ref{tab:Software Anforderung} aufgelistet.
+
+\begin{table}[H]
+\caption{Technische Anforderungen – Software}
+\centering
+\begin{tabular}{p{0.5cm} p{12cm}}
+\textbf{ID} & \textbf{Beschreibung} \\
+\hline
+S1 & Implementierung einer Zeitverwaltung mit NTP-Synchronisation \\
+S2 & Regelbasierte Umwandlung numerischer Zeitwerte in Wortdarstellung \\
+S3 & Verarbeitung und Klassifikation von Wetterdaten \\
+S4 & Implementierung einer Sensorabfrage für Innenraumwerte \\
+S5 & Steuerung der LED-Anzeige in Echtzeit \\
+S6 & Bereitstellung eines HTTP-Servers zur Benutzerinteraktion \\
+S7 & Fehlerbehandlung bei Kommunikations- und Sensorfehlern \\
+\end{tabular}
+\label{tab:Software Anforderung}
+\end{table}
+
+\subsection{Schnittstellen}
+Die Schnittstellen ermöglichen die Integration externer Datenquellen sowie die Interaktion mit dem System.
+Die Kommunikation erfolgt überwiegend über standardisierte Protokolle.
+Alle Schnittstellen-Anforderungen sind in Tabelle~\ref{tab:Schnittstellen Anforderung} aufgelistet.
+
+\begin{table}[H]
+\caption{Technische Anforderungen – Schnittstellen}
+\centering
+\begin{tabular}{p{0.5cm} p{12.5cm}}
+\textbf{ID} & \textbf{Beschreibung} \\
+\hline
+I1 & WLAN-Schnittstelle zur Internetanbindung \\
+I2 & HTTP-Schnittstelle zur Benutzerinteraktion per \gls{ui} \\
+I3 & API-Anbindung zur Abfrage von Wetterdaten \\
+I4 & Sensorschnittstelle zur Erfassung von Temperatur und Luftfeuchtigkeit \\
+\end{tabular}
+\label{tab:Schnittstellen Anforderung}
+\end{table}
+
+\subsection{Performance}
+Die Anforderungen an die Performance stellen sicher, dass das System eine flüssige und aktuelle Anzeige gewährleistet.
+Gleichzeitig werden externe Daten in definierten Intervallen aktualisiert, um eine ausreichende Aktualität zu erreichen.
+Alle Performance-Anforderungen sind in Tabelle~\ref{tab:Performance Anforderung} aufgelistet.
+
+\begin{table}[H]
+\caption{Technische Anforderungen – Performance}
+\centering
+\begin{tabular}{p{0.5cm} p{10.5cm}}
+\textbf{ID} & \textbf{Beschreibung} \\
+\hline
+P1 & Aktualisierung der Anzeige in Intervallen kleiner gleich 1 s \\
+P2 & Wetterdatenaktualisierung mindestens alle 15 min \\
+P3 & Sensoraktualisierung im Bereich weniger Sekunden \\
+P4 & Minimierung von Verzögerungen bei der Benutzerinteraktion \\
+\end{tabular}
+\label{tab:Performance Anforderung}
+\end{table}

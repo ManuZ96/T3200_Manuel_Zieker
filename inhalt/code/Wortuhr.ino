@@ -1684,7 +1684,7 @@ void showWeatherWords() {
 // ==================================================
 // Hauptfunktion: setup
 // Initialisierung von Hardware, Netzwerk, Zeit,
-// Wetterdaten, erster Anzeige und HTTP-Server.
+// Wetterdaten, Anzeige und HTTP-Server.
 // ==================================================
 void setup() {
   Serial.begin(115200);

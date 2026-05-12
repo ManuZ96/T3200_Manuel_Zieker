@@ -1,0 +1,19 @@
+\section{Grundlegendes Funktionsprinzip von WordClocks}
+Eine WordClock stellt die aktuelle Zeit nicht numerisch, sondern durch hervorgehobene Wörter in natürlicher Sprache dar. 
+Hierzu wird ein fest definiertes Wortfeld verwendet, in dem durch gezielte Aktivierung einzelner Buchstaben eine lesbare Zeitangabe entsteht.
+Diese sind in einer Matrix angeordnet und bilden verschiedene, teilweise überlappende Wörter. 
+Die Darstellung erfolgt durch gezielte Beleuchtung einzelner Buchstaben mittels einer hinterlegten Lichtquelle.
+
+Die Zeit wird durch eine Referenzquelle bereitgestellt und in einer Logikeinheit numerisch verarbeitet. 
+Anschließend erfolgt eine regelbasierte Umwandlung in sprachliche Ausdrücke.
+Dies wird als im folgenden als Wordmapping bezeichnet. 
+Die Zuordnung der Zeitwerte zu den darzustellenden Wörtern ist softwareseitig definiert und wird durch ein geeignetes Logikmodul umgesetzt. 
+Dabei kommen typische Formulierungen wie „nach“, „vor“ oder „halb“ zum Einsatz. 
+Die Anzeige basiert auf diskreten Zeitintervallen, deren Auflösung die Struktur und Größe der Wortmatrix bestimmt.
+
+Bei der sprachlichen Zeitdarstellung sind mehrere Sonderfälle zu berücksichtigen. 
+Hierzu zählt die korrekte Behandlung der Stunde bei „ein Uhr“ im Vergleich zur Verwendung von „eins“ in anderen Kontexten, beispielsweise „halb eins“. 
+Weiterhin ist der Übergang zwischen zwei Stunden zu beachten, insbesondere bei Formulierungen wie „vor“ und „halb“, bei denen bereits auf die folgende Stunde Bezug genommen wird.
+
+Zusätzlich erfordern die Zeitpunkte 0:00 Uhr und 12:00 Uhr eine eindeutige Definition. 
+Auch Randbereiche zwischen zwei Intervallen, beispielsweise kurz vor oder nach einem Fünf-Minuten-Schritt, müssen eindeutig zugeordnet werden, um eine konsistente Anzeige sicherzustellen.

@@ -1,0 +1,37 @@
+\section{Funktionale Anforderungen}
+Die funktionalen Anforderungen beschreiben alle Funktionen, die das System bereitstellen muss.
+Diese ergeben sich direkt aus der Zielsetzung sowie aus den identifizierten Defiziten bestehender Systeme.
+
+Die zentrale Funktion des Systems besteht in der kontinuierlichen und unterbrechungsfreien Darstellung der Uhrzeit in sprachlicher Form.
+Im Gegensatz zu klassischen WordClocks erfolgt zusätzlich eine minutengenaue und sekundengenaue Ergänzung, ohne die Hauptanzeige zu überlagern.
+Weiterhin werden externe Datenquellen integriert.
+Hierzu zählen insbesondere Wetterinformationen sowie die Außentemperatur.
+Diese Daten werden in abstrahierter Form dargestellt, um die sprachliche Konsistenz der Anzeige zu erhalten.
+
+Zusätzliche Sensorik ermöglicht die Erfassung von Innenraumparametern.
+Die Anzeige erfolgt über separate \gls{led}-Elemente und ergänzt die Hauptfunktion um informationsorientierte Inhalte.
+Die Benutzerinteraktion erfolgt über eine \gls{ui}, welche über eine webbasierte Schnittstelle bereitgestellt wird.
+Dadurch wird eine flexible Steuerung ohne zusätzliche Hardware ermöglicht.
+Alle funktionalen Anforderungen sind in Tabelle~\ref{tab:Funktionale Anforderung} aufgelistet.
+
+\begin{table}[H]
+\caption{Funktionale-Anforderungen der WordClock}
+\centering
+\begin{tabular}{p{0.5cm} p{15cm}}
+\textbf{ID} & \textbf{Beschreibung} \\
+\hline
+F1 & Wortbasierte Anzeige der aktuellen Uhrzeit (Stunde und Minute) \\
+F2 & Kontinuierliche Sekundenanzeige ohne Unterbrechung von F1 \\
+F3 & Minutengenaue Darstellung durch zusätzliche \gls{led}-Elemente \\
+F4 & Anzeige der Außentemperatur in sprachlicher Form basierend auf Schwellenwerten \\
+F5 & Darstellung von Wetterzuständen in sprachlicher Form \\
+F6 & Anzeige der Innenraumtemperatur \\
+F7 & Anzeige der Luftfeuchtigkeit im Innenraum \\
+F8 & Symbolische Darstellung der Tageszeit \\
+F9 & Symbolische Darstellung der Mondphase \\
+F10 & Abruf externer Daten über Internetverbindung \\
+F11 & Benutzerinteraktion zur Steuerung von Anzeige, Helligkeit und Farbe \\
+F12 & Bereitstellung einer \gls{ui} zur Systemsteuerung und Darstellung des Betriebszustand \\
+\end{tabular}
+\label{tab:Funktionale Anforderung}
+\end{table}

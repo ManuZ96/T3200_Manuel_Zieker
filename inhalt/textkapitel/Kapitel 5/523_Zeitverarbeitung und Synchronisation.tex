@@ -1,0 +1,38 @@
+\subsection{Zeitverarbeitung und Synchronisation}
+Die Zeitverarbeitung basiert auf der Nutzung eines \gls{ntp}-Servers zur Initialisierung sowie einer periodischen Nachsynchronisation zur Sicherstellung der Genauigkeit. 
+Die aktuelle Zeit wird regelmäßig aus dem System gelesen und in globale Variablen überführt. 
+Zusätzlich erfolgt täglich eine erneute Synchronisation, um Drift zu vermeiden. 
+Der Ablauf ist in Abbildung~\ref{fig:zeit} dargestellt.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    node distance=1.2cm,
+    startstop/.style={rectangle, rounded corners, minimum width=4cm, draw=black},
+    process/.style={rectangle, minimum width=4.5cm, draw=black},
+    decision/.style={diamond, aspect=2.3, draw=black},
+    io/.style={trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=4.6cm, minimum height=0.8cm, text centered, draw=black},
+    arrow/.style={->, thick}
+]
+
+\node (start) [startstop] {Zeit aktualisieren};
+\node (read) [process, below=of start] {Systemzeit lesen};
+\node (valid) [decision, below=of read] {Zeit gültig?};
+\node (aktualisieren) [process, below=of valid] {Zeit aktualisieren};
+\node (daily) [decision, below=of aktualisieren] {Mitternacht?};
+\node (update) [process, below=of daily] {Tägliche Synchronisation mit NTP-Server};
+\node (end) [startstop, below=of update] {Ende};
+
+\draw [arrow] (start) -- (read);
+\draw [arrow] (read) -- (valid);
+\draw [arrow] (valid) -- node[right]{Ja} (aktualisieren);
+\draw [arrow] (aktualisieren) -- (daily);
+\draw [arrow] (daily) -- node[right]{Ja} (update);
+\draw [arrow] (update) -- (end);
+\draw [arrow] (valid.west) -- ++(-4,0) node[above]{Nein} |- (end.west);
+\draw [arrow] (daily.west) -- ++(-3,0) node[above]{Nein} |- (end.west);
+
+\end{tikzpicture}
+\caption{Schematischer Programmablaufplan zur Zeitaktualisierung und täglichen Synchronisation um Mitternacht.}
+\label{fig:zeit}
+\end{figure}

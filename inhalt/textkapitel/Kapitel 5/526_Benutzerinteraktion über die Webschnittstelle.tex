@@ -1,0 +1,40 @@
+\subsection{Benutzerinteraktion über die Webschnittstelle}
+Zur Steuerung der WordClock wird ein integrierter Webserver eingesetzt. 
+Dieser ermöglicht die Anzeige von Statusinformationen sowie die Anpassung von Parametern wie Helligkeit, Farbe und Betriebszustand in einem \gls{ui}. 
+Die Verarbeitung der Anfragen erfolgt ereignisbasiert und ist unabhängig vom zyklischen Hauptprogramm. 
+Statusinformationen werden bei Bedarf dynamisch im \gls{json}-Format erzeugt und an den Client übertragen.
+Der Ablauf ist in Abbildung~\ref{fig:webserver} dargestellt.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    node distance=1.1cm,
+    startstop/.style={rectangle, rounded corners, minimum width=4cm, draw=black},
+    process/.style={rectangle, minimum width=4.8cm, draw=black},
+    decision/.style={diamond, aspect=2.3, draw=black},
+    io/.style={trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=4.6cm, minimum height=0.8cm, text centered, draw=black},
+    arrow/.style={->, thick}
+]
+
+\node (start) [startstop] {HTTP-Anfrage};
+\node (path) [decision, below=of start] {Anfragepfad?};
+
+\node (html) [process, below left=1.5cm and 1.8cm of path] {HTML-Seite erzeugen};
+\node (json) [process, below=of path] {JSON-Status erzeugen};
+\node (set) [process, below right=1.5cm and 1.8cm of path] {Parameter setzen};
+
+\node (end) [startstop, below=3cm of path] {Antwort senden};
+
+\draw [arrow] (start) -- (path);
+\draw [arrow] (path) -- (html);
+\draw [arrow] (path) -- (json);
+\draw [arrow] (path) -- (set);
+
+\draw [arrow] (html) |- (end);
+\draw [arrow] (json) -- (end);
+\draw [arrow] (set) |- (end);
+
+\end{tikzpicture}
+\caption{Schematischer Programmablaufplan für die Verarbeitung der Webserveranfragen über die \gls{ui} der WordClock.}
+\label{fig:webserver}
+\end{figure}

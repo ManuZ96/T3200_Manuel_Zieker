@@ -1,0 +1,162 @@
+\subsection{Gesamtsystemübersicht der WordClock}
+Als Übersicht über das  Gesamtsystem ist in Abbildung~\ref{fig:hardwarearchitektur} das Blockschaltbild der Wordclock dargestellt und in Tabelle~\ref{tab:funktionen_wordclock} alle Softwarefunktionen aufgelistet (vgl. Anhang~\ref{apx:1}).
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\linewidth]{inhalt/bilder/BlockschaltbildWordClock.png}
+    \caption{Blockschaltbild als Gesamtübersicht der Hardware- und Netzwerkstruktur für die WordClock.}
+    \label{fig:hardwarearchitektur}
+\end{figure}
+
+\begin{longtable}{p{0.4\textwidth} p{0.60\textwidth}}
+\caption{Kurzübersicht mit jeweiliger Beschreibung aller Softwarefunktionen der WordClock}
+\label{tab:funktionen_wordclock} \\
+
+\hline
+\textbf{Funktion} & \textbf{Aufgabe} \\
+\hline
+\endfirsthead
+
+\hline
+\textbf{Funktion} & \textbf{Aufgabe} \\
+\hline
+\endhead
+
+\hline
+\endfoot
+
+{\small\ttfamily setup()} &
+Initialisiert beim Start des ESP32 alle Komponenten wie serielle Schnittstelle, LED-Stränge, Onboard-RGB-LED, DHT-Sensor, WLAN, Zeitsynchronisation, Wetterdaten und Webserver. \\
+
+{\small\ttfamily loop()} &
+Zentrale Endlosschleife des Programms. Aktualisiert regelmäßig Uhrzeit, Wetterdaten, Sensordaten und LED-Anzeigen und verarbeitet Webserver-Anfragen. \\
+
+{\small\ttfamily setLed()} &
+Setzt eine einzelne LED des ersten LED-Strangs auf einen bestimmten RGB-Farbwert. \\
+
+{\small\ttfamily setLeds()} &
+Setzt mehrere LEDs des ersten LED-Strangs mithilfe eines LED-Arrays auf denselben RGB-Farbwert. \\
+
+{\small\ttfamily setThirdLed()} &
+Setzt eine einzelne LED des dritten LED-Strangs auf einen RGB-Farbwert. \\
+
+{\small\ttfamily setThirdLeds()} &
+Setzt mehrere LEDs des dritten LED-Strangs anhand eines Arrays auf denselben RGB-Farbwert. \\
+
+{\small\ttfamily bootModeUpdate()} &
+Erzeugt während des Startvorgangs eine animierte LED-Sequenz auf dem ersten LED-Strang, solange WLAN- oder Zeitsynchronisation noch nicht abgeschlossen sind. \\
+
+{\small\ttfamily bootModeOff()} &
+Beendet die Boot-Animation und schaltet den ersten LED-Strang nach erfolgreichem Start aus. \\
+
+{\small\ttfamily rgbToHex()} &
+Wandelt RGB-Farbwerte in einen HEX-Farbcode um, damit die aktuelle Farbe in der Weboberfläche als Farbauswahl angezeigt werden kann. \\
+
+{\small\ttfamily applyBrightness()} &
+Skaliert einen Farbwert abhängig von der aktuell über die Weboberfläche eingestellten Helligkeit. \\
+
+{\small\ttfamily updateTimeVariables()} &
+Liest die aktuelle lokale Uhrzeit aus dem System aus und speichert Stunde, Minute und Sekunde in globalen Variablen. \\
+
+{\small\ttfamily syncTimeFromServer()} &
+Synchronisiert die Uhrzeit über NTP-Server und speichert die empfangene Zeit im System. \\
+
+{\small\ttfamily syncTimeUntilSuccessAtStartup()} &
+Führt die NTP-Zeitsynchronisation beim Start so lange aus, bis eine gültige Uhrzeit empfangen wurde, und zeigt währenddessen die Boot-Animation an. \\
+
+{\small\ttfamily syncTimeWithMaxRetries()} &
+Versucht die Zeitsynchronisation mit einer begrenzten Anzahl an Wiederholungen. \\
+
+{\small\ttfamily checkDailyResync()} &
+Prüft, ob nach Mitternacht eine tägliche Nachsynchronisation der Uhrzeit durchgeführt werden muss. \\
+
+{\small\ttfamily classifyWeatherCode()} &
+Ordnet den numerischen Wettercode einer Wettergruppe wie klar, bewölkt, Regen, Schnee, Hagel oder Gewitter zu. \\
+
+{\small\ttfamily updateWeatherFromServer()} &
+Ruft aktuelle Wetterdaten über die Open-Meteo-API ab und speichert Temperatur und Wettercode. \\
+
+{\small\ttfamily checkPeriodicWeatherUpdate()} &
+Prüft zyklisch, auf neue Wetterdaten. \\
+
+{\small\ttfamily connectToWiFi()} &
+Stellt die Verbindung zum konfigurierten WLAN-Netzwerk her und zeigt während des Verbindungsaufbaus die Boot-Animation an. \\
+
+{\small\ttfamily buildHtmlPage()} &
+Erzeugt die erweiterte HTML-Weboberfläche der WordClock mit Statusanzeige, Farbwähler, Helligkeitsregler und Steuerfunktionen. \\
+
+{\small\ttfamily buildJsonStatus()} &
+Erzeugt eine JSON-Ausgabe mit aktuellen Statusinformationen der Uhr, einschließlich Wetter-, Sensor- und Anzeigezuständen. \\
+
+{\small\ttfamily handleRoot()} &
+Bearbeitet den Aufruf der Startseite und gibt die HTML-Weboberfläche zurück. \\
+
+{\small\ttfamily handleApiStatus()} &
+Stellt die aktuellen Systemwerte als JSON-Daten über die UI bereit. \\
+
+{\small\ttfamily handleSet()} &
+Verarbeitet Eingaben der Weboberfläche, zum Beispiel Ein-/Ausschalten, Helligkeit und RGB-Farbe. \\
+
+{\small\ttfamily handleWeatherNow()} &
+Startet manuell eine sofortige Aktualisierung der Wetterdaten über die Weboberfläche. \\
+
+{\small\ttfamily handleNotFound()} &
+Gibt eine Fehlermeldung zurück, wenn eine unbekannte URL aufgerufen wird. \\
+
+{\small\ttfamily setupHttpServer()} &
+Richtet die Routen des Webservers ein und startet den HTTP-Server. \\
+
+{\small\ttfamily updateIndoorSensor()} &
+Liest Temperatur und Luftfeuchtigkeit vom DHT22-Sensor aus. \\
+
+{\small\ttfamily checkPeriodicIndoorSensorUpdate()} &
+Prüft zyklisch, ob die Innenraum-Sensordaten neu gelesen werden müssen. \\
+
+{\small\ttfamily showDaytimeStatus()} &
+Zeigt abhängig von der aktuellen Uhrzeit die Tageszeit auf dem dritten LED-Strang an. \\
+
+{\small\ttfamily showHumidityStatus()} &
+Zeigt die gemessene Raumluftfeuchtigkeit in 10-Prozent-Schritten auf dem dritten LED-Strang an. \\
+
+{\small\ttfamily showIndoorTemperatureStatus()} &
+Zeigt die gemessene Innenraumtemperatur auf dem dritten LED-Strang an. \\
+
+{\small\ttfamily calculateMoonAge()} &
+Berechnet näherungsweise das aktuelle Mondalter anhand des Datums. \\
+
+{\small\ttfamily showMoonPhaseStatus()} &
+Zeigt abhängig vom berechneten Mondalter die aktuelle Mondphase auf dem dritten LED-Strang an. \\
+
+{\small\ttfamily showAlwaysOnLeds()} &
+Aktiviert dauerhaft leuchtende Wörter wie „ES“, „IST“, „IN“ und „REMSECK“. \\
+
+{\small\ttfamily showWeatherStatusLeds()} &
+Aktiviert die festen Wetter- und Temperatur-Wörter und ruft die passenden Wetteranzeigefunktionen auf. \\
+
+{\small\ttfamily showSecondLed()} &
+Zeigt die aktuelle Sekunde über den zweiten LED-Strang mit 60 LEDs an. \\
+
+{\small\ttfamily showThirdStripStatus()} &
+Aktualisiert den dritten LED-Strang mit Raumfeuchtigkeit, Mondphase, Innenraumtemperatur und Tageszeit. \\
+
+{\small\ttfamily showHourNumber()} &
+Aktiviert das passende Stundenwort, zum Beispiel „eins“, „zwei“ oder „zwölf“. \\
+
+{\small\ttfamily showMinutePlus()} &
+Zeigt zusätzliche Minuten von eins bis vier über einzelne Zusatz-LEDs an. \\
+
+{\small\ttfamily showMinuteWords()} &
+Aktiviert abhängig von der aktuellen Minute die passenden Minutenwörter, zum Beispiel „fünf nach“, „halb“ oder „zehn vor“. \\
+
+{\small\ttfamily getDisplayHour()} &
+Berechnet, welche Stunde angezeigt werden muss. Ab Minute 20 wird auf die nächste Stunde bezogen. \\
+
+{\small\ttfamily showHourWord()} &
+Zentrale Anzeigefunktion für die Hauptanzeige der Uhrzeit auf dem ersten LED-Strang. \\
+
+{\small\ttfamily showOutsideTemperatureWords()} &
+Wählt abhängig von der Außentemperatur passende Temperaturbegriffe wie „eisigen“, „kühlen“, „warmen“ oder „heißen“. \\
+
+{\small\ttfamily showWeatherWords()} &
+Zeigt abhängig von der Wettergruppe passende Wetterwörter wie „klarem Himmel“, „Regen“, „Schnee“ oder „Gewitter“. \\
+
+\end{longtable}

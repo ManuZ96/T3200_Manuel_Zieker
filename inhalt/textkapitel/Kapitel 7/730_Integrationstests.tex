@@ -1,0 +1,56 @@
+\section{Integrationstests}
+Nach Abschluss der Modultests erfolgt die Zusammenführung der einzelnen Komponenten zum Gesamtsystem.  
+Dabei wird insbesondere das Zusammenspiel zwischen Hardware, Sensorik, Netzwerkkommunikation und \gls{led}-Ansteuerung überprüft.  
+Bei den Integrationstests werden alle \gls{led}-Stränge gleichzeitig verwendet und auch der Boot-Modus, welcher über die \gls{led}s mehrerer Funktionen läuft, getestet.  
+Für die Spannungsversorgung bei den ersten Tests wird ein vorhandenes 25~W Netzteil mit einer Nennspannung von 5~V und einem Nennstrom von 5~A verwendet, welches bereits bei den Modultests eingesetzt wird.  
+
+Die erste Dimensionierung des Netzteils erfolgt auf Grundlage der theoretisch maximal gleichzeitig aktivierten \gls{led}s innerhalb eines Zeitraums von 2~s.  
+Die längste mögliche Anzeige aktiviert dabei 104~\gls{led}s.  
+Hierbei werden zusätzlich zur Textanzeige auch die \gls{led}s für die maximale Innenraumtemperatur, die maximale Luftfeuchtigkeit, die Mondphase, die Tageszeit sowie die aktuelle Sekunde berücksichtigt.  
+Die längste mögliche Hauptanzeige besteht aus 81~\gls{led}s und lautet: „IN REMSECK IST ES FÜNFZEHN IIII NACH SIEBEN MIT SOMMERLICHEN TEMPERATUREN UND BEWÖLKTEM HIMMEL“.  
+Zusätzlich sind die 23~\gls{led}s für die aufgezählten Zusatzfunktionen aktiv.  
+Für die Berechnung wird, wie in Kapitel~6.2 beschrieben, eine Leistungsaufnahme von 0{,}2~W pro \gls{led} verwendet.  
+Daraus ergibt sich eine elektrische Gesamtleistung von
+
+\[
+P = 0{,}2~\mathrm{W} \cdot 104 = 20{,}8~\mathrm{W}.
+\]
+
+Dies entspricht einem Strom von
+
+\[
+I = \frac{20{,}8~\mathrm{W}}{5~\mathrm{V}} = 4{,}16~\mathrm{A}
+\]
+
+für die \gls{led}-Beleuchtung.  
+
+Es wird zunächst angenommen, dass die während des Boot-Modus auftretenden Leistungsspitzen durch das Netzteil abgefangen werden können.  
+Während der Inbetriebnahme zeigt sich jedoch ein Einbruch der Versorgungsspannung während des Boot-Modus.  
+Dadurch startet das System nicht zuverlässig und bleibt zu etwa 75~\% im Boot-Modus hängen.  
+Auf Grundlage dieser Beobachtungen erfolgt eine Neuberechnung der erforderlichen Netzteilleistung mit zusätzlicher Leistungsreserve.  
+
+Als Ursache wird identifiziert, dass das Netzteil nicht in der Lage ist, die auftretenden Stromspitzen abzufangen.  
+Aus diesem Grund wird der Boot-Modus als Grundlage für die Leistungsberechnung des Systems verwendet.  
+Die Berechnung aus Kapitel~6.2 ergibt damit eine maximale Leistungsaufnahme von 51{,}2~W während des Boot-Modus.  
+
+Weitere Tests zeigen, dass ein Netzteil mit einer Leistung von 50~W für den Dauerbetrieb ausreichend dimensioniert ist.  
+Das Netzteil stellt sowohl für den Betrieb der maximal 104 gleichzeitig aktiven \gls{led}s als auch für den \gls{esp32c6} und den \gls{dht22} ausreichend Leistungsreserve bereit.  
+Zusätzlich zeigen die Tests, dass die während des Boot-Modus auftretenden kurzzeitigen Stromspitzen damit zuverlässig abgefangen werden.  
+
+Nachdem die Spannungsversorgung stabil ist, wird mit den weiteren Integrationstests fortgefahren.  
+Zunächst wird die Zeitanzeige durch Vergleich mit der Referenzzeit auf einem Smartphone überprüft, während alle \gls{led}-Stränge gleichzeitig in Betrieb sind.  
+Dabei wird insbesondere beobachtet, ob Sekunden- und Minutenwechsel korrekt dargestellt werden und diese in Echtzeit wechseln oder es bei der Verarbeitung zu Verzögerungen kommt.  
+
+Zur Überprüfung aller Minutenanzeigen wird die WordClock über einen Zeitraum von einer Stunde beobachtet.  
+Dadurch kann jede mögliche Minutenanzeige mindestens einmal geprüft werden.  
+Während dieser Tests wird ein Fehler bei der sprachlichen Zuordnung der Uhrzeit festgestellt.  
+Ab dem Bereich „zwanzig nach“ stimmt der Bezug zur folgenden Stunde zunächst nicht korrekt.  
+Die Logik zur Berechnung der anzuzeigenden Stunde wird daraufhin angepasst.  
+
+Zusätzlich erfolgt die Überprüfung der Temperatur- und Wetterdarstellung.  
+Die angezeigten Wetterzustände werden mit aktuellen Wetterdaten eines Wetterdienstes verglichen.  
+Darüber hinaus erfolgt eine subjektive Bewertung der Temperatur- und Wetterklassifikation durch Befragung mehrerer Personen.  
+Dabei wird überprüft, ob die gewählten Temperaturbereiche und Wetterbezeichnungen plausibel sind und von Dritten ebenfalls so wahrgenommen werden, ohne dass den befragten Personen die aktuelle Anzeige bekannt ist.  
+Es geht dabei vor allem um die Schwellenwerte in der Temperaturanzeige, beispielsweise ab wann von sommerlichen Temperaturen gesprochen wird.  
+
+Die Integrationstests zeigen, dass das Zusammenspiel der einzelnen Komponenten nach der Fehlerkorrektur zuverlässig funktioniert und die Schwellenwerte für Temperatur- und Wetteranzeige gut gewählt sind.  

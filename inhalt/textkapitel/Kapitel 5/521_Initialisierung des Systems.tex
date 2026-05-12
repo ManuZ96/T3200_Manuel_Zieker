@@ -1,0 +1,44 @@
+\subsection{Initialisierung des Systems}
+Die Initialisierung erfolgt einmalig beim Systemstart. 
+Dabei werden alle Hardwarekomponenten konfiguriert, die Netzwerkverbindung aufgebaut sowie die aktuelle Zeit über einen \gls{ntp}-Server synchronisiert. 
+Zusätzlich werden erste Sensorwerte und Wetterdaten geladen, um direkt nach dem Start eine gültige Anzeige zu gewährleisten. 
+Der Ablauf der Initialisierung ist in Abbildung~\ref{fig:setup} dargestellt.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    node distance=0.8cm,
+    startstop/.style={rectangle, rounded corners, minimum width=4cm, minimum height=0.8cm, draw=black},
+    process/.style={rectangle, minimum width=4.8cm, minimum height=0.8cm, draw=black},
+    arrow/.style={->, thick}
+]
+
+\node (start) [startstop] {Start};
+\node (s1) [process, below=of start] {Serielle Schnittstelle starten};
+\node (s2) [process, below=of s1] {LED-Streifen initialisieren};
+\node (s3) [process, below=of s2] {Sensor initialisieren};
+\node (s4) [process, below=of s3] {WLAN verbinden};
+\node (s5) [process, below=of s4] {NTP konfigurieren};
+\node (s6) [process, below=of s5] {Zeit synchronisieren};
+\node (s7) [process, below=of s6] {Wetterdaten abrufen};
+\node (s8) [process, below=of s7] {Sensorwerte einlesen};
+\node (s9) [process, below=of s8] {Erste Anzeige erzeugen};
+\node (s10) [process, below=of s9] {HTTP-Server starten};
+\node (end) [startstop, below=of s10] {System bereit};
+
+\draw [arrow] (start) -- (s1);
+\draw [arrow] (s1) -- (s2);
+\draw [arrow] (s2) -- (s3);
+\draw [arrow] (s3) -- (s4);
+\draw [arrow] (s4) -- (s5);
+\draw [arrow] (s5) -- (s6);
+\draw [arrow] (s6) -- (s7);
+\draw [arrow] (s7) -- (s8);
+\draw [arrow] (s8) -- (s9);
+\draw [arrow] (s9) -- (s10);
+\draw [arrow] (s10) -- (end);
+
+\end{tikzpicture}
+\caption{Schematischer Programmablaufplan der Systeminitialisierung.}
+\label{fig:setup}
+\end{figure}
