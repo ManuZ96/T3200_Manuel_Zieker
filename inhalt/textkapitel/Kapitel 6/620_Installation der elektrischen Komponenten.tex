@@ -9,14 +9,14 @@ Der dritte Strang hat 38 \gls{ws2812b}-\gls{led}s und wird für die Anzeige der 
 Die Datenleitungen der \gls{led}-Stränge werden jeweils auf separate \gls{gpio}-Pins des Mikrocontrollers geführt.  
 
 Die Dimensionierung des Netzteils erfolgt auf Basis der maximal möglichen Leistungsaufnahme.  
-Die Gesamtleistung ergibt sich aus der maximalen Anzahl an LEDs die gleichzeitig aktiv sein können und deren spezifischer Leistungsaufnahme.  
+Die Gesamtleistung ergibt sich aus der maximalen Anzahl an LEDs, die gleichzeitig aktiv sein können und deren spezifischer Leistungsaufnahme.  
 Für die Berechnung kann die Beziehung  
 \[
 P_{\text{gesamt}} = N_{\text{LED}} \cdot P_{\text{LED}}
 \]
 
 verwendet werden.
-Die Leistungsaufnahme pro LED kann über die Streckenleistung bestimmt werden welche im mitgelieferten Datenblatt der verwendeten \gls{led}-Streifen angegeben ist\cite{AZDelivery}.  
+Die Leistungsaufnahme pro LED kann über die Streckenleistung bestimmt werden welche im mitgelieferten Datenblatt der verwendeten \gls{led}-Streifen angegeben ist~\cite{AZDelivery}.  
 \[
 P_{\text{LED}} = \frac{P_{\text{pro Meter}}}{N_{\text{LED pro Meter}}}
 \]

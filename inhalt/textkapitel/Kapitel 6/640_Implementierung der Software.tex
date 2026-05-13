@@ -78,7 +78,7 @@ void setupHttpServer() {
 \end{lstlisting}
 
 Die Hauptfunktionen sind \texttt{setup()} und \texttt{loop()}.
-In \texttt{setup()} werden Hardware, Sensorik, WLAN, Zeitsynchronisation, Wetterdaten und Webserver initialisiert (vgl. Skript~\ref{lst:Setup}).
+In der Funktion \texttt{setup()} werden Hardware, Sensorik, WLAN, Zeitsynchronisation, Wetterdaten und Webserver initialisiert (vgl. Skript~\ref{lst:Setup}).
 
 \begin{lstlisting}[style=arduino,caption={Initialisierung der Programmlogik.},label={lst:Setup}]
 void setup() {
@@ -121,7 +121,7 @@ void setup() {
 }
 \end{lstlisting}
 
-In \texttt{Loop()} Webserver-Anfragen verarbeitet. Die Funktion wird zyklisch wiederholt um alle Anzeigen zu aktualisieren wenn es eine Veränderung der Werte gibt (vgl. Skript~\ref{lst:Loop} und ~\ref{lst:Setup}).
+In der Funktion \texttt{Loop()} werden unter anderem die Webserver-Anfragen verarbeitet. Die Funktion wird zyklisch wiederholt um alle Anzeigen zu aktualisieren wenn es eine Veränderung der Werte gibt (vgl. Skript~\ref{lst:Loop} und ~\ref{lst:Setup}).
 
 \begin{lstlisting}[style=arduino,caption={Zyklischer Programmablauf.},label={lst:Loop}]
 void loop() {

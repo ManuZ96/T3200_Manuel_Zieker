@@ -5,10 +5,10 @@ Sie werden in die Bereiche Hardware, Software, Schnittstellen und Performance un
 \subsection{Hardware}
 Die Hardwarearchitektur basiert auf einem Mikrocontroller mit integrierter \gls{wlan}-Schnittstelle.
 Dieser übernimmt sowohl die Datenverarbeitung als auch die Kommunikation mit externen Diensten.
-Die Anzeige erfolgt über mehrere \gls{led}-Streifen mit \gls{ws2812b} \gls{rgb}-Leuchtdiode.
-Eine \gls{led}-Streifen wird für die Hauptanzeige verwenet. Das ist die Uhrzeit in Stunden und Minuten, die Außentemperautur und das Wetter.
-Der zweite \gls{led}-Streifen wird für die Sekundenanzeige verwendet.
-Der dritte \gls{led}-Streifen für die Anzeige der Tageszeit, der Raumfeuchtigkeit, der Mondphase und der Innenraumtemperatur.
+Die Anzeige erfolgt über mehrere \gls{led}-Stränge die aus vorgefertigen \gls{led}-Streifen bestehen und mit \gls{ws2812b} \gls{rgb}-Leuchtdiode bestückt sind. \todo{angeben welche led bänder}
+Ein \gls{led}-Strang wird für die Hauptanzeige verwendet. Das ist die Uhrzeit in Stunden und Minuten, die Außentemperautur und das Wetter.
+Der zweite \gls{led}-Strang wird für die Sekundenanzeige verwendet.
+Der dritte \gls{led}-Strang wird für die Anzeige der Tageszeit, der Raumfeuchtigkeit, der Mondphase und der Innenraumtemperatur.
 Alle Hardware-Anforderungen sind in Tabelle~\ref{tab:Hardware Anforderung} aufgelistet.
 
 \begin{table}[H]
@@ -69,7 +69,7 @@ I4 & Sensorschnittstelle zur Erfassung von Temperatur und Luftfeuchtigkeit \\
 \end{table}
 
 \subsection{Performance}
-Die Anforderungen an die Performance stellen sicher, dass das System eine flüssige und aktuelle Anzeige gewährleistet.
+Die Anforderungen an die Performance stellen sicher, dass das System eine aktuelle und konstante Anzeige gewährleistet.
 Gleichzeitig werden externe Daten in definierten Intervallen aktualisiert, um eine ausreichende Aktualität zu erreichen.
 Alle Performance-Anforderungen sind in Tabelle~\ref{tab:Performance Anforderung} aufgelistet.
 
