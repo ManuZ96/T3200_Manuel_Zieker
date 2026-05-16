@@ -1,14 +1,16 @@
 \section{Aufbau der WordClock}
 Nach der mechanischen und elektrischen Vorbereitung, der Konstruktion sowie dem additiven \gls{3ddruck} der Bauteile, erfolgt die Montage des Gesamtsystems.  
 Zunächst werden die \gls{led}-Streifen zugeschnitten und entsprechend der geplanten Anordnung auf die Grundplatte geklebt.
-Hierzu wird das Layout auf die Grundplatte gezeichnet und die positionen der \gls{led}s mit dem zugehörigen Buchstaben bzw. Symbold und den Indizes der \gls{led} beschriftet.
-Dadurch kann überprüft werden, ob die korrekten Wörter angezeigt werden und die korrekte \gls{led} angsprochen wird.  
+Hierzu wird das Layout auf die Grundplatte gezeichnet und die Positionen der \gls{led}s mit dem zugehörigen Buchstaben bzw. Symbol und den Indizes der \gls{led} beschriftet.
+Dadurch kann überprüft werden, ob die korrekten Wörter angezeigt werden und die korrekte \gls{led} angesprochen wird.  
 Anschließend werden die einzelnen Streifen durch Lötverbindungen verbunden (vgl. Abb~\ref{fig:VerlötetStreifen}).  
-Die Anschlusskabel werden auf die Rückseite geführt.  
+Die Anschlusskabel werden auf die Rückseite geführt.
+Für den \gls{led}-Strang der Sekundenazeige werden vier weitere Bauteile gedruckt, um die \gls{led}-Bänder um die Kurve zu führen.
+Diese sind fest auf der Grundplatte montiert und in Abb.~\ref{fig:VerlötetStreifen} zu sehen.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\linewidth]{inhalt/bilder/LEDsVerloetet.png}
-	\caption[Installation aller \gls{led}-Stränge]{Installation aller \gls{led}-Stränge auf der Grundplatte.}
+	\caption[Installation aller \gls{led}-Stränge]{Grundplatte während der installation und dem verlöten der einzelnen \gls{led}-Streifen zu den drei \gls{led}-Strängen. In den Ecken der Grundplatte befinden sich die Bauteile, mit denen die \gls{led}-Bänder um die Kurve geführt werden.}
 	\label{fig:VerlötetStreifen}
 \end{figure}
 
@@ -26,11 +28,11 @@ Die Verbindung der einzelnen Frontplattenbauteile untereinander, erfolgt über D
 Hierbei werden M3x12-Schrauben in Kombination mit Muttern und Unterlegscheiben verwendet.
 Weiterhin werden die Halterung für den \gls{esp32c6}, die Halterung für die Hohlsteckerbuchse, die Halterung für den \gls{dht22} sowie die Abstandshalter und Befestigungspunkte auf der Rückseite der Grundplatte verschraubt.
 
-Für die initiale Inbetriebnahme und implementierung der Software wird der Mikrocontroller provisorisch angeschlossen.  
-Hierzu werden ein Steckbrett und Jumperkabel verwendet.  
+Für die initiale Inbetriebnahme und Implementierung der Software wird der Mikrocontroller provisorisch angeschlossen.  
+Hierzu werden Jumperkabel und Klemmen verwendet.  
 Diese Vorgehensweise ermöglicht eine flexible Anpassung der Verdrahtung während der Test- und Evaluationsphase.
 In Abb.~\ref{fig:TischIBN} ist die aufgebaute WordClock abgebildet.
-\todo{Bild fehlt noch}
+\todo{Bild fehlt noch falls gewollt, sonst evt absatz darüber noch anpassen}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\linewidth]{inhalt/bilder/Platzhalter.jpg}

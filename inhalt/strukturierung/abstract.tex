@@ -1,16 +1,19 @@
 \chapter*{Kurzreferat}
-Diese Arbeit behandelt die Konzeptionierung, Entwicklung und den Aufbau einer Wortuhr mit erweiterten Informations- und Zusatzfunktionen. 
-Ziel war die Entwicklung eines funktionsfähigen Prototyps, der die klassische wortbasierte Zeitdarstellung mit zusätzlichen informationsorientierten Funktionen kombiniert. 
-Hierzu wurden elektronische, softwaretechnische und mechanische Komponenten zu einem Gesamtsystem zusammengeführt.
-Im Rahmen der Arbeit erfolgte zunächst die Analyse bestehender Wortuhrkonzepte sowie die Definition funktionaler und technischer Anforderungen. 
-Darauf aufbauend wurden die Hardwarearchitektur, die Spannungsversorgung, die LED-Ansteuerung sowie die erforderlichen Schnittstellen ausgelegt. 
-Zusätzlich wurde eine modulare Softwarestruktur entwickelt. 
-Diese ermöglicht die Verarbeitung externer Datenquellen, die Steuerung verschiedener Anzeigeelemente sowie die Bereitstellung netzwerkbasierter Funktionen.
-Der entwickelte Prototyp stellt die Uhrzeit in sprachlicher Form dar und erweitert die Anzeige um zusätzliche Informationen. 
-Hierzu zählen unter anderem Wetterdaten, Temperaturinformationen, Luftfeuchtigkeit, Mondphasen sowie sekundengenaue Anzeigeelemente. 
-Darüber hinaus wurde eine Steuerung über mobile Endgeräte mittels Webserver implementiert.
-Die Ergebnisse zeigen, dass die Integration zusätzlicher Funktionen in eine Wortuhr technisch umsetzbar ist, ohne die charakteristische Darstellungsform wesentlich zu beeinträchtigen. 
-Die Arbeit bildet damit eine Grundlage für zukünftige Erweiterungen im Bereich vernetzter und interaktiver Anzeige- und Informationssysteme.
+Gegenstand dieser Studienarbeit ist die Konzeptionierung und Realisierung einer WordClock, welche die klassische sprachbasierten Zeitdarstellung um vernetzte Informationsfunktionen erweitert.
+Ausgehend von einer Marktanalyse kommerzieller Systeme wurden funktionale Anforderungen für die Integration von Wetterdaten, Raumklimasensorik und Smart-Home-Schnittstellen definiert.
+Die technische Umsetzung basiert auf einem ESP32-C6-Mikrocontroller, welcher drei kaskadierte LED-Stränge zur Darstellung der Uhrzeit sowie der Zusatzinformationen ansteuert.
+Softwareseitig wurde eine modulare Architektur entwickelt, die externe Daten über die Open-Meteo-API bezieht und eine Weboberfläche zur Systemsteuerung bereitstellt.
+Die mechanische Konstruktion erfolgte in einem CAD-Programm und die Fertigung wurde mittels eines additiven Verfahrens umgesetzt.
+Abschließende Systemtests bestätigten die stabile Integration der Sensorik sowie die netzwerkbasierte Konnektivität.
+Die Arbeit zeigt auf, wie durch den Einsatz kosteneffizienter Standardkomponenten ein multifunktionales Anzeigesystem entwickelt werden kann, das über den Funktionsumfang marktüblicher Produkte hinausgeht.
+
+\vspace{1cm}
 
 \chapter*{Abstract}
-% <text hier>
+This student research project describes the design and implementation of a WordClock that enhances traditional speech-based time display with networked information features.
+Based on a market analysis of commercial systems, functional requirements were defined for the integration of weather data, indoor climate sensors, and smart home interfaces.
+The technical realization utilizes an ESP32-C6 microcontroller controlling three cascaded LED strips for displaying time and additional information.
+On the software side, a modular architecture was developed to retrieve external data via the Open-Meteo API and provide a web interface for system control.
+The mechanical design was carried out using CAD software, and manufacturing was completed using an additive process.
+Final system tests confirmed the stable integration of sensors as well as network-based connectivity.
+The project demonstrates how cost-efficient standard components can be used to develop a multifunctional display system that exceeds the functionality of commercially available products.

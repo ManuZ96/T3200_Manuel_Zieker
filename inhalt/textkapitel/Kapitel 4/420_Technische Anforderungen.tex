@@ -5,8 +5,8 @@ Sie werden in die Bereiche Hardware, Software, Schnittstellen und Performance un
 \subsection{Hardware}
 Die Hardwarearchitektur basiert auf einem Mikrocontroller mit integrierter \gls{wlan}-Schnittstelle.
 Dieser übernimmt sowohl die Datenverarbeitung als auch die Kommunikation mit externen Diensten.
-Die Anzeige erfolgt über mehrere \gls{led}-Stränge die aus vorgefertigen \gls{led}-Streifen bestehen und mit \gls{ws2812b} \gls{rgb}-Leuchtdiode bestückt sind. \todo{angeben welche led bänder}
-Ein \gls{led}-Strang wird für die Hauptanzeige verwendet. Das ist die Uhrzeit in Stunden und Minuten, die Außentemperautur und das Wetter.
+Die Anzeige erfolgt über mehrere \gls{led}-Stränge die aus vorgefertigen \gls{led}-Streifen von AZ-Delivery bestehen und mit \gls{ws2812b} \gls{rgb}-Leuchtdiode bestückt sind~\cite{AZDelivery}.
+Ein \gls{led}-Strang wird für die Hauptanzeige verwendet. Das ist die Uhrzeit in Stunden und Minuten, die Außentemperatur und das Wetter.
 Der zweite \gls{led}-Strang wird für die Sekundenanzeige verwendet.
 Der dritte \gls{led}-Strang wird für die Anzeige der Tageszeit, der Raumfeuchtigkeit, der Mondphase und der Innenraumtemperatur.
 Alle Hardware-Anforderungen sind in Tabelle~\ref{tab:Hardware Anforderung} aufgelistet.
@@ -19,7 +19,7 @@ Alle Hardware-Anforderungen sind in Tabelle~\ref{tab:Hardware Anforderung} aufge
 \hline
 H1 & Verwendung eines Mikrocontrollers mit WLAN-Funktionalität \\
 H2 & Ansteuerung von einzeln adressierbaren LEDs \\
-H3 & 3 Kaskdierte LED Strukturen mit je einem Datenpin am Mikrocontroller \\
+H3 & 3 Kaskadierte LED Strukturen mit je einem Datenpin am Mikrocontroller \\
 H4 & Einbindung eines Temperatur- und Feuchtigkeitssensors \\
 H5 & Sicherstellung einer stabilen Spannungsversorgung für alle Komponenten \\
 \end{tabular}
