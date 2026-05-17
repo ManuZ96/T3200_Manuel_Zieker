@@ -2,8 +2,9 @@
 Die elektrische Installation basiert auf der Versorgungsspannung von +5~V.  
 Alle LED-Streifen sowie der Mikrocontroller werden damit versorgt und haben einen gemeinsamen Ground.  
 
-Die \gls{led}-Ansteuerung ist in drei separate \gls{led}-Stränge unterteilt, wobei jeder Strang aus mehreren unterschiedlich langen \gls{led}-Streifen besteht, die durch Lötverbindungen miteinander verbunden sind, um Verbindungen über Kurven zu realisieren.
-Der erste Strang hat 256 \gls{ws2812b}-\gls{led}s und wird für die Anzeige von Stunden und Minuten, der Außentemperatur und dem Wetter verwendet.  
+Die \gls{led}-Ansteuerung ist in drei separate \gls{led}-Stränge unterteilt, wobei jeder Strang aus mehreren unterschiedlich langen \gls{led}-Streifen besteht.
+Diese sind galvanisch durch Lötverbindungen gekoppelt, um die Signal- und Stromführung über Kurven zu realisieren.
+Der erste Strang hat 256 \gls{ws2812b}-\gls{led}s und wird für die Anzeige von Stunden und Minuten, der Außentemperatur und des Wetter verwendet.  
 Der zweite Strang hat 60 \gls{ws2812b}-\gls{led}s und wird für die Sekundenanzeige genutzt.
 Der dritte Strang hat 38 \gls{ws2812b}-\gls{led}s und wird für die Anzeige der Zusatzfunktionen genutzt.
 Die Datenleitungen der \gls{led}-Stränge werden jeweils auf separate \gls{gpio}-Pins des Mikrocontrollers geführt.  
@@ -16,7 +17,7 @@ P_{\text{gesamt}} = N_{\text{LED}} \cdot P_{\text{LED}}
 \]
 
 verwendet werden.
-Die Leistungsaufnahme pro LED kann über die Streckenleistung bestimmt werden welche im mitgelieferten Datenblatt der verwendeten \gls{led}-Streifen angegeben ist~\cite{AZDelivery}.  
+Die Leistungsaufnahme pro LED kann über die Streckenleistung bestimmt werden, welche im mitgelieferten Datenblatt der verwendeten \gls{led}-Streifen angegeben ist~\cite{AZDelivery}.  
 \[
 P_{\text{LED}} = \frac{P_{\text{pro Meter}}}{N_{\text{LED pro Meter}}}
 \]
@@ -36,7 +37,8 @@ P_{\text{LED}} = \frac{6\,\text{W/m}}{30\,\text{LED/m}}
 = 0{,}2\,\text{W}.
 \]
 
-Im ungünstigsten Fall sind während des Boot-Modus kurzzeitig alle 256 LEDs des Hauptstreifens, bei voller Helligkeit, gleichzeitig aktiv. Daraus ergibt sich die maximale Gesamtleistung zu  
+Im ungünstigsten Fall sind während des Boot-Modus kurzzeitig alle 256 LEDs des Hauptstreifens bei voller Helligkeit gleichzeitig aktiv. 
+Daraus ergibt sich die maximale Gesamtleistung zu  
 \[
 P_{\text{gesamt}} = 256 \cdot 0{,}2\,\text{W}
 = 51{,}2\,\text{W}.
@@ -73,4 +75,4 @@ Für die thermische und dauerhafte Auslegung des Netzteils ist dieser kurzzeitig
 Im regulären Betrieb liegt die Anzahl gleichzeitig aktivierter \gls{led}s bei 104 und damit deutlich unter diesem theoretischen Maximalwert.
 Ein kurzzeitiges und geringfügiges Überschreiten der errechneten Leistungsaufnahme während des Boot-Modus kann vom Netzteil als Lastspitze bereitgestellt werden.
 Aus diesem Grund wird ein Netzteil mit einer Ausgangsstromstärke von \SI{10}{\ampere} bei \SI{5}{\volt} verwendet.
-Mit diesem ist auch die Leistungsaufnahme des \gls{esp32c6} und des \gls{dht22} Sensors mit genügend Reserve abgedeckt.
+Mit diesem ist auch die Leistungsaufnahme des \gls{esp32c6} und des \gls{dht22}-Sensors mit genügend Reserve abgedeckt.

@@ -29,10 +29,10 @@ void setLed(int ledNumber, uint8_t r, uint8_t g, uint8_t b) {
 }
 \end{lstlisting}
 
-Die Indexnummern der einzelnen \gls{led}s werden zur einfacheren Verwendung im Code globalen Variablen zugeordnet, welche die damit anzuzeigenden Wörter repräsentieren. 
+Die Indexnummern der einzelnen \gls{led}s werden zur einfacheren Verwendung im Code globalen Variablen zugeordnet, welche die jeweiligen Wörter repräsentieren. 
 Als Beispiel für die Uhrzeitanzeige dient die Variable „\texttt{HOUR\_2}“, welche das Wort „ZWEI“ auf der WordClock aktiviert und durch die \gls{led}s 71 bis 74 dargestellt wird (vgl. Skript~\ref{lst:WortSetzen}).
 Die Verarbeitung der Zeit erfolgt durch zyklisches Auslesen der lokalen Systemzeit.  
-Die zentrale Anzeigefunktion löscht zunächst den Hauptstreifen und aktiviert anschließend die benötigten Wörter für Stunden-, Minuten- und Zusatzinformationen (vgl. Skript~\ref{lst:WortSetzen}).
+Die zentrale Anzeigefunktion löscht zunächst den Hauptstreifen und aktiviert anschließend die benötigten Wörter für Stunden, Minuten, Wetter- und Außentemperaturinformationen (vgl. Skript~\ref{lst:WortSetzen}).
 
 \begin{lstlisting}[style=arduino,caption={Hauptanzeigefunktion der WordClock.},label={lst:WortSetzen}]
 int HOUR_2[]  = {71, 72, 73, 74};
@@ -121,7 +121,7 @@ void setup() {
 }
 \end{lstlisting}
 
-In der Funktion \texttt{Loop()} werden unter anderem die Webserver-Anfragen verarbeitet. Die Funktion wird zyklisch wiederholt um alle Anzeigen zu aktualisieren wenn es eine Veränderung der Werte gibt (vgl. Skript~\ref{lst:Loop} und ~\ref{lst:Setup}).
+In der Funktion \texttt{loop()} werden unter anderem die Webserver-Anfragen verarbeitet. Die Funktion wird zyklisch wiederholt, um alle Anzeigen zu aktualisieren, wenn es eine Veränderung der Werte gibt (vgl. Skript~\ref{lst:Loop} und ~\ref{lst:Setup}).
 
 \begin{lstlisting}[style=arduino,caption={Zyklischer Programmablauf.},label={lst:Loop}]
 void loop() {

@@ -3,7 +3,7 @@ Zur Erweiterung der Funktionalität werden externe Datenquellen eingebunden.
 Die Kommunikation erfolgt über eine \gls{wlan}-Verbindung.  
 Der ESP32 verbindet sich dabei mit dem lokalen Netzwerk und ermöglicht anschließend die Kommunikation mit externen Diensten.
 
-\begin{lstlisting}[style=arduino,caption={Funktion zum Verbindungsaufbau mit dem \gls{wifi}-Access-Punkt.}]
+\begin{lstlisting}[style=arduino,caption={Funktion zum Verbindungsaufbau mit dem \gls{wifi}-Access-Point.}]
 void connectToWiFi() {
   WiFi.mode(WIFI_STA);
   WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
@@ -17,7 +17,7 @@ void connectToWiFi() {
 
 Die Zeit wird über \gls{ntp} synchronisiert.  
 Zusätzlich werden Wetterdaten von der Web-\gls{api} Open-Meteo geladen.  
-Die Datenübertragung erfolgt über \gls{https} und die Verarbeitung der Antworten im \gls{json}-Format.
+Die Datenübertragung erfolgt über \gls{https}, wobeidie Verarbeitung der Antworten im \gls{json}-Formaterfolgt.
 Die zentrale Funktion zur Aktualisierung der Wetterdaten erzeugt zunächst die Anfrage-URL, ruft anschließend die Daten ab und liest daraus die Temperatur, den Wettercode und die Tageszeit aus.
 
 \begin{lstlisting}[style=arduino,caption={Auszug aus der Wetterdatenabfrage.}]
@@ -26,17 +26,15 @@ url += String(WEATHER_LAT, 4);
 url += "&longitude=";
 url += String(WEATHER_LON, 4);
 url += "&current=temperature_2m,weather_code,is_day";
-
 int httpCode = http.GET();
 String payload = http.getString();
 deserializeJson(doc, payload);
-
 outsideTemperature = doc["current"]["temperature_2m"] | 0.0;
 weatherCode = doc["current"]["weather_code"] | -1;
 isDay = doc["current"]["is_day"] | 1;
 \end{lstlisting}
 
 Die empfangenen Wetterdaten werden anschließend klassifiziert.  
-Hierzu werden Temperaturbereiche und Wettercodes den definierten Wettergruppen zugeordnet.  
-Die Anzeige erfolgt anschließend über entsprechende Wort- und Statusanzeigen auf den LED-Streifen.
+Hierzu werden Temperaturbereiche und Wettercodes den definierten Wettergruppen zugeordnet.
+Die Anzeige erfolgt daraufhin über entsprechende Wort- und Statusanzeigen auf den LED-Streifen.
 Weitere Funktionen zur Wetterklassifikation, periodischen Aktualisierung und Fehlerbehandlung sind im vollständigen Programmcode in Anhang~\ref{apx:1} dokumentiert.

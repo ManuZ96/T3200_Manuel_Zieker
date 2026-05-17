@@ -13,7 +13,7 @@ Das Ergebnis der Konzeptentwicklung ist in Abb.~\ref{fig:Konzeptentwicklung} dar
 	\label{fig:Konzeptentwicklung}
 \end{figure}
 
-Weiterhin soll die WordClock über einen so genannten Boot-Modus verfügen, während sie startet. 
+Weiterhin soll die WordClock über einen sogenannten Boot-Modus verfügen, während sie startet. 
 Dieser Ablauf ist ebenfalls in der Konzeptionierungsphase entstanden und in Abb.~\ref{fig:Konzeptentwicklung_boot} dargestellt.
 
 \begin{figure}[H]
@@ -42,7 +42,7 @@ Dieser Ablauf ist ebenfalls in der Konzeptionierungsphase entstanden und in Abb.
     \begin{subfigure}[t]{0.4\textwidth}
         \centering
         \includegraphics[width=\linewidth]{inhalt/bilder/ErstesKonzept_bootD.png}
-        \caption{Alle LEDs sind kurz aus. Wenn die WordClock alles fertig geladen hat, geht diese in den Anzeigemodus, ansonsten beginnt der ablauf von vorne.}
+        \caption{Alle LEDs sind kurz aus. Wenn die WordClock alles fertig geladen hat, geht diese in den Anzeigemodus, ansonsten beginnt der Ablauf von vorne.}
         \label{fig:Konzeptentwicklung_bootD}
     \end{subfigure}
     \caption[Ablauf des Boot-Modus]{Ablauf des Boot-Modus der WordClock um anzuzeigen, dass diese gerade startet und die Werte abgerufen und initialisiert werden.}
@@ -52,9 +52,9 @@ Dieser Ablauf ist ebenfalls in der Konzeptionierungsphase entstanden und in Abb.
 Zur Bestimmung der minimal nötigen Buchstabengröße wird ein empirischer Ansatz gewählt. 
 Hierfür werden Testdrucke mit unterschiedlichen Schriftgrößen erstellt.
 Das entscheidende Kriterium ist die gute Lesbarkeit aus einer Entfernung von etwa 5 m. 
-Auf Basis der ermittelten Schriftgröße geht die Gesamtgröße der WordClock hervor.
-Weiterhin kann damit der Abstand ermittelt und leicht angepasst werden, den die \gls{led}s voneinander haben müssen, damit eine \gls{led} je Buchstabe platziert wird.
+Auf Basis der ermittelten Schriftgröße ergibt sich die Gesamtgröße der WordClock.
+Weiterhin kann damit der Abstand ermittelt und leicht angepasst werden, den die \gls{led}s voneinander haben müssen, damit eine \gls{led} pro Buchstabe platziert wird.
 Damit kann das passende \gls{led}-Band gewählt werden, auf welchem die \gls{ws2812b}-\gls{led}s integriert sind.
 So muss nicht jede \gls{led} einzeln verlötet werden.  
-Zuletz bildet dies die Grundlage für die Aufteilung der Bauteile im Hinblick auf den Fertigungsprozess. 
-Da das verfügbare Druckbett des verfügbaren \gls{3ddrucker} auf ein Volumen von 250 mm × 250 mm × 250 mm begrenzt ist, erfolgt eine entsprechende Segmentierung der Konstruktion und die Frontplattenbauteil können konstruiert werden.
+Zuletzt bildet dies die Grundlage für die Aufteilung der Bauteile im Hinblick auf den Fertigungsprozess. 
+Da das verfügbare Druckbett des verfügbaren \gls{3ddrucker} auf ein Volumen von 250 mm × 250 mm × 250 mm begrenzt ist, erfolgt eine entsprechende Segmentierung der Konstruktion und die Frontplattenbauteile können konstruiert werden.

@@ -1,19 +1,17 @@
 \section{Testkonzept und Vorgehensweise}
-Die Verifikation und Validierung der WordClock erfolgt schrittweise entsprechend der Vorgehensweise des V-Modells.  
+Die Verifikation und Validierung der WordClock erfolgt schrittweise auf Basis des V-Modells. 
 Einzelne Funktionen werden zunächst unabhängig getestet und anschließend schrittweise zu einem Gesamtsystem integriert.  
 
 Zu Beginn erfolgt die Inbetriebnahme der Hardware auf einem Steckbrett.  
 Dadurch können Anpassungen der Verdrahtung flexibel umgesetzt werden.  
 Diese Vorgehensweise erleichtert insbesondere die Auswahl geeigneter \gls{gpio}-Pins des ESP32.  
 Während der Inbetriebnahme zeigt sich, dass einzelne \gls{gpio}-Pins zusätzliche Hardwarefunktionen besitzen.  
-Hierzu zählt beispielsweise die integrierte \gls{rgb}-\gls{led} des Mikrocontrollers.  
-Dadurch treten unerwartete optische Effekte auf.  
-Diese Effekte müssen bei der finalen Pinbelegung berücksichtigt werden.  
+Hierzu zählt beispielsweise die integrierte \gls{rgb}-\gls{led} des Mikrocontrollers, woraus unerwartete optische Effekte resultieren, die bei der finalen Pinbelegung berücksichtigt werden müssen.
 
 Die Tests erfolgen zunächst getrennt für die einzelnen \gls{led}-Stränge.  
-Zuerst wird der Strang der Hauptanzeige der WordClock geprüft.  
+Zuerst wird die Wortmatrix der Hauptanzeige geprüft. 
 Hierbei werden einzelne \gls{led}s sowie die verschiedenen definierten Wörter einzeln angesteuert, um die korrekte Zuordnung und Funktionalität zu überprüfen.  
 Anschließend erfolgt die Prüfung des Strangs für die Sekundenanzeige sowie des Strangs für die Zusatzfunktionen nach demselben Prinzip.  
 Dadurch können Fehler frühzeitig erkannt und eindeutig einzelnen Funktionsgruppen zugeordnet werden.  
 Nach erfolgreicher Prüfung der einzelnen Stränge erfolgt die Zusammenführung im Integrationstest.  
-Nach erfolgreichem Abschluss der Integrationstests folgen die Tests im Dauerbetrieb sowie abschließend die Abnahme des Gesamtsystems.
+Nach erfolgreichem Abschluss der Integrationstests folgen die Untersuchungen im Dauerbetrieb sowie abschließend die Abnahme des Gesamtsystems.

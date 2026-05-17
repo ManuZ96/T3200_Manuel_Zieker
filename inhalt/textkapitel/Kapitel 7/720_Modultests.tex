@@ -1,6 +1,6 @@
 \section{Modultests}
 Die Modultests dienen der Überprüfung einzelner Hardware- und Softwarefunktionen.  
-Dabei erfolgt ein Soll-Ist-Vergleich der jeweiligen Teilfunktion.  
+Dabei erfolgt ein Soll-Ist-Vergleich für die jeweiligen Teilfunktion.  
 
 Zunächst werden die einzelnen \gls{led}-Streifen unabhängig voneinander mit den zugehörigen Funktionen getestet.  
 Hierbei wird überprüft, ob die Logik zur Ansteuerung der verschiedenen Wörter korrekt funktioniert und ob die vorgesehenen Farben sowie Helligkeiten korrekt dargestellt werden.  
@@ -14,9 +14,9 @@ Die Funktionen zur Anzeige der Außentemperatur und der Wetterinformationen werd
 Zur Überprüfung der Wetterklassifikation wird kontrolliert, ob verschiedene Wettercodes und Temperaturwerte korrekt den definierten Wetter- und Temperaturgruppen zugeordnet werden.  
 Nachdem dies bestätigt wurde, wird überprüft, ob die von der \gls{api} bezogenen Wetter- und Temperaturdaten die erwartete Ausgabe liefern und den realen Zuständen entsprechen.  
 
-Nach erfolgreicher Prüfung erfolgen die Modultests der Zusatzfunktionen Innenraumtemperatur, Luftfeuchtigkeit, Tageszeit und Mondphase.  
+Nach erfolgreicher Verifikationerfolgen die Tests der Zusatzfunktionen Innenraumtemperatur, Luftfeuchtigkeit, Tageszeit und Mondphase.  
 Hierbei wird ein Fehler innerhalb der Mondphasenberechnung festgestellt.  
 Die berechnete Mondphase stimmt dabei nicht mit den erwarteten Werten überein.  
-Durch Anpassung des Berechnungsverfahrens kann dieser Fehler behoben werden.  
+Durch Anpassung des Berechnungsverfahrens konnte dieser Fehler behoben werden.  
 
 Die Modultests zeigen, dass die einzelnen Hardware- und Softwarekomponenten nach der Fehlerkorrektur zuverlässig funktionieren und die Softwaremodule unabhängig voneinander korrekt arbeiten.  

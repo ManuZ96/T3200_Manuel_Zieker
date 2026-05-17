@@ -1,6 +1,6 @@
 \section{Integration der UI-Steuerung}
 Zur Steuerung des Systems wird ein integrierter Webserver implementiert, welcher direkt auf dem Mikrocontroller ausgeführt wird.  
-Die Kommunikation erfolgt über \gls{http} und der Zugriff ist über einen Webbrowser möglich.
+Die Kommunikation erfolgt über \gls{http}, sodass der Zugriff über einen Webbrowser möglich ist.
 Die \gls{ui} ermöglicht das Ein- und Ausschalten der WordClock sowie die Anpassung von Helligkeit und Farbwerten.  
 Die Verarbeitung der Nutzereingaben erfolgt über URL-Parameter.
 
@@ -30,6 +30,6 @@ void handleSet() {
 }
 \end{lstlisting}
 
-Zusätzlich wird eine \gls{json}-Schnittstelle bereitgestellt, über welche Statusinformationen für externe Anwendungen ausgelesen werden können.  
+Zusätzlich wird eine \gls{json}-Schnittstelle bereitgestellt, über die Statusinformationen für externe Anwendungen ausgelesen werden können.  
 Die \gls{html}-Benutzeroberfläche wird dynamisch auf dem ESP32 erzeugt und über den integrierten \gls{http}-Server bereitgestellt.  
-Weitere Funktionen zur Generierung der \gls{html}-Seite, \gls{ui}-Ausgabe und Verarbeitung von Browseranfragen befinden sich im vollständigen Programmcode in Anhang~\ref{apx:1}.
+Weitere Funktionen zur Generierung der \gls{html}-Seite, zur Ausgabe der \gls{ui} und zur Verarbeitung von Browseranfragen befinden sich im vollständigen Programmcode in Anhang~\ref{apx:1}.

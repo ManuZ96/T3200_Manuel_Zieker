@@ -2,7 +2,7 @@
 Nach Abschluss der Modultests erfolgt die Zusammenführung der einzelnen Komponenten zum Gesamtsystem.  
 Dabei wird insbesondere das Zusammenspiel zwischen Hardware, Sensorik, Netzwerkkommunikation und \gls{led}-Ansteuerung überprüft.  
 Bei den Integrationstests werden alle \gls{led}-Stränge gleichzeitig verwendet und auch der Boot-Modus, der über die \gls{led}s mehrerer Funktionen läuft, getestet.  
-Für die Spannungsversorgung bei den ersten Tests wird ein vorhandenes 25~W Netzteil mit einer Nennspannung von 5~V und einem Nennstrom von 5~A verwendet, welches bereits bei den Modultests eingesetzt wird.  
+Für die Spannungsversorgung bei den ersten Tests wird ein vorhandenes 25~W-Netzteil mit einer Nennspannung von 5~V und einem Nennstrom von 5~A verwendet, welches bereits bei den Modultests eingesetzt wird.  
 
 Die erste Dimensionierung des Netzteils erfolgt auf Grundlage der theoretisch maximal gleichzeitig aktivierten \gls{led}s innerhalb eines Zeitraums von zwei Sekunden.  
 Die längste mögliche Anzeige aktiviert dabei 104~\gls{led}s.  
@@ -25,7 +25,7 @@ I = \frac{20{,}8~\mathrm{W}}{5~\mathrm{V}} = 4{,}16~\mathrm{A}
 für die \gls{led}-Beleuchtung.  
 
 Es wird zunächst angenommen, dass die während des Boot-Modus auftretenden Leistungsspitzen durch das Netzteil abgefangen werden können.  
-Während der Inbetriebnahme zeigt sich jedoch ein Einbruch der Versorgungsspannung während des Boot-Modus.  
+Während der Inbetriebnahme zeigt sich jedoch ein Einbruch der Versorgungsspannung beim Startvorgang. 
 Dadurch startet das System nicht zuverlässig und bleibt zu etwa 75~\% im Boot-Modus hängen.  
 Auf Grundlage dieser Beobachtungen erfolgt eine Neuberechnung der erforderlichen Netzteilleistung mit zusätzlicher Leistungsreserve.  
 
@@ -39,12 +39,12 @@ Zusätzlich zeigen die Tests, dass die während des Boot-Modus auftretenden kurz
 
 Nachdem die Spannungsversorgung stabil ist, wird mit den weiteren Integrationstests fortgefahren.  
 Zunächst wird die Zeitanzeige durch Vergleich mit der Referenzzeit auf einem Smartphone überprüft, während alle \gls{led}-Stränge gleichzeitig in Betrieb sind.  
-Dabei wird insbesondere beobachtet, ob Sekunden- und Minutenwechsel korrekt dargestellt werden und diese in Echtzeit wechseln oder es bei der Verarbeitung zu Verzögerungen kommt.  
+Dabei wird insbesondere beobachtet, ob Sekunden- und Minutenwechsel korrekt dargestellt werden und diese in Echtzeit erfolgen oder es bei der Verarbeitung zu Verzögerungen kommt.  
 
 Zur Überprüfung aller Minutenanzeigen wird die WordClock über einen Zeitraum von einer Stunde beobachtet.  
 Dadurch kann jede mögliche Minutenanzeige mindestens einmal geprüft werden.  
 Während dieser Tests wird ein Fehler bei der sprachlichen Zuordnung der Uhrzeit festgestellt.  
-Ab dem Bereich „zwanzig nach“ stimmt der Bezug zur folgenden Stunde zunächst nicht korrekt.  
+Ab dem Bereich „zwanzig nach“ war der Bezug zur folgenden Stunde zunächst nicht korrekt.  
 Die Logik zur Berechnung der anzuzeigenden Stunde wird daraufhin angepasst.  
 
 Zusätzlich erfolgt die Überprüfung der Temperatur- und Wetterdarstellung.  
