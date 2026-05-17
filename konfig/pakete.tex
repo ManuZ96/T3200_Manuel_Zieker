@@ -179,6 +179,20 @@
 \usepackage{xcolor}              % Farben für Syntax-Highlighting
 \renewcommand{\lstlistlistingname}{Skriptverzeichnis}     %Titel vergeben selbst
 
+%Ändert automatisch beim compilieren um so dass man nicht selbst anpassen muss
+\lstset{
+    inputencoding=utf8,
+    extendedchars=true,
+    literate=
+    {ä}{{ae}}2
+    {ö}{{oe}}2
+    {ü}{{ue}}2
+    {Ä}{{Ae}}2
+    {Ö}{{Oe}}2
+    {Ü}{{Ue}}2
+    {ß}{{ss}}2
+}
+
 \lstdefinestyle{cppstyle}{
     language=C++,
     basicstyle=\ttfamily\small,

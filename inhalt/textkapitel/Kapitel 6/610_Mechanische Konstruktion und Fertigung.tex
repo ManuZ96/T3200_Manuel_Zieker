@@ -20,7 +20,7 @@ Die konstruierten Bauteile werden mit einem \gls{3ddruck} aus schwarzem \gls{pla
 Ein Beispiel dafür ist in Abb.~\ref{fig:3DDruckbeispiel} dargestellt.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.6\linewidth]{inhalt/bilder/Bauteil11_gedruckt.png}
+	\includegraphics[width=0.7\linewidth]{inhalt/bilder/Bauteil11_gedruckt.png}
 	\caption[Fertiggestellter Druck des Frontplattenbauteil Nr. 11]{Fertiggestellter Druck des Frontplattenbauteil Nr. 11 auf dem 3D-Drucker Kobra S1 der Marke Anycubic~\cite{KobraS1}.}
 	\label{fig:3DDruckbeispiel}
 \end{figure}
@@ -50,40 +50,40 @@ Außerdem werden Halterungen für verschiedene Anwendungszwecke konstruiert und 
 Eine Halterung wird für den \gls{dht22} benötigt, um diesen an der Rückseite der WordClock anbringen zu können (vgl. Abb.~\ref{fig:DHT22Halter}).
 Die Innenraumtemperaturen und die Luftfeuchtigkeit soll am Installationsort der WordClock gemessen werden.
 Zusätzlich werden Bauteile als Abstandshalter zur Wand und gleichzeitig als Aufhängungspunkte konstruiert (vgl. Abb.~\ref{fig:Abstandshalter}).   
-Weiterhin wird eine Halterung für den Mikrocontroller entwickelt, die an der Rückseite der Multiplexplatte montiert ist.  
+Weiterhin wird eine Halterung für den Mikrocontroller entwickelt, die an der Rückseite der Grundplatte montiert ist.  
 Dadurch bleibt die \gls{usb-c}-Schnittstelle des Mikrocontroller auch im montierten Zustand erreichbar (vgl. Abb.~\ref{fig:MontageplatteESP}).
 Zuletzt wird noch eine Halterung für die Hohlsteckerbuchse, über welche die WordClock mit 5~V Spannung versorgt wird, konstruiert.
 Diese wird ebenfalls an der Rückseite montiert, so dass der Hohlstecker des +5~V Netzteils ein und ausgesteckt werden kann, ohne die WordClock von der Wand nehmen zu müssen (vgl. Abb.~\ref{fig:HohlsteckerHalter}).
 
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[t]{0.4\textwidth}
+    \begin{subfigure}[t]{0.45\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{inhalt/bilder/Platzhalter.jpg}
-        \caption{3D-gedruckte Halterung für den \gls{dht22} um die Installationsort bezogenen Sensordaten zu erhalten.}
+        \includegraphics[width=\linewidth]{inhalt/bilder/DHT22AufHalter.png}
+        \caption{Der auf der 3D-gedruckten Halterung montierte \gls{dht22}. Dieser wird an der Rückseite der Grundplatte montiert, um die Werte am Installationsort der WordClock zu messen.}
         \label{fig:DHT22Halter}
     \end{subfigure}
     \hfill
-    \begin{subfigure}[t]{0.4\textwidth}
+    \begin{subfigure}[t]{0.45\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{inhalt/bilder/Platzhalter.jpg}
-        \caption{3D-gedruckte Abstandshalter und Befestigungspunkte der WordClock, welche oben links und rechts befestigt werden um die WordClock an die Wand zu hängen. Zusätzlich 2 Abstandshalter welche unten links und rechts angebracht werden.}
+        \includegraphics[width=\linewidth]{inhalt/bilder/Befestigunsmaterial.png}
+        \caption{3D-gedruckte Aufhängungen (oben links und rechts) und Befestigungspunkte (unten links und rechts) der WordClock, welche an der Wand und an der WordClock befestigt werden, um diese an die Wand zu hängen. Zusätzlich 2 Abstandshalter (mittig links und rechts) welche am unteren Ende der WordClock angebracht werden, damit diese im aufgehängten Zustand einen festen Auflagepunkt hat.}
         \label{fig:Abstandshalter}
     \end{subfigure}
     \vspace{0.8em}
-    \begin{subfigure}[t]{0.4\textwidth}
+    \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\linewidth]{inhalt/bilder/ESPHalterEckView.png}
-        \caption{3D-gedruckte Montageplatte für den \gls{esp32c6}, die an der Rückseite montiert wird.}
+        \caption{3D-gedruckte Halterung für den \gls{esp32c6}, die an der Rückseite montiert wird.}
         \label{fig:MontageplatteESP}
     \end{subfigure}
     \hfill
-    \begin{subfigure}[t]{0.4\textwidth}
+    \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\linewidth]{inhalt/bilder/VersorgungsanschlussHalter.png}
-        \caption{Halterung für die Hohlsteckerbuchse an der WordClock zur Spannungsversorung mit +5~V.}
+        \caption[Halterung für die Hohlsteckerbuchse an der WordClock]{Halterung für die Hohlsteckerbuchse an der WordClock (links von vorne, rechts von hinten) zur Spannungsversorung mit +5~V.}
         \label{fig:HohlsteckerHalter}
     \end{subfigure}
     \caption{Zusätzliche Halterungen der WordClock.}
     \label{fig:Kleinteile}
-\end{figure}\todo{EinBildFehlt}
+\end{figure}

@@ -242,6 +242,9 @@ String rgbToHex(uint8_t r, uint8_t g, uint8_t b);
 
 uint8_t applyBrightness(uint8_t colorValue);
 
+String getWeatherCodeText(int code);
+String getMoonPhaseText(int moonAge);
+
 bool updateTimeVariables();
 bool syncTimeFromServer();
 void syncTimeUntilSuccessAtStartup();
@@ -393,6 +396,36 @@ void bootModeUpdate() {
 void bootModeOff() {
   strip.clear();
   strip.show();
+}
+
+// --------------------------------------------------
+// Uebersetzt den Wettercode in Text
+// --------------------------------------------------
+String getWeatherCodeText(int code) {
+  switch (classifyWeatherCode(code)) {
+    case WEATHER_CLEAR:   return "Klarer Himmel";
+    case WEATHER_CLOUDY:  return "Bewölkt";
+    case WEATHER_FOG:     return "Nebel";
+    case WEATHER_RAIN:    return "Regen";
+    case WEATHER_SNOW:    return "Schnee / Schneefall";
+    case WEATHER_HAIL:    return "Hagel";
+    case WEATHER_STORM:   return "Gewitter";
+    default:              return "Unbekanntes Wetter";
+  }
+}
+
+// --------------------------------------------------
+// Uebersetzt das Mondalter in Text
+// --------------------------------------------------
+String getMoonPhaseText(int moonAge) {
+  if (moonAge < 0) return "Fehler beim Lesen";
+  if (moonAge >= 29) return "Neumond (LEDs aus)"; //moonAge == 0 || 
+  if (moonAge < 4)   return "Zunehmender Sichelmond";
+  if (moonAge < 10)  return "Zunehmender Halbmond";
+  if (moonAge < 16)  return "Vollmond";
+  if (moonAge < 20)  return "Abnehmender Dreiviertelmond";
+  if (moonAge < 25)  return "Abnehmender Halbmond";
+  return "Abnehmender Sichelmond";
 }
 
 // ==================================================
@@ -580,7 +613,7 @@ WeatherGroup classifyWeatherCode(int code) {
 // --------------------------------------------------
 bool updateWeatherFromServer() {
   if (WiFi.status() != WL_CONNECTED) {
-    Serial.println("Wetterabfrage nicht moeglich: WLAN nicht verbunden.");
+    Serial.println("Wetterabfrage nicht möglich: WLAN nicht verbunden.");
     weatherValid = false;
     return false;
   }
@@ -635,7 +668,7 @@ bool updateWeatherFromServer() {
   }
 
   if (!doc["current"].is<JsonObject>()) {
-    Serial.println("JSON enthaelt kein current-Objekt.");
+    Serial.println("JSON enthält kein current-Objekt.");
     weatherValid = false;
     return false;
   }
@@ -647,7 +680,7 @@ bool updateWeatherFromServer() {
   weatherValid = true;
   lastWeatherUpdate = millis();
 
-  Serial.printf("Wetter aktualisiert -- Temp=%.1f C | Code=%d | Tag=%d\n",
+  Serial.printf("Wetter aktualisiert -> Temp=%.1f Grad | Code=%d | Tag=%d\n",
                 outsideTemperature, weatherCode, isDay);
 
   return true;
@@ -711,6 +744,7 @@ String rgbToHex(uint8_t r, uint8_t g, uint8_t b) {
 // --------------------------------------------------
 String buildHtmlPage() {
   String colorHex = rgbToHex(ledR, ledG, ledB);
+  int moonAge = calculateMoonAge();
 
   String html = "";
   html += "<!DOCTYPE html><html><head><meta charset='utf-8'>";
@@ -726,6 +760,8 @@ String buildHtmlPage() {
   html += "a,button{display:inline-block;margin:6px 6px 6px 0;padding:10px 14px;background:#2d6cdf;color:white;text-decoration:none;border-radius:8px;border:none;}";
   html += "input[type=range]{width:100%;max-width:280px;}";
   html += "input[type=color]{width:80px;height:44px;border:none;background:none;}";
+  html += "ul{margin: 4px 0; padding-left: 20px; color: #ccc;}";
+  html += "li{margin-bottom: 4px;}";
   html += "</style>";
 
   html += "<script>";
@@ -742,6 +778,7 @@ String buildHtmlPage() {
   html += "</head><body>";
   html += "<h1>WordClock</h1>";
 
+  // KARTE 1: Anzeige
   html += "<div class='card'>";
   html += "<h2>Anzeige</h2>";
   html += "<div class='grid'>";
@@ -753,18 +790,28 @@ String buildHtmlPage() {
   html += "<div class='label'>Power</div><div>" + String(lampPower ? "AN" : "AUS") + "</div>";
   html += "<div class='label'>Helligkeit</div><div>" + String(webBrightness) + " %</div>";
   html += "<div class='label'>Farbe</div><div>" + colorHex + " / RGB(" + String(ledR) + "," + String(ledG) + "," + String(ledB) + ")</div>";
-  html += "<div class='label'>Aussentemperatur</div><div>" + String(outsideTemperature, 1) + " &deg;C</div>";
+  html += "<div class='label'>Außentemperatur</div><div>" + String(outsideTemperature, 1) + " &deg;C</div>";
   html += "<div class='label'>Wettercode</div><div>" + String(weatherCode) + "</div>";
-  html += "<div class='label'>Wetter gueltig</div><div>" + String(weatherValid ? "ja" : "nein") + "</div>";
+  
+  // Wetter-Textanzeige unter dem Wettercode
+  html += "<div class='label'>Wetter-Info</div><div><strong>" + getWeatherCodeText(weatherCode) + "</strong></div>";
+  
+  html += "<div class='label'>Wetter gültig</div><div>" + String(weatherValid ? "ja" : "nein") + "</div>";
   html += "<div class='label'>Tag/Nacht</div><div>" + String(isDay ? "Tag" : "Nacht") + "</div>";
+  
+  // Mondphasen-Anzeige (Nummer + Wort)
+  html += "<div class='label'>Mondphase (Tag)</div><div>Tag " + String(moonAge) + " / 29</div>";
+  html += "<div class='label'>Mondphase (Info)</div><div><strong>" + getMoonPhaseText(moonAge) + "</strong></div>";
+
   html += "<div class='label'>Innenraumtemperatur</div><div>" + String(indoorTemperature, 1) + " &deg;C</div>";
   html += "<div class='label'>Luftfeuchtigkeit</div><div>" + String(indoorHumidity, 1) + " %</div>";
-  html += "<div class='label'>Innenraumsensor</div><div>" + String(indoorSensorValid ? "gueltig" : "ungueltig") + "</div>";
+  html += "<div class='label'>Innenraumsensor</div><div>" + String(indoorSensorValid ? "gültig" : "ungültig") + "</div>";
   html += "<div class='label'>IP</div><div>" + WiFi.localIP().toString() + "</div>";
 
   html += "</div>";
   html += "</div>";
 
+  // KARTE 2: Steuerung
   html += "<div class='card'>";
   html += "<h2>Steuerung</h2>";
   html += "<a href='/set?power=1'>EIN</a>";
@@ -772,6 +819,7 @@ String buildHtmlPage() {
   html += "<a href='/weather'>Wetter aktualisieren</a>";
   html += "</div>";
 
+  // KARTE 3: Farbe / Helligkeit
   html += "<div class='card'>";
   html += "<h2>Farbe / Helligkeit</h2>";
   html += "<form action='/set' method='get'>";
@@ -789,6 +837,49 @@ String buildHtmlPage() {
   html += "</form>";
   html += "</div>";
 
+  // KARTE 4: Skalen Erklaerung (Textuell) 
+  html += "<div class='card'>";
+  html += "<h2>Skalen- & Sensor-Erklärung</h2>";
+  
+  html += "<h3>1. Tageszeit-LEDs</h3>";
+  html += "<ul>";
+  html += "<li><strong>04:00 - 09:59 Uhr:</strong> LED MORGEN</li>";
+  html += "<li><strong>10:00 - 15:59 Uhr:</strong> LED MITTAG</li>";
+  html += "<li><strong>16:00 - 21:59 Uhr:</strong> LED ABEND</li>";
+  html += "<li><strong>22:00 - 03:59 Uhr:</strong> LED NACHT</li>";
+  html += "</ul>";
+
+  html += "<h3>2. Raumluftfeuchtigkeit</h3>";
+  html += "<p><em>Farbe: Hellblau (gering) zu Dunkelblau (hoch)</em></p>";
+  html += "<ul>";
+  html += "<li><strong>&le; 10 %:</strong> 1 LED an</li>";
+  html += "<li><strong>11 % - 90 %:</strong> Skala füllt sich</li>";
+  html += "<li><strong>&gt; 90 %:</strong> Alle 10 LEDs an</li>";
+  html += "</ul>";
+
+  html += "<h3>3. Innentemperatur</h3>";
+  html += "<p><em>Farbe: Smaragdgrün &rarr; Gelb &rarr; Orange &rarr; Rot</em></p>";
+  html += "<ul>";
+  html += "<li><strong>&le; 18 &deg;C:</strong> 1 LED an [Smaragdgrün]</li>";
+  html += "<li><strong>19 &deg;C bis 21 &deg;C:</strong> Balken füllt sich [Smaragdgrün-Gelb-Bereich]</li>";
+  html += "<li><strong>22 &deg;C bis 24 &deg;C:</strong> Balken erreicht Wohlfühlbereich [Gelb bis Orange]</li>";
+  html += "<li><strong>25 &deg;C bis 26 &deg;C:</strong> Balken steigt weiter an [Orange]</li>";
+  html += "<li><strong>&ge; 27 &deg;C:</strong> Alle 10 LEDs an [Reines Rot]</li>";
+  html += "</ul>";
+
+  html += "<h3>4. Mondphasen-LEDs</h3>";
+  html += "<ul>";
+  html += "<li><strong>Tag &ge; 29:</strong> Neumond (Mond-LEDs aus)</li>";
+  html += "<li><strong>Tag 1 bis 6:</strong> LED ZUNEHMEND_SICHEL</li>";
+  html += "<li><strong>Tag 7 bis 13:</strong> LED ZUNEHMEND_HALB</li>";
+  html += "<li><strong>Tag 14 bis 15:</strong> LED VOLLMOND</li>";
+  html += "<li><strong>Tag 16 bis 21:</strong> LED ABNEHMEND_DREIVIERTEL</li>";
+  html += "<li><strong>Tag 22 bis 24:</strong> LED ABNEHMEND_VIERTEL</li>";
+  html += "<li><strong>Tag 25 bis 28:</strong> LED ABNEHMEND_SICHEL</li>";
+  html += "</ul>";
+  html += "</div>";
+
+  // KARTE 5: API
   html += "<div class='card'>";
   html += "<h2>API</h2>";
   html += "<p><a href='/api/status'>JSON Status</a></p>";
@@ -804,6 +895,7 @@ String buildHtmlPage() {
 // --------------------------------------------------
 String buildJsonStatus() {
   DynamicJsonDocument doc(1024);
+  int moonAge = calculateMoonAge();
 
   doc["ip"] = WiFi.localIP().toString();
   doc["lampPower"] = lampPower;
@@ -820,9 +912,13 @@ String buildJsonStatus() {
 
   doc["outsideTemperature"] = outsideTemperature;
   doc["weatherCode"] = weatherCode;
+  doc["weatherInfo"] = getWeatherCodeText(weatherCode); 
   doc["isDay"] = isDay;
   doc["weatherValid"] = weatherValid;
   doc["lastWeatherUpdateMs"] = lastWeatherUpdate;
+
+  doc["moonAgeDays"] = moonAge;                         
+  doc["moonPhaseInfo"] = getMoonPhaseText(moonAge);     
 
   doc["indoorTemperature"] = indoorTemperature;
   doc["indoorHumidity"] = indoorHumidity;
@@ -924,7 +1020,7 @@ void handleWeatherNow() {
 // --------------------------------------------------
 void handleNotFound() {
   String message = "404 Not Found\n\n";
-  message += "Verfuegbare Pfade:\n";
+  message += "Verfügbare Pfade:\n";
   message += "/\n";
   message += "/api/status\n";
   message += "/set?power=1&brightness=80&r=255&g=100&b=20\n";
@@ -945,7 +1041,7 @@ void setupHttpServer() {
   server.begin();
 
   Serial.println("HTTP-Server gestartet.");
-  Serial.print("Im Browser oeffnen: http://");
+  Serial.print("Im Browser öffnen: http://");
   Serial.println(WiFi.localIP());
 }
 
@@ -971,7 +1067,7 @@ void updateIndoorSensor() {
   indoorSensorValid = true;
   lastIndoorSensorUpdate = millis();
 
-  Serial.printf("Innenraum -> Temp=%.1f C | Feuchte=%.1f %%\n",
+  Serial.printf("Innenraum -> Temp=%.1f Grad | Feuchte=%.1f %%\n",
                 indoorTemperature, indoorHumidity);
 }
 
@@ -1003,61 +1099,108 @@ void showDaytimeStatus() {
 }
 
 // --------------------------------------------------
-// Raumfeuchtigkeit anzeigen.
+// Raumfeuchtigkeit anzeigen (Balkenanzeige mit Blauverlauf)
 // --------------------------------------------------
 void showHumidityStatus() {
   if (!indoorSensorValid) return;
 
-  int humidityRounded = round(indoorHumidity / 10.0) * 10;
+  int ledsToLight = 1;
+  if (indoorHumidity <= 10.0) {
+    ledsToLight = 1;
+  } else if (indoorHumidity > 90.0) {
+    ledsToLight = 10;
+  } else {
+    ledsToLight = 2 + (int)((indoorHumidity - 10.0) / 10.0);
+  }
 
-  if (humidityRounded < 10) humidityRounded = 10;
-  if (humidityRounded > 100) humidityRounded = 100;
+  int humidityLeds[] = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
 
-  uint8_t r = applyBrightness(ledR);
-  uint8_t g = applyBrightness(ledG);
-  uint8_t b = applyBrightness(ledB);
+  for (int i = 0; i < ledsToLight; i++) {
+    float factor = (float)i / 9.0;
+    
+    uint8_t r = 0;
+    uint8_t g = 0;
+    uint8_t b = 0;
 
-  switch (humidityRounded) {
-    case 10:  setThirdLeds(ZEHN_PROZENT, sizeof(ZEHN_PROZENT)/sizeof(ZEHN_PROZENT[0]), r, g, b); break;
-    case 20:  setThirdLeds(ZWANZIG_PROZENT, sizeof(ZWANZIG_PROZENT)/sizeof(ZWANZIG_PROZENT[0]), r, g, b); break;
-    case 30:  setThirdLeds(DREISIG_PROZENT, sizeof(DREISIG_PROZENT)/sizeof(DREISIG_PROZENT[0]), r, g, b); break;
-    case 40:  setThirdLeds(VIERZIG_PROZENT, sizeof(VIERZIG_PROZENT)/sizeof(VIERZIG_PROZENT[0]), r, g, b); break;
-    case 50:  setThirdLeds(FUENFZIG_PROZENT, sizeof(FUENFZIG_PROZENT)/sizeof(FUENFZIG_PROZENT[0]), r, g, b); break;
-    case 60:  setThirdLeds(SECHZIG_PROZENT, sizeof(SECHZIG_PROZENT)/sizeof(SECHZIG_PROZENT[0]), r, g, b); break;
-    case 70:  setThirdLeds(SIEBZIG_PROZENT, sizeof(SIEBZIG_PROZENT)/sizeof(SIEBZIG_PROZENT[0]), r, g, b); break;
-    case 80:  setThirdLeds(ACHTZIG_PROZENT, sizeof(ACHTZIG_PROZENT)/sizeof(ACHTZIG_PROZENT[0]), r, g, b); break;
-    case 90:  setThirdLeds(NEUNZIG_PROZENT, sizeof(NEUNZIG_PROZENT)/sizeof(NEUNZIG_PROZENT[0]), r, g, b); break;
-    case 100: setThirdLeds(EINHUNDERT_PROZENT, sizeof(EINHUNDERT_PROZENT)/sizeof(EINHUNDERT_PROZENT[0]), r, g, b); break;
+    // Feuchtigkeits-Logik:
+    if (factor < 0.4) {
+      // 10% bis 40% (Trocken): Graublau/Cyan
+      float subFactor = factor / 0.4;
+      r = (uint8_t)(100 - (subFactor * 100));
+      g = (uint8_t)(150 + (subFactor * 50)); // Wird gruenlich/tuerkis
+      b = 255;
+    } else if (factor <= 0.6) {
+      // 50% bis 60% (Optimaler Bereich): Smaragd-Tuerkis
+      r = 0;
+      g = 220; 
+      b = 180;
+    } else {
+      // 70% bis 100% (Zu Feucht): Wechsel zu tiefem Dunkelblau
+      float subFactor = (factor - 0.6) / 0.4;
+      r = 0;
+      g = (uint8_t)(220 - (subFactor * 220)); // Gruen geht gegen 0
+      b = (uint8_t)(180 + (subFactor * 75));  // Volles, tiefes Blau
+    }
+
+    r = applyBrightness(r);
+    g = applyBrightness(g);
+    b = applyBrightness(b);
+
+    setThirdLed(humidityLeds[i], r, g, b);
   }
 }
 
 // --------------------------------------------------
-// Innenraumtemperatur anzeigen.
+// Innenraumtemperatur anzeigen (Balkenanzeige mit Farbverlauf)
 // --------------------------------------------------
 void showIndoorTemperatureStatus() {
   if (!indoorSensorValid) return;
 
   int tempRounded = round(indoorTemperature);
-
   if (tempRounded < 18) tempRounded = 18;
-  if (tempRounded > 28) tempRounded = 28;
+  if (tempRounded > 27) tempRounded = 27;
 
-  uint8_t r = applyBrightness(ledR);
-  uint8_t g = applyBrightness(ledG);
-  uint8_t b = applyBrightness(ledB);
+  int ledsToLight = tempRounded - 18 + 1;
+  int tempLeds[] = {21, 22, 23, 24, 25, 26, 27, 28, 29, 30};
 
-  switch (tempRounded) {
-    case 18: setThirdLeds(TEMP_18_GRAD, sizeof(TEMP_18_GRAD)/sizeof(TEMP_18_GRAD[0]), r, g, b); break;
-    case 19: setThirdLeds(TEMP_19_GRAD, sizeof(TEMP_19_GRAD)/sizeof(TEMP_19_GRAD[0]), r, g, b); break;
-    case 20: setThirdLeds(TEMP_20_GRAD, sizeof(TEMP_20_GRAD)/sizeof(TEMP_20_GRAD[0]), r, g, b); break;
-    case 21: setThirdLeds(TEMP_21_GRAD, sizeof(TEMP_21_GRAD)/sizeof(TEMP_21_GRAD[0]), r, g, b); break;
-    case 22: setThirdLeds(TEMP_22_GRAD, sizeof(TEMP_22_GRAD)/sizeof(TEMP_22_GRAD[0]), r, g, b); break;
-    case 23: setThirdLeds(TEMP_23_GRAD, sizeof(TEMP_23_GRAD)/sizeof(TEMP_23_GRAD[0]), r, g, b); break;
-    case 24: setThirdLeds(TEMP_24_GRAD, sizeof(TEMP_24_GRAD)/sizeof(TEMP_24_GRAD[0]), r, g, b); break;
-    case 25: setThirdLeds(TEMP_25_GRAD, sizeof(TEMP_25_GRAD)/sizeof(TEMP_25_GRAD[0]), r, g, b); break;
-    case 26: setThirdLeds(TEMP_26_GRAD, sizeof(TEMP_26_GRAD)/sizeof(TEMP_26_GRAD[0]), r, g, b); break;
-    case 27: setThirdLeds(TEMP_27_GRAD, sizeof(TEMP_27_GRAD)/sizeof(TEMP_27_GRAD[0]), r, g, b); break;
-    //case 28: setThirdLeds(TEMP_28_GRAD, sizeof(TEMP_28_GRAD)/sizeof(TEMP_28_GRAD[0]), r, g, b); break;
+  for (int i = 0; i < ledsToLight; i++) {
+    // factor läuft von 0.0 (LED 21) bis 1.0 (LED 30)
+    float factor = (float)i / 9.0; 
+    
+    uint8_t r = 0;
+    uint8_t g = 0;
+    uint8_t b = 0;
+
+    // Farb-Logik (Grün -> Gelb -> Orange -> Rot):
+    if (factor < 0.33) {
+      // Unteres Drittel (ca. 18 Grad bis 21 Grad): Verlauf von Smaragdgrün zu Gelb
+      float subFactor = factor / 0.33;
+      // Start (Smaragd): R=0, G=180, B=100
+      r = (uint8_t)(subFactor * 255); // Rot nimmt zu (-> Gelb)
+      g = 180;                         // Grün bleibt stabil
+      b = (uint8_t)(100 - (subFactor * 100)); // Blau nimmt ab (wird wärmer)
+    } else if (factor < 0.66) {
+      // Mittleres Drittel (ca. 22 Grad bis 24 Grad): Verlauf von Gelb zu Orange
+      float subFactor = (factor - 0.33) / 0.33;
+      // Start (Gelb): R=255, G=180, B=0
+      r = 255;
+      g = (uint8_t)(180 - (subFactor * 50)); // Grün nimmt ab (-> Orange)
+      b = 0;
+    } else {
+      // Oberes Drittel (ca. 25 Grad bis 27 Grad): Verlauf von Orange zu Rot
+      float subFactor = (factor - 0.66) / 0.34;
+      // Start (Orange): R=255, G=130, B=0
+      r = 255;
+      g = (uint8_t)(130 - (subFactor * 130)); // Grün nimmt komplett ab (-> Rot)
+      b = 0;
+    }
+
+    // Helligkeitsfaktor der Uhr einberechnen
+    r = applyBrightness(r);
+    g = applyBrightness(g);
+    b = applyBrightness(b);
+
+    setThirdLed(tempLeds[i], r, g, b);
   }
 }
 
@@ -1066,7 +1209,6 @@ void showIndoorTemperatureStatus() {
 // --------------------------------------------------
 int calculateMoonAge() {
   struct tm timeinfo;
-
   if (!getLocalTime(&timeinfo, 50)) {
     return -1;
   }
@@ -1075,20 +1217,33 @@ int calculateMoonAge() {
   int month = timeinfo.tm_mon + 1;
   int day = timeinfo.tm_mday;
 
+  // Astronomische Berechnung des Julianischen Datums (JD)
   if (month < 3) {
     year--;
     month += 12;
   }
+  
+  int a = year / 100;
+  int b = a / 4;
+  int c = 2 - a + b;
+  int e = (int)(365.25 * (year + 4716));
+  int f = (int)(30.6001 * (month + 1));
+  
+  double jd = c + day + e + f - 1524.5;
 
-  ++month;
+  // Bekannter, stabiler Referenz-Neumond (6. Januar 2000, 18:14 UTC)
+  double knownNewMoon = 2451550.26; 
+  double moonCycle = 29.530588853; // Exakte synodische Periode
 
-  long c = 365.25 * year;
-  long e = 30.6 * month;
-  long jd = c + e + day - 694039.09;
+  // Vergangene Tage seit dem bekannten Neumond
+  double daysSince = jd - knownNewMoon;
+  
+  // Mathematischer Modulo für Fließkommazahlen
+  double age = daysSince - (moonCycle * (int)(daysSince / moonCycle));
+  if (age < 0) age += moonCycle;
 
-  jd = jd % 29;
-
-  return jd;
+  // Gibt das praezise Mondalter von 0 bis 29 zurück
+  return (int)age;
 }
 
 void showMoonPhaseStatus() {
@@ -1099,15 +1254,18 @@ void showMoonPhaseStatus() {
   uint8_t g = applyBrightness(ledG);
   uint8_t b = applyBrightness(ledB);
 
-  if (moonAge < 6) {
+  // Verteilung auf 6 Mond-LEDs (0 bis 29 Tage)
+  if (moonAge >= 29) { //moonAge == 0 ||
+    return; 
+  } else if (moonAge < 7) {
     setThirdLeds(ZUNEHMEND_SICHEL, sizeof(ZUNEHMEND_SICHEL)/sizeof(ZUNEHMEND_SICHEL[0]), r, g, b);
-  } else if (moonAge < 11) {
+  } else if (moonAge < 14) {
     setThirdLeds(ZUNEHMEND_HALB, sizeof(ZUNEHMEND_HALB)/sizeof(ZUNEHMEND_HALB[0]), r, g, b);
-  } else if (moonAge < 15) {
+  } else if (moonAge < 16) {
     setThirdLeds(VOLLMOND, sizeof(VOLLMOND)/sizeof(VOLLMOND[0]), r, g, b);
   } else if (moonAge < 22) {
     setThirdLeds(ABNEHMEND_DREIVIERTEL, sizeof(ABNEHMEND_DREIVIERTEL)/sizeof(ABNEHMEND_DREIVIERTEL[0]), r, g, b);
-  } else if (moonAge < 26) {
+  } else if (moonAge < 25) {
     setThirdLeds(ABNEHMEND_VIERTEL, sizeof(ABNEHMEND_VIERTEL)/sizeof(ABNEHMEND_VIERTEL[0]), r, g, b);
   } else {
     setThirdLeds(ABNEHMEND_SICHEL, sizeof(ABNEHMEND_SICHEL)/sizeof(ABNEHMEND_SICHEL[0]), r, g, b);
@@ -1164,20 +1322,17 @@ void showSecondLed(int second) {
     secondStrip.show();
     return;
   }
+// Hardwareseitig ist Index 0 nicht sekunde 1
+  int ledIndex = (second + 9) % 60;
 
-  int ledIndex;
-
-  if (second == 0) {
-    ledIndex = LED_COUNT_SEC - 1;   // letzte LED
-  } else {
-    ledIndex = second - 1;
-  }
-
+  // 2. Farbe und Helligkeit holen
   uint8_t r = applyBrightness(ledR);
   uint8_t g = applyBrightness(ledG);
   uint8_t b = applyBrightness(ledB);
 
-  secondStrip.setPixelColor(ledIndex, secondStrip.Color(r, g, b));
+  if (ledIndex >= 0 && ledIndex < LED_COUNT_SEC) {
+    secondStrip.setPixelColor(ledIndex, secondStrip.Color(r, g, b));
+  }
   secondStrip.show();
 }
 
@@ -1684,7 +1839,7 @@ void showWeatherWords() {
 // ==================================================
 // Hauptfunktion: setup
 // Initialisierung von Hardware, Netzwerk, Zeit,
-// Wetterdaten, Anzeige und HTTP-Server.
+// Wetterdaten, erster Anzeige und HTTP-Server.
 // ==================================================
 void setup() {
   Serial.begin(115200);

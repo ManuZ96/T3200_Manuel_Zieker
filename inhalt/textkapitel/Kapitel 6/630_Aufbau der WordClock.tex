@@ -9,17 +9,16 @@ Für den \gls{led}-Strang der Sekundenazeige werden vier weitere Bauteile gedruc
 Diese sind fest auf der Grundplatte montiert und in Abb.~\ref{fig:VerlötetStreifen} zu sehen.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\linewidth]{inhalt/bilder/LEDsVerloetet.png}
+	\includegraphics[width=0.60\linewidth]{inhalt/bilder/LEDsVerloetet.png}
 	\caption[Installation aller \gls{led}-Stränge]{Grundplatte während der installation und dem verlöten der einzelnen \gls{led}-Streifen zu den drei \gls{led}-Strängen. In den Ecken der Grundplatte befinden sich die Bauteile, mit denen die \gls{led}-Bänder um die Kurve geführt werden.}
 	\label{fig:VerlötetStreifen}
 \end{figure}
-
 Die Verbindung der Frontplatte zur Grundplatte erfolgt über die Eckteile.  
 Hierzu werden Gewindeeinsätze, sogenannte Heatinsert, eingesetzt, die in das 3D-gedruckte Material integriert werden.
 Die Heatinserts werden mit einem Lötkolben erhitzt und dann eingepresst (vgl. Abb.~\ref{fig:Heatinserts}).
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\linewidth]{inhalt/bilder/BeispielHeatinsertESPHalter.png}
+	\includegraphics[width=0.4\linewidth]{inhalt/bilder/BeispielHeatinsertESPHalter.png}
 	\caption[Einpressvorgang der Heatinserts]{Einpressvorgang der Heatinserts am Beispiel des \gls{esp32c6}-Halters.}
 	\label{fig:Heatinserts}
 \end{figure}  
@@ -29,13 +28,15 @@ Hierbei werden M3x12-Schrauben in Kombination mit Muttern und Unterlegscheiben v
 Weiterhin werden die Halterung für den \gls{esp32c6}, die Halterung für die Hohlsteckerbuchse, die Halterung für den \gls{dht22} sowie die Abstandshalter und Befestigungspunkte auf der Rückseite der Grundplatte verschraubt.
 
 Für die initiale Inbetriebnahme und Implementierung der Software wird der Mikrocontroller provisorisch angeschlossen.  
-Hierzu werden Jumperkabel und Klemmen verwendet.  
-Diese Vorgehensweise ermöglicht eine flexible Anpassung der Verdrahtung während der Test- und Evaluationsphase.
-In Abb.~\ref{fig:TischIBN} ist die aufgebaute WordClock abgebildet.
-\todo{Bild fehlt noch falls gewollt, sonst evt absatz darüber noch anpassen}
+Hierzu werden Jumperkabel und Klemmen verwendet. 
+Es wird je eine Klemme als Sternpunkt für Ground und +5~V verwendet und zusätzlich je eine Klemme pro Signalleitung.
+Es gibt drei dreipolige Steckverbinder mit je einem Ground-Anschluss, einem +5~V-Anschluss und einem Signal-Anschluss (vgl. Abb.~\ref{fig:TischIBN}).
+An den \gls{led}-Strängen der WordClock ist das jeweilige Gegenstück der Steckverbinder angebracht. 
+Diese Vorgehensweise ermöglicht eine flexible Anpassung der Verdrahtung und ein schnelles trennen und wieder verbinden der einzelnen Stränge während der Test- und Evaluationsphase.
+
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\linewidth]{inhalt/bilder/Platzhalter.jpg}
-	\caption[Vollständig für die Inbetriebnahme aufgebaute WordClock]{Vollständig für die Inbetriebnahme aufgebaute und provisorisch über ein Steckbrett mit Jumperkabeln angeschlossene WordClock.}
+	\includegraphics[width=0.8\linewidth]{inhalt/bilder/Jumperkabelaufbau.png}
+	\caption[Der für die Inbetriebnahme verwendete elektrische Aufbau]{Der für die Inbetriebnahme verwendete elektrische Aufbau und der Anschluss des Mikrocontroller, welcher zunächst aus Jumperkabeln, Klemmen und dreipoligen Steckverbindern besteht.}
 	\label{fig:TischIBN}
-\end{figure}  
+\end{figure}
